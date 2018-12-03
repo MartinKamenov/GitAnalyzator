@@ -27,7 +27,7 @@ class GithubStartPage extends Component {
     }
 
     getTabContainerClasses = (containerId) => {
-        let classes = 'container ';
+        let classes = 'container tab-container ';
         if(containerId !== this.state.tab) {
             classes += 'hidden'; 
         }
