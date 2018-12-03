@@ -3,7 +3,11 @@
 }
 
 .hidden {
-    visibility: hidden;
+    display: none;
+}
+
+.tab-container {
+    padding: 10px;
 }
 
 .tab.active {

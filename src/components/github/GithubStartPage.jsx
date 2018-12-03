@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import GithubAnalyzer from './Analyzer/GithubAnalyzer';
 import GithubComparer from './Comparer/GithubComparer';
+import TabType from '../contracts/TabType';
 import './github.css';
 
 class GithubStartPage extends Component {
     state = {
-        tab: 'Analyzer'
+        tab: TabType.Analyzer
     }
 
     handleChangeTab = (tabId) => {
@@ -37,17 +38,17 @@ class GithubStartPage extends Component {
         return (
             <div className="container center">
                 <ul id="tabs">
-                    <li className={this.getTabClasses('Analyzer')} onClick={() => this.handleChangeTab('Analyzer')}>
+                    <li className={this.getTabClasses(TabType.Analyzer)} onClick={() => this.handleChangeTab(TabType.Analyzer)}>
                         <span id="AnalyzerTab">Analyzer</span>
                     </li>
-                    <li className={this.getTabClasses('Comparer')} onClick={() => this.handleChangeTab('Comparer')}>
+                    <li className={this.getTabClasses(TabType.Comparer)} onClick={() => this.handleChangeTab(TabType.Comparer)}>
                         <span id="ComparerTab">Comparer</span>
                     </li>
                 </ul>
-                <div class={this.getTabContainerClasses('Analyzer')} id="AnalyzerContainer">
+                <div class={this.getTabContainerClasses(TabType.Analyzer)} id="AnalyzerContainer">
                     <GithubAnalyzer/>
                 </div>
-                <div class={this.getTabContainerClasses('Comparer')} id="ComparerContainer">
+                <div class={this.getTabContainerClasses(TabType.Comparer)} id="ComparerContainer">
                     <GithubComparer/>
                 </div>
             </div>
