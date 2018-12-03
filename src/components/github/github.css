@@ -2,6 +2,14 @@
     text-align: center;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
+.tab.active {
+    background-color: aquamarine;
+}
+
 .tab {
     display: inline-block;
     padding: 10px;

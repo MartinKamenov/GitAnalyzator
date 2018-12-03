@@ -8,20 +8,46 @@ class GithubStartPage extends Component {
         tab: 'Analyzer'
     }
 
-    changeTab() {
+    handleChangeTab = (tabId) => {
+        if(this.state.tab !== tabId) {
+            this.setState({tab: tabId});
+        }
+    }
 
+    getTabClasses = (tabId) => {
+        let classes = 'tab ';
+        if(tabId !== this.state.tab) {
+            classes += 'inactive'; 
+        } else {
+            classes += 'active';
+        }
+
+        return classes;
+    }
+
+    getTabContainerClasses = (containerId) => {
+        let classes = 'container ';
+        if(containerId !== this.state.tab) {
+            classes += 'hidden'; 
+        }
+
+        return classes;
     }
     render() {
         return (
             <div className="container center">
                 <ul id="tabs">
-                    <li className="tab"><a id="AnalyzerTab">Analyzer</a></li>
-                    <li className="tab"><a id="ComparerTab">Comparer</a></li>
+                    <li className={this.getTabClasses('Analyzer')} onClick={() => this.handleChangeTab('Analyzer')}>
+                        <span id="AnalyzerTab">Analyzer</span>
+                    </li>
+                    <li className={this.getTabClasses('Comparer')} onClick={() => this.handleChangeTab('Comparer')}>
+                        <span id="ComparerTab">Comparer</span>
+                    </li>
                 </ul>
-                <div class="container" id="AnalyzerContainer">
+                <div class={this.getTabContainerClasses('Analyzer')} id="AnalyzerContainer">
                     <GithubAnalyzer/>
                 </div>
-                <div class="container" id="ComparerContainer">
+                <div class={this.getTabContainerClasses('Comparer')} id="ComparerContainer">
                     <GithubComparer/>
                 </div>
             </div>
