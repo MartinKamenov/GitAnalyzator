@@ -9,6 +9,7 @@
     "@types/redux-immutable-state-invariant": "^2.1.0",
     "@types/redux-thunk": "^2.1.0",
     "bootstrap": "^3.3.7",
+    "fetch": "^1.1.0",
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.3",

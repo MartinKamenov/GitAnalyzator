@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-// import githubApi from '';
+import githubApi from '../api/githubApi';
 
 export function getGithubProfileSuccess(profile) {
     return { type: types.LOAD_GITHUB_PROFILE_SUCCESS, profile };
