@@ -7,7 +7,8 @@ export function getGithubProfileSuccess(profile) {
 
 export function getGithubProfile(username) {
     return async function(dispatch) {
-        const profile = await githubApi.getGithubProfile(username);
-        return dispatch(getGithubProfileSuccess(profile));
+        const res = await githubApi.getGithubProfile(username);
+        console.log(res);
+        return dispatch(getGithubProfileSuccess(res.data.data));
     }
 }

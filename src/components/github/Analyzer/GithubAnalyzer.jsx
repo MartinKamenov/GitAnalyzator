@@ -4,11 +4,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import * as githubActions from '../../../actions/githubActions';
 
-class GithubAnalyzer extends Component {
-    render() { 
-        return ( 
-            <div>
-                <div>
+/*<div>
                     <h2>Analyze github profile</h2>
                 </div>
                 <form>
@@ -16,7 +12,12 @@ class GithubAnalyzer extends Component {
                     placeholder="Github profile"
                     className="form-input" />
                     <button type="submit" onSubmit={() => this.submit()} className="btn btn-success">Analyze</button>
-                </form>
+                </form>*/
+class GithubAnalyzer extends Component {
+    render() { 
+        return ( 
+            <div>
+                Profile: { this.props.profile }
             </div>
         );
     }

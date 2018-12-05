@@ -55,9 +55,6 @@ class GithubStartPage extends Component {
                 <div className={this.getTabContainerClasses(TabType.Comparer)} id="ComparerContainer">
                     <GithubComparer/>
                 </div>
-                <div className={this.getTabContainerClasses(TabType.Profile)} id="ProfileContainer">
-                    <div>user={this.props.profile}</div>
-                </div>
             </div>
         );
     }
