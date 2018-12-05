@@ -1,12 +1,10 @@
-import fetch from '../../node_modules/fetch/lib/fetch';
+import axios from 'axios';
 const url = 'https://github-analyzator-api.herokuapp.com/';
 const profilePath = '/github/contributions/';
 
 const githubApi = {
     getGithubProfile: (username) => {
-        return fetch(url + profilePath + username, {
-            method: "GET"
-        });
+        return axios.get(url + profilePath + username);
     }
 };
 
