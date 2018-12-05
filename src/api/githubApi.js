@@ -1,6 +1,6 @@
 import axios from 'axios';
 const url = 'https://github-analyzator-api.herokuapp.com/';
-const profilePath = '/github/contributions/';
+const profilePath = 'github/contributions/';
 
 const githubApi = {
     getGithubProfile: (username) => {

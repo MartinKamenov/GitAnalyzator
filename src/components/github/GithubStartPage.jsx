@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GithubAnalyzer from './Analyzer/GithubAnalyzer';
 import GithubComparer from './Comparer/GithubComparer';
+import GithubProfile from './Profile/GithubProfile';
 import TabType from '../contracts/TabType';
 import './github.css';
 
@@ -44,12 +45,18 @@ class GithubStartPage extends Component {
                     <li className={this.getTabClasses(TabType.Comparer)} onClick={() => this.handleChangeTab(TabType.Comparer)}>
                         <span id="ComparerTab">Comparer</span>
                     </li>
+                    <li className={this.getTabClasses(TabType.Profile)} onClick={() => this.handleChangeTab(TabType.Profile)}>
+                        <span id="ProfileTab">Profile</span>
+                    </li>
                 </ul>
                 <div class={this.getTabContainerClasses(TabType.Analyzer)} id="AnalyzerContainer">
                     <GithubAnalyzer/>
                 </div>
                 <div class={this.getTabContainerClasses(TabType.Comparer)} id="ComparerContainer">
                     <GithubComparer/>
+                </div>
+                <div class={this.getTabContainerClasses(TabType.Profile)} id="ProfileContainer">
+                    <div>user={this.props.profile}</div>
                 </div>
             </div>
         );
