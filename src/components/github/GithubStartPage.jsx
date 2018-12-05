@@ -49,13 +49,13 @@ class GithubStartPage extends Component {
                         <span id="ProfileTab">Profile</span>
                     </li>
                 </ul>
-                <div class={this.getTabContainerClasses(TabType.Analyzer)} id="AnalyzerContainer">
+                <div className={this.getTabContainerClasses(TabType.Analyzer)} id="AnalyzerContainer">
                     <GithubAnalyzer/>
                 </div>
-                <div class={this.getTabContainerClasses(TabType.Comparer)} id="ComparerContainer">
+                <div className={this.getTabContainerClasses(TabType.Comparer)} id="ComparerContainer">
                     <GithubComparer/>
                 </div>
-                <div class={this.getTabContainerClasses(TabType.Profile)} id="ProfileContainer">
+                <div className={this.getTabContainerClasses(TabType.Profile)} id="ProfileContainer">
                     <div>user={this.props.profile}</div>
                 </div>
             </div>
