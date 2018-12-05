@@ -1,6 +1,6 @@
 import * as types from '../actions/actionTypes';
 
-export default function github(state = {}, action) {
+export default function githubReducer(state = {}, action) {
   switch (action.type) {
     case types.LOAD_GITHUB_PROFILE_SUCCESS:
       return action.profile;

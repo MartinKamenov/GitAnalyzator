@@ -14,7 +14,7 @@ import * as githubActions from '../../../actions/githubActions';
                     <button type="submit" onSubmit={() => this.submit()} className="btn btn-success">Analyze</button>
                 </form>*/
 class GithubAnalyzer extends Component {
-    render() { 
+    render() {
         return ( 
             <div>
                 Profile: { this.props.profile }
