@@ -7,12 +7,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { getGithubProfile } from './actions/githubActions';
 
 const store = configureStore();
-store.dispatch(getGithubProfile());
+store.dispatch(getGithubProfile('martinkamenov'));
 
 ReactDOM.render(
     <Provider store={store}>
         <AppRouter/>
-    </Provider>
-    , 
+    </Provider>,
     document.getElementById('root')
 );
