@@ -9,7 +9,6 @@ export function getGithubProfile(username) {
     return async function(dispatch) {
         const res = await githubApi.getGithubProfile(username);
         const profile = res.data;
-        console.log(profile);
         return dispatch(getGithubProfileSuccess(profile));
     }
 }
