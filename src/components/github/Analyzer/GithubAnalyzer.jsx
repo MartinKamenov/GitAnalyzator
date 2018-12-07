@@ -5,10 +5,21 @@ import { bindActionCreators } from 'redux';
 import * as githubActions from '../../../actions/githubActions';
 
 class GithubAnalyzer extends Component {
+    handleSubmit = () => {
+        console.log('submit');
+    }
     render() {
         return ( 
             <div>
-                Profile: { this.props.profile }
+                <div>
+                    <h2>Analyze github profile</h2>
+                </div>
+                <div>
+                    <input type="text" 
+                    placeholder="Github profile"
+                    className="form-input" />
+                    <button type="submit" onClick={() => this.handleSubmit()} className="btn btn-success">Analyze</button>
+                </div>
             </div>
         );
     }
