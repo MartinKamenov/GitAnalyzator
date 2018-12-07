@@ -7,12 +7,30 @@ import './github.css';
 
 class GithubStartPage extends Component {
     state = {
-        tab: TabType.Analyzer
+        tab: TabType.Analyzer,
+        tabs: [
+            { type: TabType.Analyzer, component: GithubAnalyzer },
+            { type: TabType.Comparer, component: GithubComparer },
+            { type: TabType.Profile, component: GithubProfile }
+        ]
     }
 
     handleChangeTab = (tabId) => {
         if(this.state.tab !== tabId) {
             this.setState({tab: tabId});
+        }
+    }
+
+    getContainerComponent = (tabId) => {
+        switch(tabId) {
+            case TabType.Analyzer:
+                return GithubAnalyzer;
+            case TabType.Comparer:
+                return GithubComparer;
+            case TabType.Profile:
+                return GithubProfile;
+            default:
+                return null;
         }
     }
 
@@ -39,22 +57,36 @@ class GithubStartPage extends Component {
         return (
             <div className="container center">
                 <ul id="tabs">
-                    <li className={this.getTabClasses(TabType.Analyzer)} onClick={() => this.handleChangeTab(TabType.Analyzer)}>
-                        <span id="AnalyzerTab">Analyzer</span>
+                {this.state.tabs.map((tab) => {
+                    return (
+                    <li
+                    key={tab.type + 'TabKey'}
+                    className={this.getTabClasses(tab.type)} onClick={() => this.handleChangeTab(tab.type)}>
+                        <span id="AnalyzerTab">{tab.type}</span>
                     </li>
-                    <li className={this.getTabClasses(TabType.Comparer)} onClick={() => this.handleChangeTab(TabType.Comparer)}>
-                        <span id="ComparerTab">Comparer</span>
-                    </li>
-                    <li className={this.getTabClasses(TabType.Profile)} onClick={() => this.handleChangeTab(TabType.Profile)}>
-                        <span id="ProfileTab">Profile</span>
-                    </li>
+                    );
+                })}
                 </ul>
-                <div className={this.getTabContainerClasses(TabType.Analyzer)} id="AnalyzerContainer">
-                    <GithubAnalyzer/>
-                </div>
-                <div className={this.getTabContainerClasses(TabType.Comparer)} id="ComparerContainer">
-                    <GithubComparer/>
-                </div>
+                {this.state.tabs.map((tab) => {
+                    return (
+                    <div
+                    key={tab.type + 'ContainerKey'}
+                    className={this.getTabContainerClasses(tab.type)} id={tab.type + 'Container'}>
+                        {(() => {
+                            switch(tab.type) {
+                            case TabType.Analyzer:
+                                return <GithubAnalyzer/>;
+                            case TabType.Comparer:
+                                return <GithubComparer/>;
+                            case TabType.Profile:
+                                return <GithubProfile/>;
+                            default:
+                                return null;
+                            }
+                        })()}
+                    </div>
+                    );
+                })}
             </div>
         );
     }

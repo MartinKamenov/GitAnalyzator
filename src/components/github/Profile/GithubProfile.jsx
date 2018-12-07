@@ -1,26 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
-const GithubPage = ({ profile }) => {
+const GithubPage = () => {
     return ( 
-        <div>{profile.username}</div>
+        <div>
+            <h2>Profile Page</h2>
+        </div>
     );
 }
 
-GithubPage.propTypes = {
+/*GithubPage.propTypes = {
     profile: PropTypes.object.isRequired
-};
+};*/
  
 export default GithubPage;
-
-/*import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-class GithubPage extends Component {
-    render() { 
-        return ( 
-            <div>User: {this.props.profile.username}</div>
-        );
-    }
-}
- 
-export default GithubPage;*/
