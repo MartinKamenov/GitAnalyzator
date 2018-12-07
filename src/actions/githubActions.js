@@ -2,7 +2,7 @@ import * as types from './actionTypes';
 import githubApi from '../api/githubApi';
 
 export function getGithubProfileSuccess(profile) {
-    return { type: types.LOAD_GITHUB_PROFILE_SUCCESS, profile };
+    return { type: types.GET_GITHUB_PROFILE_SUCCESS, profile };
 }
 
 export function getGithubProfile(username) {

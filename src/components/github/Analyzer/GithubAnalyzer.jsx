@@ -12,6 +12,7 @@ class GithubAnalyzer extends Component {
         return ( 
             <div>
                 <div>
+                    <div>{this.props.profile.username}</div>
                     <h2>Analyze github profile</h2>
                 </div>
                 <div>

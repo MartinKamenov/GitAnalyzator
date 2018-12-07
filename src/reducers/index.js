@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 // import initialState from './initialState';
-import github from './githubReducer';
+import profile from './githubReducer';
 
 const rootReducer = combineReducers({
-    github
+    profile
 });
 
 export default rootReducer;

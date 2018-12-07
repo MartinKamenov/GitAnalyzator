@@ -9,28 +9,15 @@ class GithubStartPage extends Component {
     state = {
         tab: TabType.Analyzer,
         tabs: [
-            { type: TabType.Analyzer, component: GithubAnalyzer },
-            { type: TabType.Comparer, component: GithubComparer },
-            { type: TabType.Profile, component: GithubProfile }
+            { type: TabType.Analyzer },
+            { type: TabType.Comparer },
+            { type: TabType.Profile }
         ]
     }
 
     handleChangeTab = (tabId) => {
         if(this.state.tab !== tabId) {
             this.setState({tab: tabId});
-        }
-    }
-
-    getContainerComponent = (tabId) => {
-        switch(tabId) {
-            case TabType.Analyzer:
-                return GithubAnalyzer;
-            case TabType.Comparer:
-                return GithubComparer;
-            case TabType.Profile:
-                return GithubProfile;
-            default:
-                return null;
         }
     }
 
