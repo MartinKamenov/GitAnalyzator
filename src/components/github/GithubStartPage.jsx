@@ -52,7 +52,9 @@ class GithubStartPage extends Component {
         this.setState({username: usernameInputText});
     }
     handleGetProfile = () => {
-        console.log(this.state.username);
+        const username = this.state.username;
+        this.props.actions.getGithubProfile(username);
+        this.setState({tab: TabType.Profile});
     }
     render() {
         return (

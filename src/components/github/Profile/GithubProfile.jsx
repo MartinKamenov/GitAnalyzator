@@ -7,6 +7,19 @@ const GithubPage = ({profile}) => {
         <div>
             <h2>Profile Page</h2>
             <div>{profile.username}</div>
+            <div>
+                {
+                    (() => {
+                        if(profile.data) {
+                            return (
+                                <span>Contributions this year: 
+                                { profile.data.totalContributionsCount }
+                                </span>
+                            );
+                        }
+                    })()
+                }
+            </div>
         </div>
     );
 }
