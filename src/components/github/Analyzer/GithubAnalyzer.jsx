@@ -5,9 +5,21 @@ import { bindActionCreators } from 'redux';
 import * as githubActions from '../../../actions/githubActions';
 
 class GithubAnalyzer extends Component {
-    handleSubmit = () => {
-        console.log('submit');
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: ''
+        };
     }
+
+    handleChangeUsername(event) {
+        const usernameInputText = event.target.value;
+        this.setState({username: usernameInputText});
+    }
+    handleSubmit = () => {
+        console.log(this.state.username);
+    }
+
     render() {
         return ( 
             <div>
@@ -16,10 +28,13 @@ class GithubAnalyzer extends Component {
                     <h2>Analyze github profile</h2>
                 </div>
                 <div>
-                    <input type="text" 
+                    <input
+                    value={this.state.username}
+                    onChange={(ev) => this.handleChangeUsername(ev)}
+                    type="text" 
                     placeholder="Github profile"
                     className="form-input" />
-                    <button type="submit" onClick={() => this.handleSubmit()} className="btn btn-success">Analyze</button>
+                    <button type="submit" onClick={this.handleSubmit} className="btn btn-success">Analyze</button>
                 </div>
             </div>
         );
