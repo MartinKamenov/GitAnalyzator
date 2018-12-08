@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-
-
 const GithubPage = ({profile}) => {
     return ( 
         <div>
@@ -14,7 +12,7 @@ const GithubPage = ({profile}) => {
 }
 
 GithubPage.propTypes = {
-    profile: PropTypes.object.isRequired
+    profile: PropTypes.object
 };
 
 const mapStateToProps = (state, ownProps) => {

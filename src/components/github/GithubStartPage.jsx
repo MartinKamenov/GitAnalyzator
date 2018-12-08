@@ -3,10 +3,14 @@ import GithubAnalyzer from './Analyzer/GithubAnalyzer';
 import GithubComparer from './Comparer/GithubComparer';
 import GithubProfile from './Profile/GithubProfile';
 import TabType from '../contracts/TabType';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as githubActions from '../../actions/githubActions';
 import './github.css';
 
 class GithubStartPage extends Component {
     state = {
+        username: '',
         tab: TabType.Analyzer,
         tabs: [
             { type: TabType.Analyzer },
@@ -40,6 +44,16 @@ class GithubStartPage extends Component {
 
         return classes;
     }
+
+    
+
+    handleChangeUsername = (event) => {
+        const usernameInputText = event.target.value;
+        this.setState({username: usernameInputText});
+    }
+    handleGetProfile = () => {
+        console.log(this.state.username);
+    }
     render() {
         return (
             <div className="container center">
@@ -62,7 +76,9 @@ class GithubStartPage extends Component {
                         {(() => {
                             switch(tab.type) {
                             case TabType.Analyzer:
-                                return <GithubAnalyzer/>;
+                                return <GithubAnalyzer 
+                                handleChangeUsername={this.handleChangeUsername}
+                                handleGetProfile={this.handleGetProfile}/>;
                             case TabType.Comparer:
                                 return <GithubComparer/>;
                             case TabType.Profile:
@@ -78,5 +94,17 @@ class GithubStartPage extends Component {
         );
     }
 };
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        profile: state.profile
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: bindActionCreators(githubActions, dispatch)
+    };
+}
  
-export default GithubStartPage;
+export default connect(mapStateToProps, mapDispatchToProps)(GithubStartPage);
