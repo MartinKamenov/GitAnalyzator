@@ -14,11 +14,15 @@ class GithubStartPage extends Component {
         tab: TabType.Analyzer,
         tabs: [
             { type: TabType.Analyzer },
-            { type: TabType.Comparer },
-            { type: TabType.Profile }
+            { type: TabType.Comparer }
         ]
     }
 
+    showProfileTab() {
+        const tabs = this.state.tabs;
+        tabs.push({ type: TabType.Profile });
+        this.setState({tabs});
+    }
     handleChangeTab = (tabId) => {
         if(this.state.tab !== tabId) {
             this.setState({tab: tabId});
@@ -52,6 +56,7 @@ class GithubStartPage extends Component {
         this.setState({username: usernameInputText});
     }
     handleGetProfile = () => {
+        this.showProfileTab();
         const username = this.state.username;
         this.props.actions.getGithubProfile(username);
         this.setState({tab: TabType.Profile});
