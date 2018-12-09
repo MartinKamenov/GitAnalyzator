@@ -1,7 +1,8 @@
 const TabType = {
     Analyzer: 'Analyzer',
     Comparer: 'Comparer',
-    Profile: 'Profile'
+    Profile: 'Profile',
+    ProfileComparer: 'ProfileComparer'
 }
 
 export default TabType;

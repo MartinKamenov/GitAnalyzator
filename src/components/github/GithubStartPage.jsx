@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as githubActions from '../../actions/githubActions';
 import './github.css';
+import GithubProfileComparer from './ProfileComparer/GithubProfileComparer';
 
 class GithubStartPage extends Component {
     state = {
@@ -26,6 +27,14 @@ class GithubStartPage extends Component {
         }
         const tabs = this.state.tabs;
         tabs.push({ type: TabType.Profile });
+        this.setState({tabs});
+    }
+    showCompareTab() {
+        if(this.state.tabs.includes(t => t.type === TabType.ProfileComparer)) {
+            return;
+        }
+        const tabs = this.state.tabs;
+        tabs.push({ type: TabType.ProfileComparer });
         this.setState({tabs});
     }
     handleChangeTab = (tabId) => {
@@ -68,8 +77,10 @@ class GithubStartPage extends Component {
     }
 
     handleCompareProfiles = () => {
+        this.showCompareTab();
         const firstUsername = this.state.firstUsername;
         const secondtUsername = this.state.secondUsername;
+        this.props.actions.getCompareGithubProfiles(firstUsername, secondtUsername);
         this.setState({firstUsername: '', secondUsername: ''});
     }
     render() {
@@ -107,6 +118,8 @@ class GithubStartPage extends Component {
                                 />;
                             case TabType.Profile:
                                 return <GithubProfile/>;
+                            case TabType.ProfileComparer:
+                                return <GithubProfileComparer/>;
                             default:
                                 return null;
                             }
@@ -121,7 +134,8 @@ class GithubStartPage extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        profile: state.profile
+        profile: state.profile,
+        profiles: state.profiles
     };
 };
 
