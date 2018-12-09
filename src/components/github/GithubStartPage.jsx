@@ -11,6 +11,8 @@ import './github.css';
 class GithubStartPage extends Component {
     state = {
         username: '',
+        firstUsername: '',
+        secondUsername: '',
         tab: TabType.Analyzer,
         tabs: [
             { type: TabType.Analyzer },
@@ -46,21 +48,28 @@ class GithubStartPage extends Component {
     getTabContainerClasses = (containerId) => {
         let classes = 'container tab-container ';
         if(containerId !== this.state.tab) {
-            classes += 'hidden'; 
+            classes += 'hidden';
         }
 
         return classes;
     }
 
-    handleChangeUsername = (event) => {
+    handleChangeUsername = (event, field) => {
+        console.log(field);
         const usernameInputText = event.target.value;
-        this.setState({username: usernameInputText});
+        const newState = {};
+        newState[field] = usernameInputText;
+        this.setState(newState);
     }
     handleGetProfile = () => {
         this.showProfileTab();
         const username = this.state.username;
         this.props.actions.getGithubProfile(username);
         this.setState({username: '', tab: TabType.Profile});
+    }
+
+    handleCompareProfile = () => {
+        alert('handleCompareProfile');
     }
     render() {
         return (
@@ -89,7 +98,12 @@ class GithubStartPage extends Component {
                                 handleChangeUsername={this.handleChangeUsername}
                                 handleGetProfile={this.handleGetProfile}/>;
                             case TabType.Comparer:
-                                return <GithubComparer/>;
+                                return <GithubComparer
+                                firtsUsername={this.state.firstUsername}
+                                secondUsername={this.state.secondUsername}
+                                handleChangeUsername={this.handleChangeUsername}
+                                handleCompareProfile={this.handleCompareProfiles}
+                                />;
                             case TabType.Profile:
                                 return <GithubProfile/>;
                             default:

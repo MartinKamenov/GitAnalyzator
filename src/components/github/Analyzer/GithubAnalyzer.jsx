@@ -9,7 +9,7 @@ const GithubAnalyzer = ({username, handleChangeUsername, handleGetProfile}) => (
         <div>
             <input
             value={username}
-            onChange={(ev) => handleChangeUsername(ev)}
+            onChange={(ev) => handleChangeUsername(ev, 'username')}
             type="text" 
             placeholder="Github profile"
             className="form-input" />
