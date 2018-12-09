@@ -39,3 +39,8 @@
     padding: 3px;
     display: block;
 }
+
+.chart {
+    width: "400px";
+    height: "300px";
+}

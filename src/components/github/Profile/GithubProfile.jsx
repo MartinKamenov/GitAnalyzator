@@ -7,7 +7,7 @@ const GithubPage = ({profile}) => {
     return ( 
         <div>
             <h2>Profile Page</h2>
-            <div>{profile.username}</div>
+            <div>Username: {profile.username}</div>
             <div>
                 {
                     (() => {
@@ -17,7 +17,8 @@ const GithubPage = ({profile}) => {
                             return (
                                 <div style={{
                                     width: "400px",
-                                    height: "300px"
+                                    height: "300px",
+                                    margin: "auto"
                                   }}>
                                     <span>Contributions this year:
                                     { profile.data.totalContributionsCount }
