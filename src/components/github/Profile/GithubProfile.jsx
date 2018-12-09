@@ -6,41 +6,51 @@ import { Chart } from "react-charts";
 const GithubPage = ({profile}) => {
     return ( 
         <div>
-            <h2>Profile Page</h2>
-            <div>Username: {profile.username}</div>
-            <div>
-                {
-                    (() => {
-                        if(profile.data) {
-                            const data = [];
-                            profile.data.dateContributionsNumbers.forEach((c, i) => data.push([i, c]));
-                            return (
-                                <div className="contribution-chart">
-                                    
-                                    <div><img
-                                    className="profile-image"
-                                    alt={profile.username}
-                                    src={profile.data.pictureUrl}>
-                                    </img></div>
-                                    <span>Contributions this year:
-                                    { profile.data.totalContributionsCount }
-                                    </span>
-                                    <Chart data={[
-                                        {
-                                        label: "Contributions",
-                                        data
-                                        }
-                                    ]}
-                                    axes={[
-                                        { primary: true, type: "linear", position: "bottom" },
-                                        { type: "linear", position: "left" }
-                                    ]}/>
-                                </div>
-                            );
-                        }
-                    })()
+        {
+            (() => {
+                if(profile.data) {
+                    const data = [];
+                    profile.data.dateContributionsNumbers.forEach((c, i) => data.push([i, c]));
+                    return (
+                        <div className="contribution-chart">
+                            <h2>Profile Page</h2>
+                            <div>Username: {profile.username}</div>
+                            <div><img
+                            className="profile-image"
+                            alt={profile.username}
+                            src={profile.data.pictureUrl}>
+                            </img></div>
+                            <div>Contributions this year:
+                            { profile.data.totalContributionsCount }
+                            </div>
+                            <div>Days without contributions:
+                            { profile.data.daysWithoutContributions }
+                            </div>
+                            <div>Conclussive days with contributions:
+                            { profile.data.conclussiveContributions }
+                            </div>
+                            <div>Maximal contributions per day:
+                            { profile.data.maxContributionsForDay }
+                            </div>
+                            <Chart data={[
+                                {
+                                label: "Contributions",
+                                data
+                                }
+                            ]}
+                            axes={[
+                                { primary: true, type: "linear", position: "bottom" },
+                                { type: "linear", position: "left" }
+                            ]}/>
+                        </div>
+                    );
+                } else {
+                    return (
+                        <div>Fetching data...</div>
+                    );
                 }
-            </div>
+            })()
+        }
         </div>
     );
 }

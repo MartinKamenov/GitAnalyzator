@@ -19,6 +19,9 @@ class GithubStartPage extends Component {
     }
 
     showProfileTab() {
+        if(this.state.tabs.includes(t => t.type === TabType.Profile)) {
+            return;
+        }
         const tabs = this.state.tabs;
         tabs.push({ type: TabType.Profile });
         this.setState({tabs});
@@ -49,8 +52,6 @@ class GithubStartPage extends Component {
         return classes;
     }
 
-    
-
     handleChangeUsername = (event) => {
         const usernameInputText = event.target.value;
         this.setState({username: usernameInputText});
@@ -59,7 +60,7 @@ class GithubStartPage extends Component {
         this.showProfileTab();
         const username = this.state.username;
         this.props.actions.getGithubProfile(username);
-        this.setState({tab: TabType.Profile});
+        this.setState({username: '', tab: TabType.Profile});
     }
     render() {
         return (
@@ -83,7 +84,8 @@ class GithubStartPage extends Component {
                         {(() => {
                             switch(tab.type) {
                             case TabType.Analyzer:
-                                return <GithubAnalyzer 
+                                return <GithubAnalyzer
+                                username={this.state.username}
                                 handleChangeUsername={this.handleChangeUsername}
                                 handleGetProfile={this.handleGetProfile}/>;
                             case TabType.Comparer:
