@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Chart } from "react-charts";
 
 const GithubPage = ({profile}) => {
     return ( 
@@ -11,10 +12,27 @@ const GithubPage = ({profile}) => {
                 {
                     (() => {
                         if(profile.data) {
+                            const data = [];
+                            profile.data.dateContributionsNumbers.forEach((c, i) => data.push([i, c]));
                             return (
-                                <span>Contributions this year: 
-                                { profile.data.totalContributionsCount }
-                                </span>
+                                <div style={{
+                                    width: "400px",
+                                    height: "300px"
+                                  }}>
+                                    <span>Contributions this year:
+                                    { profile.data.totalContributionsCount }
+                                    </span>
+                                    <Chart data={[
+                                        {
+                                        label: "Contributions",
+                                        data
+                                        }
+                                    ]}
+                                    axes={[
+                                        { primary: true, type: "linear", position: "bottom" },
+                                        { type: "linear", position: "left" }
+                                    ]}/>
+                                </div>
                             );
                         }
                     })()
