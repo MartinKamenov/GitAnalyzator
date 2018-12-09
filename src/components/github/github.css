@@ -40,7 +40,14 @@
     display: block;
 }
 
-.chart {
-    width: "400px";
-    height: "300px";
+.contribution-chart {
+    margin: auto;
+    width: 400px;
+    height: 300px;
+}
+
+.profile-image {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50%;
 }

@@ -15,11 +15,13 @@ const GithubPage = ({profile}) => {
                             const data = [];
                             profile.data.dateContributionsNumbers.forEach((c, i) => data.push([i, c]));
                             return (
-                                <div style={{
-                                    width: "400px",
-                                    height: "300px",
-                                    margin: "auto"
-                                  }}>
+                                <div className="contribution-chart">
+                                    
+                                    <div><img
+                                    className="profile-image"
+                                    alt={profile.username}
+                                    src={profile.data.pictureUrl}>
+                                    </img></div>
                                     <span>Contributions this year:
                                     { profile.data.totalContributionsCount }
                                     </span>
