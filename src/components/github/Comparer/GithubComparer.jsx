@@ -14,7 +14,7 @@ const GithubComparer = ({firtsUsername, secondUsername, handleChangeUsername, ha
         onChange={(ev) => handleChangeUsername(ev, 'secondUsername')}
         placeholder="Second github profile"
         className="form-input" />
-        <button type="submit" onClick={handleCompareProfiles} className="btn btn-success">Analyze</button>
+        <button type="submit" onClick={handleCompareProfiles} className="btn btn-success">Compare</button>
     </div>
 );
  

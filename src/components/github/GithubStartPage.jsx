@@ -55,7 +55,6 @@ class GithubStartPage extends Component {
     }
 
     handleChangeUsername = (event, field) => {
-        console.log(field);
         const usernameInputText = event.target.value;
         const newState = {};
         newState[field] = usernameInputText;
@@ -68,8 +67,10 @@ class GithubStartPage extends Component {
         this.setState({username: '', tab: TabType.Profile});
     }
 
-    handleCompareProfile = () => {
-        alert('handleCompareProfile');
+    handleCompareProfiles = () => {
+        const firstUsername = this.state.firstUsername;
+        const secondtUsername = this.state.secondUsername;
+        this.setState({firstUsername: '', secondUsername: ''});
     }
     render() {
         return (
@@ -102,7 +103,7 @@ class GithubStartPage extends Component {
                                 firtsUsername={this.state.firstUsername}
                                 secondUsername={this.state.secondUsername}
                                 handleChangeUsername={this.handleChangeUsername}
-                                handleCompareProfile={this.handleCompareProfiles}
+                                handleCompareProfiles={this.handleCompareProfiles}
                                 />;
                             case TabType.Profile:
                                 return <GithubProfile/>;

@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 // import initialState from './initialState';
 import profile from './githubReducer';
+import profiles from './githubCompareReducer';
 
 const rootReducer = combineReducers({
-    profile
+    profile,
+    profiles
 });
 
 export default rootReducer;

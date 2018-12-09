@@ -10,6 +10,9 @@ const sendObject = {
 const githubApi = {
     getGithubProfile: (username) => {
         return axios.get(url + profilePath + username, sendObject);
+    },
+    getCompareGithubProfiles: (firstUsername, secondUsername) => {
+        return axios.get(url + profilePath + firstUsername + '/' + secondUsername);
     }
 };
 

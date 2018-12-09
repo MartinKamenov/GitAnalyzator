@@ -6,7 +6,6 @@ import AppRouter from './AppRouter';
 import 'bootstrap/dist/css/bootstrap.css';
 
 const store = configureStore();
-// store.dispatch(getGithubProfile('martinkamenov'));
 
 ReactDOM.render(
     <Provider store={store}>
