@@ -5,7 +5,15 @@ const GithubProfileComparer = ({profiles}) => {
     return ( 
         <div>
             <h2>Profiles comparer</h2>
-            <div>{profiles.length}</div>
+            <div>{
+                (() => {
+                    if(profiles) {
+                        return <div>{profiles.length}</div>;
+                    } else {
+                        return <div>Fetching data...</div>;
+                    }
+                })()
+            }</div>
         </div>
     );
 }
