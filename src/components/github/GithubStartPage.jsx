@@ -81,7 +81,7 @@ class GithubStartPage extends Component {
         const firstUsername = this.state.firstUsername;
         const secondtUsername = this.state.secondUsername;
         this.props.actions.getCompareGithubProfiles(firstUsername, secondtUsername);
-        this.setState({firstUsername: '', secondUsername: ''});
+        this.setState({firstUsername: '', secondUsername: '', tab: TabType.ProfileComparer});
     }
     render() {
         return (

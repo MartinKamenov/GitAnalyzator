@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const GithubProfileComparer = ({profiles}) => {
+const GithubProfileComparer = ({ profiles }) => {
     return ( 
         <div>
             <h2>Profiles comparer</h2>
             <div>{
                 (() => {
-                    if(profiles) {
+                    if(profiles.length) {
                         return <div>{profiles.length}</div>;
                     } else {
                         return <div>Fetching data...</div>;
@@ -21,5 +22,11 @@ const GithubProfileComparer = ({profiles}) => {
 GithubProfileComparer.propTypes = {
     profiles: PropTypes.array.isRequired
 };
- 
-export default GithubProfileComparer;
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        profiles: state.profiles
+    };
+};
+
+export default connect(mapStateToProps)(GithubProfileComparer);
