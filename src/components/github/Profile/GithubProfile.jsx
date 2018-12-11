@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Chart } from "react-charts";
+import ChartComponent from '../Chart/ChartComponent';
 
 const GithubPage = ({profile}) => {
     return ( 
@@ -11,6 +11,7 @@ const GithubPage = ({profile}) => {
                 if(profile.data) {
                     const data = [];
                     profile.data.dateContributionsNumbers.forEach((c, i) => data.push([i, c]));
+                    const dataArray = [{title: 'Contributions 1', contributions: data}];
                     return (
                         <div className="contribution-chart">
                             <h2>Profile Page</h2>
@@ -32,16 +33,7 @@ const GithubPage = ({profile}) => {
                             <div>Maximal contributions per day:
                             { profile.data.maxContributionsForDay }
                             </div>
-                            <Chart data={[
-                                {
-                                label: "Contributions",
-                                data
-                                }
-                            ]}
-                            axes={[
-                                { primary: true, type: "linear", position: "bottom" },
-                                { type: "linear", position: "left" }
-                            ]}/>
+                            <ChartComponent dataArray={dataArray}/>
                         </div>
                     );
                 } else {

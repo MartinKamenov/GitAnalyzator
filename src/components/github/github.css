@@ -51,3 +51,7 @@
     max-height: 100px;
     border-radius: 50%;
 }
+
+.username-header {
+    display: inline-block;
+}
