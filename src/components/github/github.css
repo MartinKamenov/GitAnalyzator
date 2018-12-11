@@ -56,6 +56,13 @@
     display: inline-block;
 }
 
+.legend-container {
+    background-color: #eaeaea;
+    border-radius: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
 span.first-profile-legend {
     display: inline-block;
     width: 30px;
@@ -68,4 +75,5 @@ span.second-profile-legend {
     width: 30px;
     height: 5px;
     background-color: #FC6868;
+    margin: auto;
 }
