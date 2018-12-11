@@ -7,10 +7,10 @@ const LegendComponent = ({colorsData}) => {
             <h3>Legend</h3>
             {colorsData.map((data, i) => {
                 return (
-                    <span key={i}>
+                    <div key={i}>
                         <span className={data.classColor}></span>
                         <span> {data.title}</span>
-                    </span>
+                    </div>
                 )
             })}
         </div>

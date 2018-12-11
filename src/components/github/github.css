@@ -68,6 +68,7 @@ span.first-profile-legend {
     width: 30px;
     height: 5px;
     background-color: #4AB5EB;
+    margin: auto;
 }
 
 span.second-profile-legend {
