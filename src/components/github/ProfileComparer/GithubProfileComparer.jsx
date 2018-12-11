@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import ChartComponent from '../Chart/ChartComponent';
 
 const GithubProfileComparer = ({ profiles }) => {
-    const elements = profiles.map((profile) => {
+    const elements = profiles.map((profile, i) => {
         const data = profile.data;
         return (
-        <div className="col-md-6">
+        <div className="col-md-6" key={i}>
             <div><img
                 className="profile-image"
                 alt={profile.username}
@@ -22,6 +23,17 @@ const GithubProfileComparer = ({ profiles }) => {
             <div>{
                 (() => {
                     if(profiles.length) {
+                        const dataArray = [];
+                        profiles.map((profile, i) => {
+                            const dataContributions = profile.data.dateContributionsNumbers;
+                            const contributions = [];
+                            dataContributions.map((c, i) => contributions.push([i, c]));
+                            return (
+                            dataArray
+                            .push({title: 'Contributions ' + i, 
+                            contributions }
+                            ));
+                        });
                         return (
                             <div className="contribution-chart">
                                 <h2>Profile Comparer</h2>
@@ -31,6 +43,7 @@ const GithubProfileComparer = ({ profiles }) => {
                                 <div className="row">
                                     {elements.map((profile) => profile)}
                                 </div>
+                                <ChartComponent dataArray={dataArray}/>
                             </div>
                         );
                     } else {
