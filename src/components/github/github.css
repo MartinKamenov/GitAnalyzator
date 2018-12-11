@@ -55,3 +55,17 @@
 .username-header {
     display: inline-block;
 }
+
+span.first-profile-legend {
+    display: inline-block;
+    width: 30px;
+    height: 5px;
+    background-color: #4AB5EB;
+}
+
+span.second-profile-legend {
+    display: inline-block;
+    width: 30px;
+    height: 5px;
+    background-color: #FC6868;
+}

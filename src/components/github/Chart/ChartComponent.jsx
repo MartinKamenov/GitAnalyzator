@@ -1,21 +1,23 @@
 import React from 'react';
 import PropType from 'prop-types';
 import { Chart } from "react-charts";
+import LegendComponent from './LegendComponent';
 
 const ChartComponent = ({dataArray}) => {
-    console.log(dataArray);
     return (
-        <Chart data={dataArray.map((dataDetails, i) => {
-            console.log('dataDetails: ' + dataDetails);
-            return ({
-                label: dataDetails.title,
-                data: dataDetails.contributions
-            });
-        })}
-        axes={[
-            { primary: true, type: "linear", position: "bottom" },
-            { type: "linear", position: "left" }
-        ]}/>
+        <React.Fragment>
+            <LegendComponent colorsData={dataArray}/>
+            <Chart data={dataArray.map((dataDetails, i) => {
+                return ({
+                    label: dataDetails.title,
+                    data: dataDetails.contributions
+                });
+            })}
+            axes={[
+                { primary: true, type: "linear", position: "bottom" },
+                { type: "linear", position: "left" }
+            ]}/>
+        </React.Fragment>
     );
 }
 

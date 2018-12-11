@@ -11,7 +11,11 @@ const GithubPage = ({profile}) => {
                 if(profile.data) {
                     const data = [];
                     profile.data.dateContributionsNumbers.forEach((c, i) => data.push([i, c]));
-                    const dataArray = [{title: 'Contributions 1', contributions: data}];
+                    const dataArray = [{
+                        title: profile.username, 
+                        contributions: data,
+                        classColor: 'first-profile-legend'
+                    }];
                     return (
                         <div className="contribution-chart">
                             <h2>Profile Page</h2>
