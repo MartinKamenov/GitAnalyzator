@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ChartComponent from '../Chart/ChartComponent';
+import GithubContributionsDetails from '../Common/GihubContributionsDetails';
 
 const GithubPage = ({profile}) => {
     return ( 
@@ -20,23 +21,7 @@ const GithubPage = ({profile}) => {
                         <div className="contribution-chart">
                             <h2>Profile Page</h2>
                             <div>Username: {profile.username}</div>
-                            <div><img
-                            className="profile-image"
-                            alt={profile.username}
-                            src={profile.data.pictureUrl}>
-                            </img></div>
-                            <div>Contributions this year:
-                            { profile.data.totalContributionsCount }
-                            </div>
-                            <div>Days without contributions:
-                            { profile.data.daysWithoutContributions }
-                            </div>
-                            <div>Conclussive days with contributions:
-                            { profile.data.conclussiveContributions }
-                            </div>
-                            <div>Maximal contributions per day:
-                            { profile.data.maxContributionsForDay }
-                            </div>
+                            <GithubContributionsDetails profile={profile}/>
                             <ChartComponent dataArray={dataArray}/>
                         </div>
                     );

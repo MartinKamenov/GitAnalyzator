@@ -2,18 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ChartComponent from '../Chart/ChartComponent';
+import GithubContributionsDetails from '../Common/GihubContributionsDetails';
 
 const GithubProfileComparer = ({ profiles }) => {
     const elements = profiles.map((profile, i) => {
         const data = profile.data;
         return (
         <div className="col-md-6" key={i}>
-            <div><img
-                className="profile-image"
-                alt={profile.username}
-                src={data.pictureUrl}>
-            </img></div>
-            <div>{data.totalContributionsCount} contributions this year</div>
+            <GithubContributionsDetails profile={profile}/>
         </div>
         );
     });
