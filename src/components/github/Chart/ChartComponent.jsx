@@ -1,9 +1,10 @@
 import React from 'react';
+import PropType from 'prop-types';
 import { Chart } from "react-charts";
 
 const ChartComponent = ({dataArray}) => {
     console.log(dataArray);
-    return ( 
+    return (
         <Chart data={dataArray.map((dataDetails, i) => {
             console.log('dataDetails: ' + dataDetails);
             return ({
@@ -16,6 +17,10 @@ const ChartComponent = ({dataArray}) => {
             { type: "linear", position: "left" }
         ]}/>
     );
+}
+
+ChartComponent.propType = {
+    dataArray: PropType.array.isRequired
 }
  
 export default ChartComponent;
