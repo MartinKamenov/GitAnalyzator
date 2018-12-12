@@ -42,8 +42,8 @@
 
 .contribution-chart {
     margin: auto;
-    width: 400px;
-    height: 300px;
+    max-width: 400px;
+    max-height: 300px;
 }
 
 .profile-image {
