@@ -57,10 +57,17 @@
 }
 
 .legend-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
     background-color: #eaeaea;
-    border-radius: 20px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+.legend-header {
+    display: block;
+    margin: 5px;
 }
 
 span.first-profile-legend {

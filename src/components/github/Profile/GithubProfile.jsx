@@ -7,30 +7,30 @@ import GithubContributionsDetails from '../Common/GihubContributionsDetails';
 const GithubPage = ({profile}) => {
     return ( 
         <div>
-        {
-            (() => {
-                if(profile.data) {
-                    const data = [];
-                    profile.data.dateContributionsNumbers.forEach((c, i) => data.push([i, c]));
-                    const dataArray = [{
-                        title: profile.username, 
-                        contributions: data,
-                        classColor: 'first-profile-legend'
-                    }];
-                    return (
-                        <div className="contribution-chart">
-                            <h2>Profile Page</h2>
-                            <div>Username: {profile.username}</div>
-                            <GithubContributionsDetails profile={profile}/>
-                            <ChartComponent dataArray={dataArray}/>
-                        </div>
-                    );
-                } else {
-                    return (
-                        <div>Fetching data...</div>
-                    );
-                }
-            })()
+            <h2>Profiles Page</h2>
+            {
+                (() => {
+                    if(profile.data) {
+                        const data = [];
+                        profile.data.dateContributionsNumbers.forEach((c, i) => data.push([i, c]));
+                        const dataArray = [{
+                            title: profile.username, 
+                            contributions: data,
+                            classColor: 'first-profile-legend'
+                        }];
+                        return (
+                            <div className="contribution-chart">
+                                <div>Username: {profile.username}</div>
+                                <GithubContributionsDetails profile={profile}/>
+                                <ChartComponent dataArray={dataArray}/>
+                            </div>
+                        );
+                    } else {
+                        return (
+                            <div>Fetching data...</div>
+                        );
+                    }
+                })()
         }
         </div>
     );

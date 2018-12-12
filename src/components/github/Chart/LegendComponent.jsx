@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const LegendComponent = ({colorsData}) => {
     return (
         <div className="legend-container">
-            <h3>Legend</h3>
+            <h3 className="legend-header">Legend</h3>
             {colorsData.map((data, i) => {
                 return (
                     <div key={i}>

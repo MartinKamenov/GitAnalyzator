@@ -15,7 +15,7 @@ const GithubProfileComparer = ({ profiles }) => {
     });
     return ( 
         <div>
-            <h2>Profiles comparer</h2>
+            <h2>Profiles Comparer</h2>
             <div>{
                 (() => {
                     if(profiles.length) {
@@ -36,7 +36,6 @@ const GithubProfileComparer = ({ profiles }) => {
                         });
                         return (
                             <div className="contribution-chart">
-                                <h2>Profile Comparer</h2>
                                 <div>
                                     <h3 className="username-header">{profiles[0].username}</h3> vs <h3 className="username-header">{profiles[1].username}</h3>
                                 </div>
