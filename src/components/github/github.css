@@ -24,6 +24,52 @@
     text-decoration: none !important;
 }
 
+.main-header-container {
+
+}
+.main-header {
+    background:#FC6868;
+    color:#fff !important;
+    border:none;
+    position:relative;
+    height:60px;
+    font-size:1.6em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    border-radius: 5px;
+}
+
+.main-header:before, .main-header:after {
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #FC6868;
+    transition:400ms ease all;
+}
+
+.main-header:after {
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+
+.main-header:hover:before, .main-header:hover:after {
+    width:100%;
+    transition:800ms ease all;
+}
+
+.main-header:hover {
+    background:#fff;
+    color:#FC6868;
+}
+
+
 .tab-container {
     padding: 15px;
 }

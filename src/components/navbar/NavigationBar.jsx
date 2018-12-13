@@ -5,8 +5,8 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap';
 const NavigationBar = () => ( 
     <Navbar inverse collapseOnSelect>
         <Navbar.Header>
-            <Navbar.Brand>
-                <Link className="navbar-brand main_header main_header" to="/">Github Analyzator</Link>
+            <Navbar.Brand className="main-header-container">
+                <Link className="navbar-brand main-header" to="/">Github Analyzator</Link>
             </Navbar.Brand>
             <Navbar.Toggle>Menu</Navbar.Toggle>
         </Navbar.Header>
