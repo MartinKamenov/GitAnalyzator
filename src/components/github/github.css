@@ -6,12 +6,30 @@
     display: none;
 }
 
+.nav-link {
+    padding: 5px;
+    color: #FC6868;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.nav-link:hover {
+    color: #CA5353;
+    text-decoration: none !important;
+    border: 1px solid #CA5353;
+}
+
+.nav-link:visited {
+    color: #CA5353;
+    text-decoration: none !important;
+}
+
 .tab-container {
     padding: 15px;
 }
 
 .tab.active {
-    background-color: aquamarine;
+    background-color: #FC6868;
 }
 
 .tab {
@@ -29,7 +47,7 @@
 }
 
 .tab:hover {
-    background-color: aqua;
+    background-color: #CA5353;
 }
 
 .form-input {

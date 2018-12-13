@@ -3,15 +3,30 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 const NavigationBar = () => ( 
-    <Navbar collapseOnSelect>
-        <Navbar>
-            <Navbar.Header>
-                <Navbar.Brand>
-                    <Link className="navbar-brand main_header main_header" to="/">Github Analyzator</Link>
-                </Navbar.Brand>
-                <Navbar.Toggle>Menu</Navbar.Toggle>
-            </Navbar.Header>
-        </Navbar>
+    <Navbar inverse collapseOnSelect>
+        <Navbar.Header>
+            <Navbar.Brand>
+                <Link className="navbar-brand main_header main_header" to="/">Github Analyzator</Link>
+            </Navbar.Brand>
+            <Navbar.Toggle>Menu</Navbar.Toggle>
+        </Navbar.Header>
+        <Navbar.Collapse>
+			<Nav>
+				<NavItem>
+					<Link className="nav-link navbar_element" to="/">Home</Link>
+				</NavItem>
+			</Nav>
+			<Nav>
+				<NavItem>
+					<Link className="nav-link navbar_element" to="/analyze">Analyze</Link>
+				</NavItem>
+			</Nav>
+            <Nav>
+				<NavItem>
+					<Link className="nav-link navbar_element" to="/compare">Compare</Link>
+				</NavItem>
+			</Nav>
+		</Navbar.Collapse>
     </Navbar>
 );
  
