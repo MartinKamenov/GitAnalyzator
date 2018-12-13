@@ -18,7 +18,8 @@ class GithubStartPage extends Component {
         tabs: [
             { type: TabType.Analyzer },
             { type: TabType.Comparer }
-        ]
+        ],
+        year: 2018
     }
 
     showProfileTab() {
@@ -83,6 +84,10 @@ class GithubStartPage extends Component {
         this.props.actions.getCompareGithubProfiles(firstUsername, secondtUsername);
         this.setState({firstUsername: '', secondUsername: '', tab: TabType.ProfileComparer});
     }
+    
+    handleSelectedYear = (year) => {
+        this.setState({ year });
+    }
     render() {
         return (
             <div className="container center">
@@ -106,6 +111,7 @@ class GithubStartPage extends Component {
                             switch(tab.type) {
                             case TabType.Analyzer:
                                 return <GithubAnalyzer
+                                handleSelectedYear={this.handleSelectedYear}
                                 username={this.state.username}
                                 handleChangeUsername={this.handleChangeUsername}
                                 handleGetProfile={this.handleGetProfile}/>;
