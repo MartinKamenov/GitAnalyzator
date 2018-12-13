@@ -22,7 +22,7 @@ class GithubStartPage extends Component {
     }
 
     showProfileTab() {
-        if(this.state.tabs.includes(t => t.type === TabType.Profile)) {
+        if(!(this.state.tabs.filter((t) => t.type === TabType.Profile).length === 0)) {
             return;
         }
         const tabs = this.state.tabs;
@@ -30,7 +30,7 @@ class GithubStartPage extends Component {
         this.setState({tabs});
     }
     showCompareTab() {
-        if(this.state.tabs.includes(t => t.type === TabType.ProfileComparer)) {
+        if(!(this.state.tabs.filter((t) => t.type === TabType.ProfileComparer).length === 0)) {
             return;
         }
         const tabs = this.state.tabs;
