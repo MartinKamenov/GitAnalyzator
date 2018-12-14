@@ -3,16 +3,18 @@ import years from '../../contracts/AvailableYears';
 import PropTypes from 'prop-types';
 
 const GithubYearSelector = ({handleClassYear, handleSelectedYear}) => {
-    return ( 
-        <div className="years-container">
+    return (
+        <div className="years-container center row">
             <h3 className="legend-header">Year</h3>
-            {years.map((year, i) => (
-                <div className={handleClassYear(year)}
-                key={i}
-                onClick={() => handleSelectedYear(year)}>
-                {year}
-                </div>
-            ))}
+            <div>
+                {years.map((year, i) => (
+                    <div className={handleClassYear(year)}
+                    key={i}
+                    onClick={() => handleSelectedYear(year)}>
+                    {year}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

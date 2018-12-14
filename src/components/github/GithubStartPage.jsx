@@ -102,7 +102,7 @@ class GithubStartPage extends Component {
     }
     
     handleClassYear = (year) => {
-        let className = "year-btn";
+        let className = "col-sm-6 year-btn";
         if(year === this.state.year && this.state.yearHasChanged) {
             className += " active";
         }
