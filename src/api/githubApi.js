@@ -8,8 +8,12 @@ const sendObject = {
 };
 
 const githubApi = {
-    getGithubProfile: (username) => {
-        return axios.get(url + profilePath + username, sendObject);
+    getGithubProfile: (username, year) => {
+        let quertyParam = '?';
+        if(year) {
+            quertyParam += `year=${year}`;
+        }
+        return axios.get(url + profilePath + username + quertyParam, sendObject);
     },
     getCompareGithubProfiles: (firstUsername, secondUsername) => {
         return axios.get(url + profilePath + firstUsername + '/' + secondUsername);

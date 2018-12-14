@@ -19,7 +19,8 @@ class GithubStartPage extends Component {
             { type: TabType.Analyzer },
             { type: TabType.Comparer }
         ],
-        year: 2018
+        year: 2018,
+        yearHasChanged: false
     }
 
     showProfileTab() {
@@ -73,8 +74,17 @@ class GithubStartPage extends Component {
     handleGetProfile = () => {
         this.showProfileTab();
         const username = this.state.username;
-        this.props.actions.getGithubProfile(username);
-        this.setState({username: '', tab: TabType.Profile});
+        if(this.state.yearHasChanged) {
+            this.props.actions.getGithubProfile(username, this.state.year);
+        } else {
+            this.props.actions.getGithubProfile(username);
+        }
+        this.setState({
+            username: '', 
+            tab: TabType.Profile, 
+            year: 2018, 
+            yearHasChanged: false
+        });
     }
 
     handleCompareProfiles = () => {
@@ -82,11 +92,17 @@ class GithubStartPage extends Component {
         const firstUsername = this.state.firstUsername;
         const secondtUsername = this.state.secondUsername;
         this.props.actions.getCompareGithubProfiles(firstUsername, secondtUsername);
-        this.setState({firstUsername: '', secondUsername: '', tab: TabType.ProfileComparer});
+        this.setState({
+            firstUsername: '', 
+            secondUsername: '', 
+            tab: TabType.ProfileComparer, 
+            year: 2018, 
+            yearHasChanged: false    
+        });
     }
     
     handleSelectedYear = (year) => {
-        this.setState({ year });
+        this.setState({ year, yearHasChanged: true });
     }
     render() {
         return (
