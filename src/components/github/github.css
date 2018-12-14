@@ -7,7 +7,7 @@
 }
 
 .nav-link {
-    padding: 5px;
+    padding: 10px;
     color: #FC6868;
     border: 1px solid transparent;
     border-radius: 5px;
@@ -24,9 +24,6 @@
     text-decoration: none !important;
 }
 
-.main-header-container {
-
-}
 .main-header {
     background:#FC6868;
     color:#fff !important;
@@ -160,4 +157,19 @@ span.second-profile-legend {
     max-width: 150px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.year-btn {
+    color: black;
+    border:0.1em solid black;
+    background-color: #FC6868;
+    margin: 5px;
+    border-radius: 5px;
+    cursor:pointer;
+    padding: 10px;
+}
+
+.year-btn:hover {
+    color: white;
+    border:0.1em solid white;
 }

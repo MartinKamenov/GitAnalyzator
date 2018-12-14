@@ -101,6 +101,9 @@ class GithubStartPage extends Component {
         });
     }
     
+    handleClassYear = (year) => {
+        
+    }
     handleSelectedYear = (year) => {
         this.setState({ year, yearHasChanged: true });
     }
