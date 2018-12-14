@@ -102,7 +102,12 @@ class GithubStartPage extends Component {
     }
     
     handleClassYear = (year) => {
+        let className = "year-btn";
+        if(year === this.state.year && this.state.yearHasChanged) {
+            className += " active";
+        }
         
+        return className;
     }
     handleSelectedYear = (year) => {
         this.setState({ year, yearHasChanged: true });
@@ -130,6 +135,7 @@ class GithubStartPage extends Component {
                             switch(tab.type) {
                             case TabType.Analyzer:
                                 return <GithubAnalyzer
+                                handleClassYear={this.handleClassYear}
                                 handleSelectedYear={this.handleSelectedYear}
                                 username={this.state.username}
                                 handleChangeUsername={this.handleChangeUsername}

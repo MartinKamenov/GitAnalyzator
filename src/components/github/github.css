@@ -169,6 +169,10 @@ span.second-profile-legend {
     padding: 10px;
 }
 
+.year-btn.active {
+    background-color: #CA5353;
+}
+
 .year-btn:hover {
     color: white;
     border:0.1em solid white;
