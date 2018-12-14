@@ -6,7 +6,7 @@ const GithubYearSelector = ({handleSelectedYear}) => {
     return ( 
         <div className="years-container">
             {years.map((year, i) => (
-                <div onClick={() => handleSelectedYear(year)}>{year}</div>
+                <div key={i} onClick={() => handleSelectedYear(year)}>{year}</div>
             ))}
         </div>
     );
