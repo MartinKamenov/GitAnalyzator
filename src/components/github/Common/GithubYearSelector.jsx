@@ -4,14 +4,16 @@ import PropTypes from 'prop-types';
 
 const GithubYearSelector = ({handleClassYear, handleSelectedYear}) => {
     return (
-        <div className="years-container center row">
+        <div className="years-container center">
             <h3 className="legend-header">Year</h3>
-            <div>
+            <div className="row">
                 {years.map((year, i) => (
-                    <div className={handleClassYear(year)}
-                    key={i}
-                    onClick={() => handleSelectedYear(year)}>
-                    {year}
+                    <div className="col-sm-6 year-btn-container"
+                    key={i}>
+                        <div className={handleClassYear(year)}
+                        onClick={() => handleSelectedYear(year)}>
+                        {year}
+                        </div>
                     </div>
                 ))}
             </div>

@@ -102,7 +102,7 @@ class GithubStartPage extends Component {
     }
     
     handleClassYear = (year) => {
-        let className = "col-sm-6 year-btn";
+        let className = "year-btn";
         if(year === this.state.year && this.state.yearHasChanged) {
             className += " active";
         }
@@ -142,6 +142,8 @@ class GithubStartPage extends Component {
                                 handleGetProfile={this.handleGetProfile}/>;
                             case TabType.Comparer:
                                 return <GithubComparer
+                                handleClassYear={this.handleClassYear}
+                                handleSelectedYear={this.handleSelectedYear}
                                 firtsUsername={this.state.firstUsername}
                                 secondUsername={this.state.secondUsername}
                                 handleChangeUsername={this.handleChangeUsername}
