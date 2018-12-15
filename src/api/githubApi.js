@@ -15,8 +15,14 @@ const githubApi = {
         }
         return axios.get(url + profilePath + username + quertyParam, sendObject);
     },
-    getCompareGithubProfiles: (firstUsername, secondUsername) => {
-        return axios.get(url + profilePath + firstUsername + '/' + secondUsername);
+    getCompareGithubProfiles: (firstUsername, secondUsername, year) => {
+        let quertyParam = '?';
+        if(year) {
+            quertyParam += `year=${year}`;
+        }
+        const searchUrl = url + profilePath + firstUsername + '/' + secondUsername + quertyParam;
+        console.log(searchUrl);
+        return axios.get(searchUrl, sendObject);
     }
 };
 

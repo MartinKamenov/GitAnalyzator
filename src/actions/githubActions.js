@@ -19,9 +19,9 @@ export function getCompareGithubProfilesSuccess(profiles) {
 }
 
 
-export function getCompareGithubProfiles(firstUsername, secondUsername) {
+export function getCompareGithubProfiles(firstUsername, secondUsername, year) {
     return async function(dispatch) {
-        const res = await githubApi.getCompareGithubProfiles(firstUsername, secondUsername);
+        const res = await githubApi.getCompareGithubProfiles(firstUsername, secondUsername, year);
         const profiles = res.data;
         return dispatch(getCompareGithubProfilesSuccess(profiles));
     }

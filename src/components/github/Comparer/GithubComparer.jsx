@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import GithubYearSelector from '../Common/GithubYearSelector';
 const GithubComparer = ({
     firtsUsername, 
@@ -26,10 +27,19 @@ const GithubComparer = ({
         </div>
         <div className="sidebar">
             <GithubYearSelector 
-                handleClassYear = {handleClassYear}
+                handleClassYear={handleClassYear}
                 handleSelectedYear={handleSelectedYear}/>
         </div>
     </div>
 );
+
+GithubComparer.propTypes = {
+    firtsUsername: PropTypes.string.isRequired, 
+    secondUsername: PropTypes.string.isRequired, 
+    handleChangeUsername: PropTypes.func.isRequired, 
+    handleCompareProfiles: PropTypes.func.isRequired,
+    handleClassYear: PropTypes.func.isRequired,
+    handleSelectedYear: PropTypes.func.isRequired
+};
  
 export default GithubComparer;
