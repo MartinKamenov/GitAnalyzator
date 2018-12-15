@@ -6,6 +6,12 @@
     display: none;
 }
 
+.nav-link-container {
+    padding: 15px;
+    display: inline-block;
+    line-height: 20px;
+}
+
 .nav-link {
     padding: 10px;
     color: #FC6868;
