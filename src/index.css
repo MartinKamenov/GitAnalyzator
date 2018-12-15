@@ -12,3 +12,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.sidebar {
+  max-width: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 100px;
+  left: 75%;
+  background: #eee;
+  overflow-x: hidden;
+  padding: 8px 0;
+}
+
+.github-img {
+  max-width: 70;
+  max-height: 70px;
+}
