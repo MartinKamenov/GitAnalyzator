@@ -6,7 +6,6 @@ import GithubContributionsDetails from '../Common/GihubContributionsDetails';
 
 const GithubProfileComparer = ({ profiles }) => {
     const elements = profiles.map((profile, i) => {
-        const data = profile.data;
         return (
         <div className="col-md-6" key={i}>
             <GithubContributionsDetails profile={profile}/>
