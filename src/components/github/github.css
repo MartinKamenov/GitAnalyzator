@@ -1,35 +1,3 @@
-.center {
-    text-align: center;
-}
-
-.hidden {
-    display: none;
-}
-
-.nav-link-container {
-    padding: 15px;
-    display: inline-block;
-    line-height: 20px;
-}
-
-.nav-link {
-    padding: 10px;
-    color: #FC6868;
-    border: 1px solid transparent;
-    border-radius: 5px;
-}
-
-.nav-link:hover {
-    color: #CA5353;
-    text-decoration: none !important;
-    border: 1px solid #CA5353;
-}
-
-.nav-link:visited {
-    color: #CA5353;
-    text-decoration: none !important;
-}
-
 .main-header {
     background:#FC6868;
     color:#fff !important;
@@ -154,12 +122,8 @@ span.second-profile-legend {
 }
 
 .years-container {
-    margin-top: 10px;
-    margin-bottom: 10px;
     padding: 5px;
     background-color: #eaeaea;
-    border-radius: 10px;
-    border: 1px solid gray;
     max-width: 200px;
     margin-left: auto !important;
     margin-right: auto !important;
