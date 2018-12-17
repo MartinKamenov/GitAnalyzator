@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import GithubAnalyzer from './Analyzer/GithubAnalyzer';
 import GithubComparer from './Comparer/GithubComparer';
 import GithubProfile from './Profile/GithubProfile';
-import TabType from '../contracts/TabType';
+import { AnalyzeTabType } from '../contracts/TabType';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as githubActions from '../../actions/githubActions';
@@ -12,31 +12,20 @@ import GithubProfileComparer from './ProfileComparer/GithubProfileComparer';
 class GithubStartPage extends Component {
     state = {
         username: '',
-        firstUsername: '',
-        secondUsername: '',
-        tab: TabType.Analyzer,
+        tab: AnalyzeTabType.Analyzer,
         tabs: [
-            { type: TabType.Analyzer },
-            { type: TabType.Comparer }
+            { type: AnalyzeTabType.Analyzer }
         ],
         year: 2018,
         yearHasChanged: false
     }
 
     showProfileTab() {
-        if(!(this.state.tabs.filter((t) => t.type === TabType.Profile).length === 0)) {
+        if(!(this.state.tabs.filter((t) => t.type === AnalyzeTabType.Profile).length === 0)) {
             return;
         }
         const tabs = this.state.tabs;
-        tabs.push({ type: TabType.Profile });
-        this.setState({tabs});
-    }
-    showCompareTab() {
-        if(!(this.state.tabs.filter((t) => t.type === TabType.ProfileComparer).length === 0)) {
-            return;
-        }
-        const tabs = this.state.tabs;
-        tabs.push({ type: TabType.ProfileComparer });
+        tabs.push({ type: AnalyzeTabType.Profile });
         this.setState({tabs});
     }
     handleChangeTab = (tabId) => {
@@ -81,28 +70,9 @@ class GithubStartPage extends Component {
         }
         this.setState({
             username: '', 
-            tab: TabType.Profile, 
+            tab: AnalyzeTabType.Profile, 
             year: 2018, 
             yearHasChanged: false
-        });
-    }
-
-    handleCompareProfiles = () => {
-        this.showCompareTab();
-        const firstUsername = this.state.firstUsername;
-        const secondtUsername = this.state.secondUsername;
-        if(this.state.yearHasChanged) {
-            const year = this.state.year;
-            this.props.actions.getCompareGithubProfiles(firstUsername, secondtUsername, year);
-        } else {  
-            this.props.actions.getCompareGithubProfiles(firstUsername, secondtUsername);
-        }
-        this.setState({
-            firstUsername: '', 
-            secondUsername: '', 
-            tab: TabType.ProfileComparer, 
-            year: 2018, 
-            yearHasChanged: false    
         });
     }
     
@@ -138,14 +108,14 @@ class GithubStartPage extends Component {
                     className={this.getTabContainerClasses(tab.type)} id={tab.type + 'Container'}>
                         {(() => {
                             switch(tab.type) {
-                            case TabType.Analyzer:
+                            case AnalyzeTabType.Analyzer:
                                 return <GithubAnalyzer
                                 handleClassYear={this.handleClassYear}
                                 handleSelectedYear={this.handleSelectedYear}
                                 username={this.state.username}
                                 handleChangeUsername={this.handleChangeUsername}
                                 handleGetProfile={this.handleGetProfile}/>;
-                            case TabType.Comparer:
+                            case AnalyzeTabType.Comparer:
                                 return <GithubComparer
                                 handleClassYear={this.handleClassYear}
                                 handleSelectedYear={this.handleSelectedYear}
@@ -154,9 +124,9 @@ class GithubStartPage extends Component {
                                 handleChangeUsername={this.handleChangeUsername}
                                 handleCompareProfiles={this.handleCompareProfiles}
                                 />;
-                            case TabType.Profile:
+                            case AnalyzeTabType.Profile:
                                 return <GithubProfile/>;
-                            case TabType.ProfileComparer:
+                            case AnalyzeTabType.ProfileComparer:
                                 return <GithubProfileComparer/>;
                             default:
                                 return null;

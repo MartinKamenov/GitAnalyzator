@@ -1,8 +1,9 @@
-const TabType = {
+export const AnalyzeTabType = {
     Analyzer: 'Analyzer',
-    Comparer: 'Comparer',
-    Profile: 'Profile',
-    ProfileComparer: 'ProfileComparer'
-}
+    Profile: 'Profile'
+};
 
-export default TabType;
+export const CompareTabType = {
+    Comparer: 'Comparer',
+    ProfileComparer: 'ProfileComparer'
+};
