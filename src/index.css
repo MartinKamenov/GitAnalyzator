@@ -6,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 code {
@@ -13,9 +14,15 @@ code {
     monospace;
 }
 
-.home-image {
+.footer-container {
+  width: 100%;
+  background-color: #dddddd;
+  height: 200px;
+}
+
+img.home-image {
   margin-top: -20px;
-  height: 93vh;
+  height: 92vh;
   width: 100%;
   overflow: hidden;
 }
@@ -96,20 +103,21 @@ p.paragraph {
   text-decoration: none !important;
 }
 
-.link-content-container {
-  align-content: center;
+.home-wrapper {
+  margin: 0px;
+  text-align: center;
 }
 .link-content {
+  align-items: center;
+  left: 0;
+  right: 0;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  top: 45vh;
+  margin-top: -45vh;
   z-index: 1;
-  left: 40%;
   height: 10em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
+  position: absolute;
 }
 
 .link-content a {

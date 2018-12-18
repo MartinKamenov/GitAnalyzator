@@ -92,7 +92,7 @@ class GithubComparePage extends Component {
         this.setState({ year, yearHasChanged: true });
     }
     render() { 
-        return ( 
+        return (
             <div className="container center">
                 <ul id="tabs">
                 {this.state.tabs.map((tab) => {

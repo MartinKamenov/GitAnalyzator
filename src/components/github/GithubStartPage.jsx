@@ -8,13 +8,15 @@ import { bindActionCreators } from 'redux';
 import * as githubActions from '../../actions/githubActions';
 import './github.css';
 import GithubProfileComparer from './ProfileComparer/GithubProfileComparer';
+import GithubAnalyzerRepositories from './Analyzer/GithubAnalyzerRepositories';
 
 class GithubStartPage extends Component {
     state = {
         username: '',
         tab: AnalyzeTabType.Analyzer,
         tabs: [
-            { type: AnalyzeTabType.Analyzer }
+            { type: AnalyzeTabType.Analyzer },
+            { type: AnalyzeTabType.AnalyzeRepositories }
         ],
         year: 2018,
         yearHasChanged: false
@@ -115,19 +117,12 @@ class GithubStartPage extends Component {
                                 username={this.state.username}
                                 handleChangeUsername={this.handleChangeUsername}
                                 handleGetProfile={this.handleGetProfile}/>;
-                            case AnalyzeTabType.Comparer:
-                                return <GithubComparer
-                                handleClassYear={this.handleClassYear}
-                                handleSelectedYear={this.handleSelectedYear}
-                                firtsUsername={this.state.firstUsername}
-                                secondUsername={this.state.secondUsername}
-                                handleChangeUsername={this.handleChangeUsername}
-                                handleCompareProfiles={this.handleCompareProfiles}
-                                />;
+                            case AnalyzeTabType.AnalyzeRepositories:
+                                return <GithubAnalyzerRepositories
+                                    username={this.state.username}
+                                    handleChangeUsername={this.handleChangeUsername}/>;
                             case AnalyzeTabType.Profile:
                                 return <GithubProfile/>;
-                            case AnalyzeTabType.ProfileComparer:
-                                return <GithubProfileComparer/>;
                             default:
                                 return null;
                             }

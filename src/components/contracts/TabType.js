@@ -1,5 +1,6 @@
 export const AnalyzeTabType = {
     Analyzer: 'Analyzer',
+    AnalyzeRepositories: 'AnalyzeRepositories',
     Profile: 'Profile'
 };
 
