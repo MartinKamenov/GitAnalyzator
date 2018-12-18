@@ -19,10 +19,12 @@ const GithubPage = ({profile}) => {
                             classColor: 'first-profile-legend'
                         }];
                         return (
-                            <div className="contribution-chart">
+                            <div>
                                 <div>Username: {profile.username}</div>
                                 <GithubContributionsDetails profile={profile}/>
-                                <ChartComponent dataArray={dataArray}/>
+                                <div className="contribution-chart" >
+                                    <ChartComponent dataArray={dataArray}/>
+                                </div>
                             </div>
                         );
                     } else {

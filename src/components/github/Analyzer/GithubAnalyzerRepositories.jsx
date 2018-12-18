@@ -15,7 +15,7 @@ const GithubAnalyzerRepositories = ({ username, handleChangeUsername, handleGetP
                 placeholder="Github profile"
                 className="form-input" />
                 <button type="submit" onClick={handleGetProfileRepositories}
-                className="btn btn-success">Analyze</button>
+                className="send-button">Analyze</button>
             </div>
         </div>
     );

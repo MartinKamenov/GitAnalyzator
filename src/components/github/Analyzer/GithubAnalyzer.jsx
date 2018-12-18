@@ -19,7 +19,7 @@ const GithubAnalyzer = ({username,
             placeholder="Github profile"
             className="form-input" />
             <button type="submit" onClick={handleGetProfile}
-            className="btn btn-success">Analyze</button>
+            className="send-button">Analyze</button>
         </div>
         <div className="sidebar">
             <GithubYearSelector 

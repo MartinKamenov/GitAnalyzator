@@ -34,14 +34,16 @@ const GithubProfileComparer = ({ profiles }) => {
                                 ));
                         });
                         return (
-                            <div className="contribution-chart">
+                            <div>
                                 <div>
                                     <h3 className="username-header">{profiles[0].username}</h3> vs <h3 className="username-header">{profiles[1].username}</h3>
                                 </div>
                                 <div className="row">
                                     {elements.map((profile) => profile)}
                                 </div>
-                                <ChartComponent dataArray={dataArray}/>
+                                <div className="contribution-chart" >
+                                    <ChartComponent className="contribution-chart" dataArray={dataArray}/>
+                                </div>
                             </div>
                         );
                     } else {

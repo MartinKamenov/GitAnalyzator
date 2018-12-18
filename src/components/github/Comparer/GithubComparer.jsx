@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import GithubYearSelector from '../Common/GithubYearSelector';
+
 const GithubComparer = ({
     firtsUsername, 
     secondUsername, 
@@ -23,9 +24,9 @@ const GithubComparer = ({
             onChange={(ev) => handleChangeUsername(ev, 'secondUsername')}
             placeholder="Second github profile"
             className="form-input" />
-            <button type="submit" onClick={handleCompareProfiles} className="btn btn-success">Compare</button>
+            <button type="submit" onClick={handleCompareProfiles} className="send-button">Compare</button>
         </div>
-        <div className="sidebar">
+        <div className="sidebar d-sm-none d-xs-none">
             <GithubYearSelector 
                 handleClassYear={handleClassYear}
                 handleSelectedYear={handleSelectedYear}/>

@@ -40,6 +40,20 @@
     color:#FC6868;
 }
 
+.send-button {
+    padding: 7px;
+    color: white;
+    background-color: #FC6868;
+    border-radius: 5px;
+    border: 2px solid #CA5353;
+}
+
+
+.send-button:hover {
+    background-color: #CA5353;
+    border-radius: 5px;
+    border: 2px solid #CA5353;
+}
 
 .tab-container {
     padding: 15px;
@@ -78,7 +92,8 @@
 .contribution-chart {
     margin: auto;
     max-width: 400px;
-    max-height: 300px;
+    height: 300px;
+    margin-bottom: 85px;
 }
 
 .profile-image {
