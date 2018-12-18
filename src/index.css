@@ -13,6 +13,13 @@ code {
     monospace;
 }
 
+.home-image {
+  margin-top: -20px;
+  height: 93vh;
+  width: 100%;
+  overflow: hidden;
+}
+
 .sidebar {
   border: 1px solid grey;
   border-radius: 10px;
@@ -87,4 +94,38 @@ p.paragraph {
 .nav-link:visited {
   color: #CA5353;
   text-decoration: none !important;
+}
+
+.link-content-container {
+  align-content: center;
+}
+.link-content {
+  margin-left: auto;
+  margin-right: auto;
+  top: 45vh;
+  z-index: 1;
+  left: 40%;
+  height: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+}
+
+.link-content a {
+  color: #FC6868 !important;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 20px;
+  background: #00000066;
+  border-radius: 5px;
+  border: #FC6868;
+}
+
+.link-content a:hover {
+  color: #FC6868 !important;
+  background: white;
+  font-weight: bold;
+  text-decoration: none;
 }
