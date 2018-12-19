@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import GithubAnalyzer from './Analyzer/GithubAnalyzer';
-import GithubComparer from './Comparer/GithubComparer';
 import GithubProfile from './Profile/GithubProfile';
+import GithubRepositoriesProfile from './Profile/GithubRepositoriesProfile';
 import { AnalyzeTabType } from '../contracts/TabType';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as githubActions from '../../actions/githubActions';
 import './github.css';
-import GithubProfileComparer from './ProfileComparer/GithubProfileComparer';
 import GithubAnalyzerRepositories from './Analyzer/GithubAnalyzerRepositories';
 
 class GithubStartPage extends Component {
@@ -23,17 +22,21 @@ class GithubStartPage extends Component {
     }
 
     showProfileTab() {
-        if(!(this.state.tabs.filter((t) => t.type === AnalyzeTabType.Profile).length === 0)) {
+        this.showTab(AnalyzeTabType.Profile);
+    }
+
+    showProfileContributionsTab() {
+        this.showTab(AnalyzeTabType.RepositoriesProfile);
+    }
+
+    showTab(tabName) {
+        if(!(this.state.tabs.filter((t) => t.type === tabName).length === 0)) {
             return;
         }
         const tabs = this.state.tabs;
-        tabs.push({ type: AnalyzeTabType.Profile });
+        tabs.push({ type: tabName });
         this.setState({tabs});
     }
-
-    /*showProfileContributions() {
-        
-    }*/
 
     handleChangeTab = (tabId) => {
         if(this.state.tab !== tabId) {
@@ -77,27 +80,23 @@ class GithubStartPage extends Component {
         }
         this.setState({
             username: '', 
-            tab: AnalyzeTabType.Profile, 
+            tab: AnalyzeTabType.Profile,
             year: 2018, 
             yearHasChanged: false
         });
     }
 
-    /*handleGetProfileRepositories = () => {
-        this.showProfileTab();
+    handleGetProfileRepositories = () => {
+        this.showProfileContributionsTab();
         const username = this.state.username;
-        if(this.state.yearHasChanged) {
-            this.props.actions.getGithubProfile(username, this.state.year);
-        } else {
-            this.props.actions.getGithubProfile(username);
-        }
+        this.props.actions.getGithubProfileRepositories(username);
         this.setState({
             username: '', 
             tab: AnalyzeTabType.Profile, 
             year: 2018, 
             yearHasChanged: false
         });
-    }*/
+    }
     
     handleClassYear = (year) => {
         let className = "year-btn";
@@ -141,9 +140,12 @@ class GithubStartPage extends Component {
                             case AnalyzeTabType.AnalyzeRepositories:
                                 return <GithubAnalyzerRepositories
                                     username={this.state.username}
-                                    handleChangeUsername={this.handleChangeUsername}/>;
+                                    handleChangeUsername={this.handleChangeUsername}
+                                    handleGetProfileRepositories={this.handleGetProfileRepositories}/>;
                             case AnalyzeTabType.Profile:
                                 return <GithubProfile/>;
+                            case AnalyzeTabType.RepositoriesProfile:
+                                return <GithubRepositoriesProfile/>;
                             default:
                                 return null;
                             }

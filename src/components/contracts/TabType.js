@@ -1,7 +1,8 @@
 export const AnalyzeTabType = {
     Analyzer: 'Analyzer',
     AnalyzeRepositories: 'AnalyzeRepositories',
-    Profile: 'Profile'
+    Profile: 'Profile',
+    RepositoriesProfile: 'RepositoriesProfile'
 };
 
 export const CompareTabType = {

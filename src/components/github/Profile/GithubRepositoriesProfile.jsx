@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 const GithubRepositoriesProfile = ({profile}) => {
     return ( 
@@ -30,5 +31,11 @@ const GithubRepositoriesProfile = ({profile}) => {
 GithubRepositoriesProfile.propTypes = {
     profile: PropTypes.object.isRequired
 };
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        profile: state.profile
+    };
+};
  
-export default GithubRepositoriesProfile;
+export default connect(mapStateToProps)(GithubRepositoriesProfile);

@@ -1,6 +1,7 @@
 import axios from 'axios';
 const url = 'https://github-analyzator-api.herokuapp.com/';
 const profilePath = 'github/contributions/';
+const profileRepoPath = "github/repositories/";
 const sendObject = {
 	headers: {
 	  'Access-Control-Allow-Origin': '*'
@@ -14,6 +15,11 @@ const githubApi = {
             quertyParam += `year=${year}`;
         }
         return axios.get(url + profilePath + username + quertyParam, sendObject);
+    },
+
+    getGithubProfileRepositories: (username) => {
+        let quertyParam = '?';
+        return axios.get(url + profileRepoPath + username, sendObject);
     },
     getCompareGithubProfiles: (firstUsername, secondUsername, year) => {
         let quertyParam = '?';

@@ -14,6 +14,18 @@ export function getGithubProfile(username, year) {
     }
 }
 
+export function getGithubProfileRepositoriesSuccess(profile) {
+    return { type: types.GET_GITHUB_REPOSITORIES_PROFILE_SUCCESS, profile };
+}
+
+export function getGithubProfileRepositories(username) {
+    return async function(dispatch) {
+        const res = await githubApi.getGithubProfileRepositories(username);
+        const profile = res.data;
+        return dispatch(getGithubProfileRepositoriesSuccess(profile));
+    }
+}
+
 export function getCompareGithubProfilesSuccess(profiles) {
     return { type: types.GET_COMPARE_GITHUB_PROFILES_SUCCESS, profiles };
 }
