@@ -93,7 +93,7 @@ class GithubComparePage extends Component {
     }
     render() { 
         return (
-            <div className="container center">
+            <div className="wrapper container center">
                 <ul id="tabs">
                 {this.state.tabs.map((tab) => {
                     return (

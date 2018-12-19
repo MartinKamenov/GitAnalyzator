@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 const NavigationBar = () => ( 
-    <Navbar inverse collapseOnSelect>
+    <Navbar inverse collapseOnSelect className="main-navbar">
         <Navbar.Header>
             <Navbar.Brand className="main-header-container">
                 <Link className="navbar-brand main-header" to="/">Github Analyzator</Link>

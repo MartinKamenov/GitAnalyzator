@@ -106,6 +106,15 @@ code {
     monospace;
 }
 
+.wrapper {
+  min-height: calc(100vh - 375px);
+}
+
+.main-navbar {
+  border-radius: 0px !important; 
+  min-height: 52px;
+}
+
 .footer-container {
   padding: 10px;
   width: 100%;
@@ -117,10 +126,6 @@ code {
   margin-left: 50px;
   display: inline-block;
   margin-top: 10px !important;
-}
-
-ul.unstyled {
-  list-style-type: none
 }
 
 img.home-image {
