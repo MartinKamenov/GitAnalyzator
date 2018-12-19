@@ -30,6 +30,11 @@ class GithubStartPage extends Component {
         tabs.push({ type: AnalyzeTabType.Profile });
         this.setState({tabs});
     }
+
+    /*showProfileContributions() {
+        
+    }*/
+
     handleChangeTab = (tabId) => {
         if(this.state.tab !== tabId) {
             this.setState({tab: tabId});
@@ -77,6 +82,22 @@ class GithubStartPage extends Component {
             yearHasChanged: false
         });
     }
+
+    /*handleGetProfileRepositories = () => {
+        this.showProfileTab();
+        const username = this.state.username;
+        if(this.state.yearHasChanged) {
+            this.props.actions.getGithubProfile(username, this.state.year);
+        } else {
+            this.props.actions.getGithubProfile(username);
+        }
+        this.setState({
+            username: '', 
+            tab: AnalyzeTabType.Profile, 
+            year: 2018, 
+            yearHasChanged: false
+        });
+    }*/
     
     handleClassYear = (year) => {
         let className = "year-btn";

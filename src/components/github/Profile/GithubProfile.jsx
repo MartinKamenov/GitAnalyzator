@@ -7,7 +7,7 @@ import GithubContributionsDetails from '../Common/GihubContributionsDetails';
 const GithubPage = ({profile}) => {
     return ( 
         <div>
-            <h2>Profiles Page</h2>
+            <h2>Profile Contributions Page</h2>
             {
                 (() => {
                     if(profile.data) {
