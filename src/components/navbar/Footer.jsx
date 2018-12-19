@@ -4,22 +4,22 @@ import { FaFacebook, FaTwitter, FaGoogle, FaPhone } from 'react-icons/fa';
 const FooterComponent = () => {
     return (
         <div className='footer-container'>
-            <div className="container">
+            <div className="contacts">
                 For contacts
-                <li>
-                    <ul>
-                        <span className="btn">
+                <ul>
+                    <li className="unstyled">
+                        <span>
                             <FaPhone/> 0886 99 08 41
                         </span>
-                    </ul>
-                </li>
+                    </li>
+                </ul>
             </div>
             <div>
-                <div class="social-btns">
+                <div className="social-btns">
                     <h3>Find us on social media</h3>
-                    <a class="btn facebook" href="https://facebook.com"><FaFacebook className="fa fa-facebook"/></a>
-                    <a class="btn twitter" href="https://twitter.com"><FaTwitter class="fa fa-twitter"/></a>
-                    <a class="btn google" href="https://google.com"><FaGoogle class="fa fa-twitter"/></a>
+                    <a className="btn facebook" href="https://facebook.com"><FaFacebook className="fa fa-facebook"/></a>
+                    <a className="btn twitter" href="https://twitter.com"><FaTwitter className="fa fa-twitter"/></a>
+                    <a className="btn google" href="https://google.com"><FaGoogle className="fa fa-twitter"/></a>
                 </div>
             </div>
         </div>
