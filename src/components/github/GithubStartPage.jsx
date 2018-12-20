@@ -35,6 +35,7 @@ class GithubStartPage extends Component {
         }
         const tabs = this.state.tabs;
         tabs.push({ type: tabName });
+
         this.setState({tabs});
     }
 
@@ -92,7 +93,7 @@ class GithubStartPage extends Component {
         this.props.actions.getGithubProfileRepositories(username);
         this.setState({
             username: '', 
-            tab: AnalyzeTabType.Profile, 
+            tab: AnalyzeTabType.RepositoriesProfile, 
             year: 2018, 
             yearHasChanged: false
         });
