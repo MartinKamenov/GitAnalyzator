@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import RepositoryList from './Repository/RepositoryList';
 
 const GithubRepositoriesProfile = ({profile}) => {
     return ( 
@@ -14,6 +15,7 @@ const GithubRepositoriesProfile = ({profile}) => {
                                 <div>Username: {profile.username}</div>
                                 <div>
                                     <h2>Found repositories</h2>
+                                    <RepositoryList repositories={profile.data.repositoriesInfo}/>
                                 </div>
                             </div>
                         );
