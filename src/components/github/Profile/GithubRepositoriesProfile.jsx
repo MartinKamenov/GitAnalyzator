@@ -12,7 +12,13 @@ const GithubRepositoriesProfile = ({profile}) => {
                     if(profile.data) {
                         return (
                             <div>
-                                <div>Username: {profile.username}</div>
+                                <div className="user-link">
+                                    <h2>
+                                        <a href={"https://github.com/" + profile.username}>
+                                            <span>{profile.username}</span>
+                                        </a>
+                                    </h2>
+                                </div>
                                 <div>
                                     <h2>Found repositories</h2>
                                     <RepositoryList repositories={profile.data.repositoriesInfo}/>
