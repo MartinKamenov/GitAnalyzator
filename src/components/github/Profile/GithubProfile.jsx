@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ChartComponent from '../Chart/ChartComponent';
 import GithubContributionsDetails from '../Common/GihubContributionsDetails';
+import GithubProfileLink from '../Common/GithubProfileLink';
 
 const GithubPage = ({profile}) => {
     return ( 

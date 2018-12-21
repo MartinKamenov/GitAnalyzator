@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ChartComponent from '../Chart/ChartComponent';
 import GithubContributionsDetails from '../Common/GihubContributionsDetails';
+import GithubProfileLink from '../Common/GithubProfileLink';
 
 const GithubProfileComparer = ({ profiles }) => {
     const elements = profiles.map((profile, i) => {
@@ -36,7 +37,13 @@ const GithubProfileComparer = ({ profiles }) => {
                         return (
                             <div>
                                 <div>
-                                    <h3 className="username-header">{profiles[0].username}</h3> vs <h3 className="username-header">{profiles[1].username}</h3>
+                                    <h3 className="username-header">
+                                    <GithubProfileLink
+                                    username={profiles[0].username}/>
+                                    </h3> vs <h3 className="username-header">
+                                    <GithubProfileLink
+                                    username={profiles[1].username}/>
+                                    </h3>
                                 </div>
                                 <div className="row">
                                     {elements.map((profile) => profile)}
