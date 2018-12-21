@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import RepositoryList from './Repository/RepositoryList';
+import GithubProfileLink from '../Common/GithubProfileLink';
 
 const GithubRepositoriesProfile = ({profile}) => {
     return ( 
@@ -12,13 +13,8 @@ const GithubRepositoriesProfile = ({profile}) => {
                     if(profile.data) {
                         return (
                             <div>
-                                <div className="user-link">
-                                    <h2>
-                                        <a href={"https://github.com/" + profile.username}>
-                                            <span>{profile.username}</span>
-                                        </a>
-                                    </h2>
-                                </div>
+                                <GithubProfileLink
+                                username={profile.username}/>
                                 <div>
                                     <h2>Found repositories</h2>
                                     <RepositoryList repositories={profile.data.repositoriesInfo}/>
