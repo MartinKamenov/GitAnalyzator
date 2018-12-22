@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './css/githubProfileLink.css';
 
-const GithubProfileLink = ({ username }) => ( 
+const GithubProfileLink = ({ username }) => (
     <div className="user-link">
-        <h2>
+        <h3>
             <a href={"https://github.com/" + username}>
-                <span>{username}</span>
+                <span data-hover={username}>{username}</span>
             </a>
-        </h2>
+        </h3>
     </div>
 );
 

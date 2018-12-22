@@ -21,7 +21,7 @@ const GithubPage = ({profile}) => {
                         }];
                         return (
                             <div>
-                                <div>Username: {profile.username}</div>
+                                <GithubProfileLink username={profile.username}/>
                                 <GithubContributionsDetails profile={profile}/>
                                 <div className="contribution-chart" >
                                     <ChartComponent dataArray={dataArray}/>

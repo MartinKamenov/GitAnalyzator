@@ -2,7 +2,7 @@
     position: relative;
     display: inline-block;
     outline: none;
-    color: #aaa;
+    color: #fff;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -64,6 +64,7 @@
 .user-link a:hover span,
 .user-link a:focus span {
     background: #666666;
+    color: white;
 }
 
 .user-link a:hover span::before,
