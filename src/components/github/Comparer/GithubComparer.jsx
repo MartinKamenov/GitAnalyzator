@@ -26,7 +26,7 @@ const GithubComparer = ({
             className="form-input" />
             <button type="submit" onClick={handleCompareProfiles} className="send-button">Compare</button>
         </div>
-        <div className="sidebar d-sm-none d-xs-none">
+        <div className="sidebar hidden-sm hidden-xs">
             <GithubYearSelector 
                 handleClassYear={handleClassYear}
                 handleSelectedYear={handleSelectedYear}/>

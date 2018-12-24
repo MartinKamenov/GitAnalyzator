@@ -13,7 +13,7 @@ const HomePage = () => {
                 <Link to="/compare">Compare profiles</Link>
             </div>
             <div className="container center">
-                <div className="sidebar d-sm-none d-xs-none">
+                <div className="sidebar hidden-sm hidden-xs">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
                     alt="Github"
                     className="github-img"></img>

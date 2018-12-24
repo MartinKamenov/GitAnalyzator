@@ -21,7 +21,7 @@ const GithubAnalyzer = ({username,
             <button type="submit" onClick={handleGetProfile}
             className="send-button">Analyze</button>
         </div>
-        <div className="sidebar">
+        <div className="sidebar hidden-sm hidden-xs">
             <GithubYearSelector 
                 handleClassYear = {handleClassYear}
                 handleSelectedYear={handleSelectedYear}/>

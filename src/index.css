@@ -183,10 +183,6 @@ p.paragraph {
   text-align: center;
 }
 
-.hidden {
-  display: none;
-}
-
 .nav-link-container {
   padding: 15px;
   display: inline-block;
