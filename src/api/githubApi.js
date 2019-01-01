@@ -18,7 +18,6 @@ const githubApi = {
     },
 
     getGithubProfileRepositories: (username) => {
-        let quertyParam = '?';
         return axios.get(url + profileRepoPath + username, sendObject);
     },
     getCompareGithubProfiles: (firstUsername, secondUsername, year) => {

@@ -7,7 +7,7 @@ const HomePage = () => {
         <div className="home-wrapper">
             <img className="home-image"
                 alt="home"
-                src="https://images.pexels.com/photos/1268477/pexels-photo-1268477.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></img>
+                src="/laptop-wallpaper.jpg"></img>
             <div className="link-content">
                 <Link to="/analyze">Anlyze profile</Link>
                 <Link to="/compare">Compare profiles</Link>

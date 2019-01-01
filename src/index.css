@@ -139,7 +139,7 @@ img.home-image {
   border: 1px solid grey;
   border-radius: 10px;
   max-width: 20%;
-  position: fixed;
+  position: absolute;
   z-index: 1;
   top: 100px;
   left: 75%;
