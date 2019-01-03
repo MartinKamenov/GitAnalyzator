@@ -26,6 +26,11 @@ const NavigationBar = () => (
 					<Link className="nav-link navbar_element" to="/compare">Compare</Link>
 				</NavItem>
 			</Nav>
+			<Nav>
+				<NavItem componentClass='span' className="nav-link-container">
+					<Link className="nav-link navbar_element" to="/overview">Overview</Link>
+				</NavItem>
+			</Nav>
 		</Navbar.Collapse>
     </Navbar>
 );

@@ -5,6 +5,7 @@ import GithubStartPage from './components/github/GithubStartPage';
 import GithubComparePage from './components/github/GithubComparePage';
 import HomePage from './components/home/HomePage';
 import FooterComponent from './components/navbar/Footer';
+import GithubOverview from './components/github/Overview/GithubOverview';
 
 const AppRouter = () => {
     return (
@@ -15,6 +16,7 @@ const AppRouter = () => {
                     <Route exact path="/" component={HomePage} />
                     <Route path="/analyze" component={GithubStartPage} />
                     <Route path="/compare" component={GithubComparePage} />
+                    <Route path="/overview" component={GithubOverview} />
                 </div>
                 <FooterComponent/>
             </div>
