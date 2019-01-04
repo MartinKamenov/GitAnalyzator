@@ -38,7 +38,7 @@ const githubApi = {
             quertyParam += `page=1`;
         }
 
-        const searchUrl = url + profilePath + usersPath + quertyParam;
+        const searchUrl = url + usersPath + quertyParam;
         return axios.get(searchUrl, sendObject);
     }
 };

@@ -39,13 +39,13 @@ export function getCompareGithubProfiles(firstUsername, secondUsername, year) {
     }
 }
 
-export function getGithubUsers(page) {
-    return async function(dispatch) {
-        const users = await githubApi.getGithubByPageUsersPage(page);
-        return dispatch(getGithubUsersSuccess(users));
-    }
-}
-
 export function getGithubUsersSuccess(users) {
     return { type: types.GET_GITHUB_USERS_PAGE_SUCCESS, users };
+}
+export function getGithubUsers(page) {
+    return async function(dispatch) {
+        const res = await githubApi.getGithubUsersByPage(page);
+        const users = res.data;
+        return dispatch(getGithubUsersSuccess(users));
+    }
 }
