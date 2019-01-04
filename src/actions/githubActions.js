@@ -38,3 +38,14 @@ export function getCompareGithubProfiles(firstUsername, secondUsername, year) {
         return dispatch(getCompareGithubProfilesSuccess(profiles));
     }
 }
+
+export function getGithubUsers(page) {
+    return async function(dispatch) {
+        const users = await githubApi.getGithubByPageUsersPage(page);
+        return dispatch()
+    }
+}
+
+export function getGithubUsersSuccess(users) {
+    
+}
