@@ -13,6 +13,18 @@
     padding-bottom: 5px;
 }
 
+.details-numbers-container {
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+}
+
+.chart-wrapper {
+    display: inline-block;
+    width: 50%;
+    height: 100px;
+}
+
 .detail {
     margin-top: 5px;
 }
