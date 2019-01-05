@@ -1,6 +1,7 @@
 import axios from 'axios';
 const url = 'https://github-analyzator-api.herokuapp.com/';
 const profilePath = 'github/contributions/';
+const usersPath = 'github/users/';
 const profileRepoPath = "github/repositories/";
 const sendObject = {
 	headers: {
@@ -26,7 +27,18 @@ const githubApi = {
             quertyParam += `year=${year}`;
         }
         const searchUrl = url + profilePath + firstUsername + '/' + secondUsername + quertyParam;
-        console.log(searchUrl);
+        return axios.get(searchUrl, sendObject);
+    },
+
+    getGithubUsersByPage: (page) => {
+        let quertyParam = '?';
+        if(page) {
+            quertyParam += `page=${page}`;
+        } else {
+            quertyParam += `page=1`;
+        }
+
+        const searchUrl = url + usersPath + quertyParam;
         return axios.get(searchUrl, sendObject);
     }
 };

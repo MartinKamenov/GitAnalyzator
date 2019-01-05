@@ -1,0 +1,26 @@
+.profile {
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 50px; 
+    height: 400px;
+    padding: 10px;
+}
+
+.details-container {
+    border-radius: 30px;
+    background-color: #aaaaaa;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.detail {
+    margin-top: 5px;
+}
+
+.number-detail {
+    border: 1px solid black;
+    display: inline-block;
+    background: white;
+    color: black;
+    padding: 10px;
+}
