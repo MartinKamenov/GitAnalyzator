@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ProfileComponent from './ProfileComponent';
 
 const ProfilesContainer = ({ profiles }) => {
     return (
-        <div>Profiles count: {profiles.length}</div>
+        <div className="row">{
+            profiles.map((profile, i) => 
+                (<ProfileComponent key={i} profile={profile}/>)
+            )
+        }</div>
     );
 }
 

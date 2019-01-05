@@ -1,0 +1,23 @@
+.profile-container {
+    border: 1px solid black;
+    border-radius: 50px; 
+    height: 400px;
+    padding: 10px;
+}
+
+.details-container {
+    border-radius: 30px;
+    background-color: #aaaaaa;
+}
+
+.detail {
+    
+}
+
+.number-detail {
+    border: 1px solid black;
+    display: inline-block;
+    background: white;
+    color: black;
+    padding: 10px;
+}

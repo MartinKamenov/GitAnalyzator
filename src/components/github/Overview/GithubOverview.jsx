@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as githubActions from '../../../actions/githubActions';
 import ProfilesContainer from './ProfilesContainer';
+import './css/overview.css';
 
 class GithubOverview extends Component {
     componentDidMount() {
@@ -14,7 +15,7 @@ class GithubOverview extends Component {
                 <div className="header">
                     <h1>Searched github profiles</h1>
                     {(() => {
-                        if(!this.props.users) {
+                        if(!this.props.users.length) {
                             return <div>Loading...</div>;
                         } else {
                             return <ProfilesContainer profiles={this.props.users}/>;
