@@ -45,7 +45,7 @@ export function getGithubUsersSuccess(users) {
 export function getGithubUsers(page) {
     return async function(dispatch) {
         const res = await githubApi.getGithubUsersByPage(page);
-        const users = res.data;
-        return dispatch(getGithubUsersSuccess(users));
+        const usersObject = res.data;
+        return dispatch(getGithubUsersSuccess(usersObject));
     }
 }

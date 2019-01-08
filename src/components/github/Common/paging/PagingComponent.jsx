@@ -7,7 +7,7 @@ const PagingComponent = ({ pages }) => (
     <div>
         {
             pages.map((page, i) => {
-                return <PagingDetailsComponent page={page} key={i}/>
+                return <PagingDetailsComponent page={page} key={i}/>;
             })
         }
     </div>
