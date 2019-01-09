@@ -17,15 +17,17 @@ class GithubOverview extends Component {
 
     addPagesToState(usersObject) {
         const pages = [];
-        for(let i = 0; i < usersObject.pagesCount; i++) {
-            pages.push(i + 1);
+        const page = usersObject.page;
+        const pagesCount = usersObject.pagesCount;
+        const startPage = page > 1 ? page - 1 : 1;
+        const endPage = page < pagesCount ? page + 1 : pagesCount;
+        for(let i = startPage; i < endPage + 1; i++) {
+            pages.push(i);
         }
 
         this.setState({ pages });
     }
     render() {
-        console.log(this.props.users);
-        debugger;
         return (
             <div className="wrapper container center">
                 <div className="header">
