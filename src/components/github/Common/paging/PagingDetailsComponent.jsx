@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const PagingDetailsComponent = ({ page }) => (
-    <Link className='page-container' to={'/overview?page=' + page}>
+const PagingDetailsComponent = ({ page, onPageChangeHandler }) => (
+    <Link onClick={() =>onPageChangeHandler(page)} className='page-container' to={'/overview?page=' + page}>
         <span>{ page }</span>
     </Link>
 );
