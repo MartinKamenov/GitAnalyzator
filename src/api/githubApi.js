@@ -2,9 +2,9 @@ import axios from 'axios';
 const url = 'https://github-analyzator-api.herokuapp.com/';
 const profilePath = 'github/contributions/';
 const usersPath = 'github/users/';
-const profileRepoPath = "github/repositories/";
+const profileRepoPath = 'github/repositories/';
 const sendObject = {
-	headers: {
+    headers: {
 	  'Access-Control-Allow-Origin': '*'
     }
 };
@@ -35,7 +35,7 @@ const githubApi = {
         if(page) {
             quertyParam += `page=${page}`;
         } else {
-            quertyParam += `page=1`;
+            quertyParam += 'page=1';
         }
 
         const searchUrl = url + usersPath + quertyParam;
