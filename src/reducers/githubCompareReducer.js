@@ -1,12 +1,12 @@
 import * as types from '../actions/actionTypes';
 
 export default function githubCompareReducer(profiles = [], action) {
-  switch (action.type) {
+    switch (action.type) {
 
     case types.GET_COMPARE_GITHUB_PROFILES_SUCCESS:
-      return action.profiles;
+        return action.profiles;
 
     default:
-      return profiles;
-  }
+        return profiles;
+    }
 }

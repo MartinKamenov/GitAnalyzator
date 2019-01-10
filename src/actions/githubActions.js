@@ -11,7 +11,7 @@ export function getGithubProfile(username, year) {
         const res = await githubApi.getGithubProfile(username, year);
         const profile = res.data;
         return dispatch(getGithubProfileSuccess(profile));
-    }
+    };
 }
 
 export function getGithubProfileRepositoriesSuccess(profile) {
@@ -23,7 +23,7 @@ export function getGithubProfileRepositories(username) {
         const res = await githubApi.getGithubProfileRepositories(username);
         const profile = res.data;
         return dispatch(getGithubProfileRepositoriesSuccess(profile));
-    }
+    };
 }
 
 export function getCompareGithubProfilesSuccess(profiles) {
@@ -36,7 +36,7 @@ export function getCompareGithubProfiles(firstUsername, secondUsername, year) {
         const res = await githubApi.getCompareGithubProfiles(firstUsername, secondUsername, year);
         const profiles = res.data;
         return dispatch(getCompareGithubProfilesSuccess(profiles));
-    }
+    };
 }
 
 export function getGithubUsersSuccess(users) {
@@ -47,5 +47,5 @@ export function getGithubUsers(page) {
         const res = await githubApi.getGithubUsersByPage(page);
         const users = res.data;
         return dispatch(getGithubUsersSuccess(users));
-    }
+    };
 }
