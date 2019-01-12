@@ -6,6 +6,7 @@ import ProfilesContainer from './ProfilesContainer';
 import './css/overview.css';
 import PagingComponent from '../Common/paging/PagingComponent';
 import queryString from 'query-string'
+import LoaderComponent from '../Common/Loader';
 
 class GithubOverview extends Component {
     componentDidMount() {
@@ -44,7 +45,7 @@ class GithubOverview extends Component {
                     <h1>Searched github profiles</h1>
                     {(() => {
                         if(!this.props.users) {
-                            return <div>Loading...</div>;
+                            return <LoaderComponent/>;
                         } else {
                             return (
                                 <div>
