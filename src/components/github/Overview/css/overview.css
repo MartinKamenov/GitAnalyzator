@@ -8,7 +8,8 @@
 
 .details-container {
     border-radius: 30px;
-    background-color: #aaaaaa;
+    color: white;
+    background-color: #222222;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -32,7 +33,7 @@
 .number-detail {
     border: 1px solid black;
     display: inline-block;
-    background: white;
+    background-color: white;
     color: black;
     padding: 10px;
 }

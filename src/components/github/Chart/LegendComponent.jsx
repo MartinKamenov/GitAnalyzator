@@ -9,9 +9,9 @@ const LegendComponent = ({colorsData}) => {
                 return (
                     <div key={i}>
                         <span className={data.classColor}></span>
-                        <span> {data.title}</span>
+                        <span>{data.title}</span>
                     </div>
-                )
+                );
             })}
         </div>
     );
