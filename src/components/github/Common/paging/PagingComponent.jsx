@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import './paging.css';
 import PagingDetailsComponent from './PagingDetailsComponent';
 
-const PagingComponent = ({ pages, onPageChangeHandler }) => (
+const PagingComponent = ({ pages, onPageChangeHandler, currentPage }) => (
     <div>
         {
             pages.map((page, i) => {
-                return <PagingDetailsComponent page={page} key={i} onPageChangeHandler={onPageChangeHandler}/>;
+                return <PagingDetailsComponent currentPage={currentPage}
+                    page={page}
+                    key={i}
+                    onPageChangeHandler={onPageChangeHandler}/>;
             })
         }
     </div>
@@ -15,7 +18,8 @@ const PagingComponent = ({ pages, onPageChangeHandler }) => (
 
 PagingComponent.propTypes = {
     pages: PropTypes.array.isRequired,
-    onPageChangeHandler: PropTypes.func.isRequired
+    onPageChangeHandler: PropTypes.func.isRequired,
+    currentPage: PropTypes.number.isRequired
 };
  
 export default PagingComponent;

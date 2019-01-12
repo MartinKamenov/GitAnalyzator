@@ -49,7 +49,10 @@ class GithubOverview extends Component {
                             return (
                                 <div>
                                     <ProfilesContainer profiles={this.props.users.users}/>
-                                    <PagingComponent onPageChangeHandler={this.onPageChangeHandler} pages={this.state.pages}/>
+                                    <PagingComponent
+                                        currentPage={this.state.page}
+                                        onPageChangeHandler={this.onPageChangeHandler}
+                                        pages={this.state.pages}/>
                                 </div>
                             );
                         }

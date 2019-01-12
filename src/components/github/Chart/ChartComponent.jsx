@@ -6,7 +6,11 @@ import LegendComponent from './LegendComponent';
 const ChartComponent = ({dataArray}) => {
     return (
         <React.Fragment>
-            <LegendComponent colorsData={dataArray}/>
+            {(() => {
+                if(dataArray.classColor) {
+                    return <LegendComponent colorsData={dataArray}/>;
+                }
+            })()}
             <Chart data={dataArray.map((dataDetails, i) => {
                 return ({
                     label: dataDetails.title,
