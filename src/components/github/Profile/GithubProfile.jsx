@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ChartComponent from '../Chart/ChartComponent';
 import GithubContributionsDetails from '../Common/GihubContributionsDetails';
 import GithubProfileLink from '../Common/GithubProfileLink';
+import LoaderComponent from '../Common/Loader';
 
 const GithubPage = ({profile}) => {
     return ( 
@@ -29,12 +30,10 @@ const GithubPage = ({profile}) => {
                             </div>
                         );
                     } else {
-                        return (
-                            <div>Fetching data...</div>
-                        );
+                        return <LoaderComponent/>;
                     }
                 })()
-        }
+            }
         </div>
     );
 }

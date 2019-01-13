@@ -10,7 +10,6 @@ import LoaderComponent from '../Common/Loader';
 
 class GithubOverview extends Component {
     componentDidMount() {
-        console.log(queryString.parse(this.props.location.search));
         const queryObject = queryString.parse(this.props.location.search);
         const pageString = queryObject.page;
         const page = parseInt(pageString, 10);

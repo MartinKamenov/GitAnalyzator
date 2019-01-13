@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import RepositoryList from './Repository/RepositoryList';
 import GithubProfileLink from '../Common/GithubProfileLink';
+import LoaderComponent from '../Common/Loader';
 
 const GithubRepositoriesProfile = ({profile}) => {
     return ( 
@@ -14,7 +15,7 @@ const GithubRepositoriesProfile = ({profile}) => {
                         return (
                             <div>
                                 <GithubProfileLink
-                                username={profile.username}/>
+                                    username={profile.username}/>
                                 <div>
                                     <h2>Found repositories</h2>
                                     <RepositoryList repositories={profile.data.repositoriesInfo}/>
@@ -22,15 +23,13 @@ const GithubRepositoriesProfile = ({profile}) => {
                             </div>
                         );
                     } else {
-                        return (
-                            <div>Fetching data...</div>
-                        );
+                        return <LoaderComponent/>;
                     }
                 })()
-        }
+            }
         </div>
     );
-}
+};
 
 GithubRepositoriesProfile.propTypes = {
     profile: PropTypes.object.isRequired
