@@ -6,10 +6,14 @@ import ProfilesContainer from './ProfilesContainer';
 import './css/overview.css';
 import PagingComponent from '../Common/paging/PagingComponent';
 import queryString from 'query-string'
+import LoaderComponent from '../Common/Loader';
 
 class GithubOverview extends Component {
+    state = {
+        isLoading: true,
+        currentPage: 0
+    }
     componentDidMount() {
-        console.log(queryString.parse(this.props.location.search));
         const queryObject = queryString.parse(this.props.location.search);
         const pageString = queryObject.page;
         const page = parseInt(pageString, 10);
@@ -24,17 +28,30 @@ class GithubOverview extends Component {
         const pages = [];
         const page = usersObject.page;
         const pagesCount = usersObject.pagesCount;
-        const startPage = page > 1 ? page - 1 : 1;
-        const endPage = page < pagesCount ? page + 1 : pagesCount;
+        let startPage = page > 1 ? page - 1 : 1;
+        let endPage = page < pagesCount ? page + 1 : pagesCount;
+        if(startPage === 1 && pagesCount > 2) {
+            endPage = 3;
+        }
+
+        debugger;
+        if(page === pagesCount && startPage > 1) {
+            startPage--;
+        }
+
         for(let i = startPage; i < endPage + 1; i++) {
             pages.push(i);
         }
 
-        this.setState({ pages, page });
+        if(this.state.currentPage === page) {
+            return;
+        }
+
+        this.setState({ pages, page, currentPage: page, isLoading: false });
     }
 
     onPageChangeHandler = (page) => {
-        this.setState({page});
+        this.setState({page, isLoading: true});
         this.props.actions.getGithubUsers(page);
     }
     render() {
@@ -43,8 +60,8 @@ class GithubOverview extends Component {
                 <div className="header">
                     <h1>Searched github profiles</h1>
                     {(() => {
-                        if(!this.props.users) {
-                            return <div>Loading...</div>;
+                        if(this.state.isLoading) {
+                            return <LoaderComponent/>;
                         } else {
                             return (
                                 <div>

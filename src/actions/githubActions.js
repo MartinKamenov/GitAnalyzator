@@ -47,5 +47,5 @@ export function getGithubUsers(page) {
         const res = await githubApi.getGithubUsersByPage(page);
         const usersObject = res.data;
         return dispatch(getGithubUsersSuccess(usersObject));
-    }
+    };
 }

@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import ChartComponent from '../Chart/ChartComponent';
 import GithubContributionsDetails from '../Common/GihubContributionsDetails';
 import GithubProfileLink from '../Common/GithubProfileLink';
+import LoaderComponent from '../Common/Loader';
 
 const GithubProfileComparer = ({ profiles }) => {
     const elements = profiles.map((profile, i) => {
         return (
-        <div className="col-md-6" key={i}>
-            <GithubContributionsDetails profile={profile}/>
-        </div>
+            <div className="col-md-6" key={i}>
+                <GithubContributionsDetails profile={profile}/>
+            </div>
         );
     });
     return ( 
@@ -28,21 +29,21 @@ const GithubProfileComparer = ({ profiles }) => {
                                 'first-profile-legend' : 'second-profile-legend';
                             return (
                                 dataArray
-                                .push({
-                                    title: profile.username, 
-                                    contributions,
-                                    classColor }
-                                ));
+                                    .push({
+                                        title: profile.username, 
+                                        contributions,
+                                        classColor }
+                                    ));
                         });
                         return (
                             <div>
                                 <div>
                                     <h3 className="username-header">
-                                    <GithubProfileLink
-                                    username={profiles[0].username}/>
+                                        <GithubProfileLink
+                                            username={profiles[0].username}/>
                                     </h3> vs <h3 className="username-header">
-                                    <GithubProfileLink
-                                    username={profiles[1].username}/>
+                                        <GithubProfileLink
+                                            username={profiles[1].username}/>
                                     </h3>
                                 </div>
                                 <div className="row">
@@ -54,13 +55,13 @@ const GithubProfileComparer = ({ profiles }) => {
                             </div>
                         );
                     } else {
-                        return <div>Fetching data...</div>;
+                        return <LoaderComponent/>;
                     }
                 })()
             }</div>
         </div>
     );
-}
+};
 
 GithubProfileComparer.propTypes = {
     profiles: PropTypes.array.isRequired

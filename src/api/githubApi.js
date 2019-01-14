@@ -5,7 +5,7 @@ const usersPath = 'github/users/';
 const profileRepoPath = 'github/repositories/';
 const sendObject = {
     headers: {
-	  'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*'
     }
 };
 
@@ -31,11 +31,11 @@ const githubApi = {
     },
 
     getGithubUsersByPage: (page) => {
-        let quertyParam = '?';
+        let quertyParam = '?pagesize=6';
         if(page) {
-            quertyParam += `page=${page}`;
+            quertyParam += `&page=${page}`;
         } else {
-            quertyParam += 'page=1';
+            quertyParam += '&page=1';
         }
 
         const searchUrl = url + usersPath + quertyParam;

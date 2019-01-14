@@ -20,7 +20,7 @@ const FooterComponent = () => {
                     <a className="btn google" href="https://google.com"><FaGoogle className="fa fa-twitter"/></a>
                 </div>
             </nav>
-            <nav class="bottom-info">
+            <nav className="bottom-info">
                 2018 Github Analyzator
             </nav>
         </div>
