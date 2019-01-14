@@ -5,7 +5,7 @@ const usersPath = 'github/users/';
 const profileRepoPath = 'github/repositories/';
 const sendObject = {
     headers: {
-	  'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*'
     }
 };
 

@@ -1,4 +1,4 @@
-.page-container {
+.page-container, .page-container:visited  {
     display: inline-block;
     padding: 10px;
     width: 40px;
@@ -8,9 +8,10 @@
     color: white;
     border: 1px solid black;
     font-weight: bold;
+    text-decoration: none;
 }
 
-.page-container:hover {
+.page-container:hover, .page-container:active {
     background-color: #CA5353;
     text-decoration: none;
     color: white;
