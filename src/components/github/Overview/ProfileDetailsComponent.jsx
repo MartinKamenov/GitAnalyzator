@@ -1,39 +1,73 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ChartComponent from '../Chart/ChartComponent';
+import NumberDetailTypes from '../../contracts/NumberDetailTypes';
 
-const ProfileDetailsComponent = ({data}) => {
-    const contributionData = [];
-    data.dateContributionsNumbers.forEach((c, i) => contributionData.push([i, c]));
-    const dataArray = [{
-        title: 'Contribution graph', 
-        contributions: contributionData
-    }];
-    return (
-        <div className="details-container">
-            <div className="details-numbers-container">
-                <div className="detail">
-                    <span>All </span>
-                    <div className="number-detail">{data.totalContributionsCount}</div>
+class ProfileDetailsComponent extends PureComponent {
+    getDetailClass(field, value) {
+        let className = 'number-detail ';
+        switch(field) {
+        case 'totalContributionsCount':
+            if(value < 500) {
+                className += NumberDetailTypes.default;
+            } else if(value < 1000) {
+                className += NumberDetailTypes.bronze;
+            } else if(value < 2000) {
+                className += NumberDetailTypes.silver;
+            } else {
+                className += NumberDetailTypes.gold;
+            }
+            break;
+        case 'conclussiveContributions':
+            if(value < 100) {
+                className += NumberDetailTypes.default;
+            } else if(value < 200) {
+                className += NumberDetailTypes.bronze;
+            } else if(value < 300) {
+                className += NumberDetailTypes.silver;
+            } else {
+                className += NumberDetailTypes.gold;
+            }
+            break;
+        }
+        return className;
+    }
+    render() {
+        const data = this.props.data;
+        const contributionData = [];
+        data.dateContributionsNumbers.forEach((c, i) => contributionData.push([i, c]));
+        const dataArray = [{
+            title: 'Contribution graph', 
+            contributions: contributionData
+        }];
+        return (
+            <div className="details-container">
+                <div className="details-numbers-container">
+                    <div className="detail">
+                        <span>All </span>
+                        <div className={this.getDetailClass('totalContributionsCount', data.totalContributionsCount)}>
+                            {data.totalContributionsCount}
+                        </div>
+                    </div>
+                    <div className="detail">
+                        <span>Conclussive </span>
+                        <div className="number-detail">{data.conclussiveContributions}</div>
+                    </div>
+                    <div className="detail">
+                        <span>Max per day </span>
+                        <div className="number-detail">{data.maxContributionsForDay}</div>
+                    </div>
+                    <div className="detail">
+                        <span>Without </span>
+                        <div className="number-detail">{data.daysWithoutContributions}</div>
+                    </div>
                 </div>
-                <div className="detail">
-                    <span>Conclussive </span>
-                    <div className="number-detail">{data.conclussiveContributions}</div>
-                </div>
-                <div className="detail">
-                    <span>Max per day </span>
-                    <div className="number-detail">{data.maxContributionsForDay}</div>
-                </div>
-                <div className="detail">
-                    <span>Without </span>
-                    <div className="number-detail">{data.daysWithoutContributions}</div>
+                <div className="chart-wrapper">
+                    <ChartComponent dataArray={dataArray}/>
                 </div>
             </div>
-            <div className="chart-wrapper">
-                <ChartComponent dataArray={dataArray}/>
-            </div>
-        </div>
-    );
+        );
+    }
 }
 
 ProfileDetailsComponent.propTypes = {
