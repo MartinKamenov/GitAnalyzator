@@ -31,9 +31,31 @@
 }
 
 .number-detail {
-    border: 1px solid black;
+    border-radius: 5px;
     display: inline-block;
-    background-color: white;
-    color: black;
     padding: 10px;
+}
+
+.number-detail.gold {
+    border: 1px solid black;
+    background-color:#FFD700;
+    color: black;
+}
+
+.number-detail.silver {
+    border: 1px solid black;
+    background-color: #C0C0C0;
+    color: black;
+}
+
+.number-detail.bronze {
+    border: 1px solid black;
+    background-color: #CD7F32;
+    color: black;
+}
+
+.number-detail.default {
+    border: 1px solid white;
+    background-color: black;
+    color: white;
 }

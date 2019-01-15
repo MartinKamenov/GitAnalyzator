@@ -15,15 +15,15 @@ const GithubComparer = ({
                 <h2>Compare github profiles</h2>
             </div>
             <input type="text"
-            value={firtsUsername}
-            onChange={(ev) => handleChangeUsername(ev, 'firstUsername')}
-            placeholder="First github profile"
-            className="form-input" />
+                value={firtsUsername}
+                onChange={(ev) => handleChangeUsername(ev, 'firstUsername')}
+                placeholder="First github profile"
+                className="form-input" />
             <input type="text" 
-            value={secondUsername}
-            onChange={(ev) => handleChangeUsername(ev, 'secondUsername')}
-            placeholder="Second github profile"
-            className="form-input" />
+                value={secondUsername}
+                onChange={(ev) => handleChangeUsername(ev, 'secondUsername')}
+                placeholder="Second github profile"
+                className="form-input" />
             <button type="submit" onClick={handleCompareProfiles} className="send-button">Compare</button>
         </div>
         <div className="sidebar hidden-sm hidden-xs">

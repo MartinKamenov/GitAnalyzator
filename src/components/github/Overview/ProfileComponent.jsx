@@ -4,15 +4,22 @@ import ProfileDetailsComponent from './ProfileDetailsComponent';
 
 const ProfileComponent = ({ profile }) => {
     return (
+        
         <div className="profile-container col-md-4">
-            <div className="profile">
-                <h2>{profile.username}</h2>
-                <img
-                    className="profile-image"
-                    alt={profile.username}
-                    src={profile.data.pictureUrl}></img>
-                <ProfileDetailsComponent data={profile.data}/>
-            </div>
+            {(() => {
+                if(profile) {
+                    return (
+                        <div className="profile">
+                            <h2>{profile.username}</h2>
+                            <img
+                                className="profile-image"
+                                alt={profile.username}
+                                src={profile.data.pictureUrl}></img>
+                            <ProfileDetailsComponent data={profile.data}/>
+                        </div>
+                    );
+                }
+            })()}
         </div>
     );
 };
