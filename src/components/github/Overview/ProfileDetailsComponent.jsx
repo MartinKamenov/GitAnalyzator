@@ -19,14 +19,36 @@ class ProfileDetailsComponent extends PureComponent {
             }
             break;
         case 'conclussiveContributions':
-            if(value < 100) {
+            if(value < 30) {
                 className += NumberDetailTypes.default;
-            } else if(value < 200) {
+            } else if(value < 75) {
                 className += NumberDetailTypes.bronze;
-            } else if(value < 300) {
+            } else if(value < 150) {
                 className += NumberDetailTypes.silver;
             } else {
                 className += NumberDetailTypes.gold;
+            }
+            break;
+        case 'maxContributionsForDay':
+            if(value < 25) {
+                className += NumberDetailTypes.default;
+            } else if(value < 50) {
+                className += NumberDetailTypes.bronze;
+            } else if(value < 100) {
+                className += NumberDetailTypes.silver;
+            } else {
+                className += NumberDetailTypes.gold;
+            }
+            break;
+        case 'daysWithoutContributions':
+            if(value < 100) {
+                className += NumberDetailTypes.gold;
+            } else if(value < 200) {
+                className += NumberDetailTypes.silver;
+            } else if(value < 300) {
+                className += NumberDetailTypes.bronze;
+            } else {
+                className += NumberDetailTypes.default;
             }
             break;
         }
@@ -51,15 +73,21 @@ class ProfileDetailsComponent extends PureComponent {
                     </div>
                     <div className="detail">
                         <span>Conclussive </span>
-                        <div className="number-detail">{data.conclussiveContributions}</div>
+                        <div className={this.getDetailClass('conclussiveContributions', data.conclussiveContributions)}>
+                            {data.conclussiveContributions}
+                        </div>
                     </div>
                     <div className="detail">
                         <span>Max per day </span>
-                        <div className="number-detail">{data.maxContributionsForDay}</div>
+                        <div className={this.getDetailClass('maxContributionsForDay', data.maxContributionsForDay)}>
+                            {data.maxContributionsForDay}
+                        </div>
                     </div>
                     <div className="detail">
                         <span>Without </span>
-                        <div className="number-detail">{data.daysWithoutContributions}</div>
+                        <div className={this.getDetailClass('daysWithoutContributions', data.daysWithoutContributions)}>
+                            {data.daysWithoutContributions}
+                        </div>
                     </div>
                 </div>
                 <div className="chart-wrapper">
