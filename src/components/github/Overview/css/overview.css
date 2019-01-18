@@ -8,6 +8,10 @@
     display: block;
 }
 
+.profile:hover {
+    background-color: #aaaaaa;
+}
+
 .details-container {
     border-radius: 30px;
     color: white;

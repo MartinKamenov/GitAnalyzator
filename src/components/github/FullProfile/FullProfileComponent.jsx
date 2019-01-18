@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import LoaderComponent from '../Common/Loader';
 import ProfileCard from './ProfileCard';
+import FullProfileContributions from './FullProfileContributions';
 
 class FullProfileComponent extends Component {
     state = {
@@ -28,6 +29,7 @@ class FullProfileComponent extends Component {
                                 <div>
                                     <h2>{this.props.fullUser.username}</h2>
                                     <ProfileCard profile={this.props.fullUser}/>
+                                    <FullProfileContributions profile={this.props.fullUser}/>
                                 </div>
                             );
                         } else {
@@ -42,17 +44,19 @@ class FullProfileComponent extends Component {
 
 FullProfileComponent.propTypes = {
     fullUser: PropTypes.shape({
-        username: PropTypes.string,
-        data: PropTypes.shape({
-            pictureUrl: PropTypes.string,
-            totalContributionsCount: PropTypes.number,
-            daysWithoutContributions: PropTypes.number,
-            conclussiveContributions: PropTypes.number,
-            maxContributionsForDay: PropTypes.number,
-            dateContributionsNumbers: PropTypes.array
-        }).isRequired,
-        repositories: PropTypes.array,
-        followers: PropTypes.array
+        profile: PropTypes.shape({
+            username: PropTypes.string,
+            data: PropTypes.shape({
+                pictureUrl: PropTypes.string,
+                totalContributionsCount: PropTypes.number,
+                daysWithoutContributions: PropTypes.number,
+                conclussiveContributions: PropTypes.number,
+                maxContributionsForDay: PropTypes.number,
+                dateContributionsNumbers: PropTypes.array
+            }).isRequired,
+            repositories: PropTypes.array,
+            followers: PropTypes.array
+        }).isRequired
     }).isRequired
 };
 
