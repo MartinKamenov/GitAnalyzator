@@ -1,0 +1,12 @@
+.search_container {
+    background-color: #222222;
+    border-radius: 10px;
+    height: 100px;
+    padding: 10px;
+    color: white;
+}
+
+.numberInput {
+    max-width: 50px;
+}
+

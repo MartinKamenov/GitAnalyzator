@@ -7,6 +7,7 @@ import './css/overview.css';
 import PagingComponent from '../Common/paging/PagingComponent';
 import queryString from 'query-string'
 import LoaderComponent from '../Common/Loader';
+import SearchComponent from '../Common/SearchComponent';
 
 class GithubOverview extends Component {
     state = {
@@ -58,6 +59,7 @@ class GithubOverview extends Component {
             <div className="wrapper container center">
                 <div className="header">
                     <h1>Searched github profiles</h1>
+                    <SearchComponent/>
                     {(() => {
                         if(this.state.isLoading) {
                             return <LoaderComponent/>;
