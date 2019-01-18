@@ -53,8 +53,7 @@ FullProfileComponent.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        profile: state.profile,
-        profiles: state.profiles
+        fullUser: state.fullUser
     };
 };
 
