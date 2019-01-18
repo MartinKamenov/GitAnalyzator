@@ -33,8 +33,7 @@ class GithubOverview extends Component {
         if(startPage === 1 && pagesCount > 2) {
             endPage = 3;
         }
-
-        debugger;
+        
         if(page === pagesCount && startPage > 1) {
             startPage--;
         }
@@ -65,7 +64,8 @@ class GithubOverview extends Component {
                         } else {
                             return (
                                 <div>
-                                    <ProfilesContainer profiles={this.props.users.users}/>
+                                    <ProfilesContainer
+                                    profiles={this.props.users.users}/>
                                     <PagingComponent
                                         currentPage={this.state.page}
                                         onPageChangeHandler={this.onPageChangeHandler}

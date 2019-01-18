@@ -6,11 +6,12 @@ const ProfilesContainer = ({ profiles }) => {
     return (
         <div className="row">{
             profiles.map((profile, i) => 
-                (<ProfileComponent key={i} profile={profile}/>)
+                (<ProfileComponent key={i}
+                    profile={profile}/>)
             )
         }</div>
     );
-}
+};
 
 ProfilesContainer.propTypes = {
     profiles: PropTypes.array.isRequired

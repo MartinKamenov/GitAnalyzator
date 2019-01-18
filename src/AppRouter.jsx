@@ -18,7 +18,7 @@ const AppRouter = () => {
                     <Route path="/analyze" component={GithubStartPage} />
                     <Route path="/compare" component={GithubComparePage} />
                     <Route path="/overview" component={GithubOverview} />
-                    <Route path="/profile(/:username)" component={FullProfileComponent} />
+                    <Route path="/profile/:username" component={FullProfileComponent} />
                 </div>
                 <FooterComponent/>
             </div>

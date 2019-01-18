@@ -9,14 +9,16 @@ const ProfileComponent = ({ profile }) => {
             {(() => {
                 if(profile) {
                     return (
-                        <div className="profile">
+                        <a
+                            href={'/profile/' + profile.username}
+                            className="profile">
                             <h2>{profile.username}</h2>
                             <img
                                 className="profile-image"
                                 alt={profile.username}
                                 src={profile.data.pictureUrl}></img>
                             <ProfileDetailsComponent data={profile.data}/>
-                        </div>
+                        </a>
                     );
                 }
             })()}

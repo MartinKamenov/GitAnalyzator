@@ -55,6 +55,7 @@ export function getFullGithubUserSuccess(fullUser) {
 }
 
 export function getFullGithubUser(username) {
+    debugger;
     return async function(dispatch) {
         const res = await githubApi.getFullGithubUser(username);
         const fullUser = res.data;

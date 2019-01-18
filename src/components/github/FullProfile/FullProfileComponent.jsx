@@ -3,21 +3,41 @@ import * as githubActions from '../../../actions/githubActions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import LoaderComponent from '../Common/Loader';
 
 class FullProfileComponent extends Component {
+    state = {
+        isLoading: true,
+        currentPage: 0
+    }
+    componentDidMount() {
+        const username = this.props.match.params.username;
+        this.props.actions.getFullGithubUser(username);
+    }
+
+    componentWillReceiveProps(props) {
+        this.setState({isLoading: false});
+    }
     render() {
-        console.log(this.props.match);
-        debugger;
         return (
             <div className='wrapper container center'>
-                <div>{this.props.profile}</div>
+                {
+                    (() => {
+                        if(!this.state.isLoading) {
+                            return <div>{this.props.fullUser.username}</div>;
+                        } else {
+                            return <LoaderComponent/>;
+                        }
+                    })()
+                }
             </div>
         );
     }
 }
 
 FullProfileComponent.propTypes = {
-    profile: PropTypes.shape({
+    fullUser: PropTypes.shape({
+        username: PropTypes.string,
         data: PropTypes.shape({
             pictureUrl: PropTypes.string,
             totalContributionsCount: PropTypes.number,

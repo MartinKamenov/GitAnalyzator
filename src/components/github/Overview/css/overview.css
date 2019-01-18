@@ -4,6 +4,8 @@
     border-radius: 50px; 
     height: 400px;
     padding: 10px;
+    cursor: pointer;
+    display: block;
 }
 
 .details-container {
