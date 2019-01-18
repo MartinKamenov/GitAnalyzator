@@ -3,11 +3,13 @@ import { combineReducers } from 'redux';
 import profile from './githubReducer';
 import profiles from './githubCompareReducer';
 import users from './githubUsersReducer';
+import fullUser from './githubFullUserReducer';
 
 const rootReducer = combineReducers({
     profile,
     profiles,
-    users
+    users,
+    fullUser
 });
 
 export default rootReducer;

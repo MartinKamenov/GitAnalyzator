@@ -49,3 +49,15 @@ export function getGithubUsers(page) {
         return dispatch(getGithubUsersSuccess(usersObject));
     };
 }
+
+export function getFullGithubUserSuccess(fullUser) {
+    return { type: types.GET_FULL_GITHUB_USER_SUCCESS, fullUser };
+}
+
+export function getFullGithubUser(username) {
+    return async function(dispatch) {
+        const res = await githubApi.getFullGithubUser(username);
+        const fullUser = res.data;
+        return dispatch(getFullGithubUserSuccess(fullUser));
+    };
+}

@@ -2,6 +2,7 @@ import axios from 'axios';
 const url = 'https://github-analyzator-api.herokuapp.com/';
 const profilePath = 'github/contributions/';
 const usersPath = 'github/users/';
+const userPath = 'github/user/';
 const profileRepoPath = 'github/repositories/';
 const sendObject = {
     headers: {
@@ -39,6 +40,11 @@ const githubApi = {
         }
 
         const searchUrl = url + usersPath + quertyParam;
+        return axios.get(searchUrl, sendObject);
+    },
+
+    getFullGithubUser: (username) => {
+        const searchUrl = url + userPath + username;
         return axios.get(searchUrl, sendObject);
     }
 };
