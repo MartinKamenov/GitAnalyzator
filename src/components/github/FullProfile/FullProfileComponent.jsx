@@ -4,11 +4,11 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import LoaderComponent from '../Common/Loader';
+import ProfileCard from './ProfileCard';
 
 class FullProfileComponent extends Component {
     state = {
-        isLoading: true,
-        currentPage: 0
+        isLoading: true
     }
     componentDidMount() {
         const username = this.props.match.params.username;
@@ -24,7 +24,12 @@ class FullProfileComponent extends Component {
                 {
                     (() => {
                         if(!this.state.isLoading) {
-                            return <div>{this.props.fullUser.username}</div>;
+                            return (
+                                <div>
+                                    <h2>{this.props.fullUser.username}</h2>
+                                    <ProfileCard profile={this.props.fullUser}/>
+                                </div>
+                            );
                         } else {
                             return <LoaderComponent/>;
                         }
