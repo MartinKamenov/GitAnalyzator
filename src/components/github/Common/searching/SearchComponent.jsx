@@ -1,6 +1,7 @@
 import React from 'react';
 import './search.css';
 import SortingComponent from './SortingComponent';
+import PropTypes from 'prop-types';
 
 const SearchComponent = ({onSortByChanged, onSearchUsernameChanged, onSearchHandler}) => {
     return (
@@ -13,6 +14,12 @@ const SearchComponent = ({onSortByChanged, onSearchUsernameChanged, onSearchHand
             <button onClick={onSearchHandler} className='search-btn btn btn-success'>Search</button>
         </div>
     );
+};
+
+SearchComponent.propTypes = {
+    onSortByChanged: PropTypes.func.isRequired,
+    onSearchUsernameChanged: PropTypes.func.isRequired,
+    onSearchHandler: PropTypes.func.isRequired
 };
  
 export default SearchComponent;
