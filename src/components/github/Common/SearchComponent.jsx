@@ -7,8 +7,8 @@ const SearchComponent = () => {
             <input placeholder='Username'></input>
             <div>
                 <input className='numberInput' type='number' placeholder='From'/>
-                <span>TotalContributions</span>
-                <input  className='numberInput' type='number' placeholder='To'/>
+                <span className='label'>TotalContributions</span>
+                <input className='numberInput' type='number' placeholder='To'/>
             </div>
             <button className='btn btn-success'>Search</button>
         </div>

@@ -1,12 +1,20 @@
 .search_container {
     background-color: #222222;
     border-radius: 10px;
-    height: 100px;
+    height: 150px;
     padding: 10px;
+}
+
+.label {
     color: white;
 }
 
 .numberInput {
-    max-width: 50px;
+    max-width: 100px;
 }
 
+input {
+    color: #222222;
+    padding: 6px 10px;
+    margin: 5px;
+}
