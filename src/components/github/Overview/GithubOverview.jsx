@@ -7,7 +7,7 @@ import './css/overview.css';
 import PagingComponent from '../Common/paging/PagingComponent';
 import queryString from 'query-string'
 import LoaderComponent from '../Common/Loader';
-import SearchComponent from '../Common/SearchComponent';
+import SearchComponent from '../Common/searching/SearchComponent';
 
 class GithubOverview extends Component {
     state = {

@@ -1,9 +1,13 @@
 import React from 'react';
-import './css/search.css';
+import './search.css';
+import SortingComponent from './SortingComponent';
 
 const SearchComponent = () => {
     return (
         <div className='search_container'>
+            <div>
+                <SortingComponent/>
+            </div>
             <input placeholder='Username'></input>
             <div>
                 <input className='numberInput' type='number' placeholder='From'/>
