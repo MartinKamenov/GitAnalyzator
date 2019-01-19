@@ -2,10 +2,10 @@ import React from 'react';
 import './search.css';
 import SortingComponent from './SortingComponent';
 
-const SearchComponent = ({onSearchUsernameChanged, onSearchHandler}) => {
+const SearchComponent = ({onSortByChanged, onSearchUsernameChanged, onSearchHandler}) => {
     return (
         <div className='search_container'>
-            <SortingComponent/>
+            <SortingComponent onSortByChanged={onSortByChanged}/>
             <input
                 placeholder='Username'
                 onChange={onSearchUsernameChanged}>
