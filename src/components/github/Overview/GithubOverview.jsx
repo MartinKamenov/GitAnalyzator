@@ -58,7 +58,6 @@ class GithubOverview extends Component {
         return (
             <div className="wrapper container center">
                 <div className="header">
-                    <h1>Searched github profiles</h1>
                     <SearchComponent/>
                     {(() => {
                         if(this.state.isLoading) {

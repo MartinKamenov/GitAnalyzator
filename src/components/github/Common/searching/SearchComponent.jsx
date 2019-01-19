@@ -5,16 +5,9 @@ import SortingComponent from './SortingComponent';
 const SearchComponent = () => {
     return (
         <div className='search_container'>
-            <div>
-                <SortingComponent/>
-            </div>
+            <SortingComponent/>
             <input placeholder='Username'></input>
-            <div>
-                <input className='numberInput' type='number' placeholder='From'/>
-                <span className='label'>TotalContributions</span>
-                <input className='numberInput' type='number' placeholder='To'/>
-            </div>
-            <button className='btn btn-success'>Search</button>
+            <button className='search-btn btn btn-success'>Search</button>
         </div>
     );
 };

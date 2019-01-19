@@ -2,7 +2,7 @@ import React from 'react';
 import SortingAttributes from '../../../contracts/SortingAttributes';
 
 const SortingComponent = () => (
-    <select>
+    <select className='sorting-container'>
         {
             SortingAttributes.map((attribute, i) => 
                 <option
