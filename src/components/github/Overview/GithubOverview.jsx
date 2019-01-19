@@ -12,7 +12,8 @@ import SearchComponent from '../Common/searching/SearchComponent';
 class GithubOverview extends Component {
     state = {
         isLoading: true,
-        currentPage: 0
+        currentPage: 0,
+        searchUsername: ''
     }
     componentDidMount() {
         const queryObject = queryString.parse(this.props.location.search);
@@ -54,11 +55,22 @@ class GithubOverview extends Component {
         this.setState({page, isLoading: true});
         this.props.actions.getGithubUsers(page);
     }
+
+    onSearchUsernameChanged = (evt) => {
+        const searchUsername = evt.target.value.toLowerCase();
+        this.setState({searchUsername});
+    }
+
+    onSearchHandler = () => {
+        alert(this.state.searchUsername);
+    }
     render() {
         return (
             <div className="wrapper container center">
                 <div className="header">
-                    <SearchComponent/>
+                    <SearchComponent
+                    onSearchUsernameChanged={this.onSearchUsernameChanged}
+                    onSearchHandler={this.onSearchHandler}/>
                     {(() => {
                         if(this.state.isLoading) {
                             return <LoaderComponent/>;
