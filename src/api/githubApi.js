@@ -31,12 +31,22 @@ const githubApi = {
         return axios.get(searchUrl, sendObject);
     },
 
-    getGithubUsersByPage: (page) => {
+    getGithubUsersByPage: (page, searchParams, sortParams) => {
         let quertyParam = '?pagesize=6';
         if(page) {
             quertyParam += `&page=${page}`;
         } else {
             quertyParam += '&page=1';
+        }
+
+        if(searchParams) {
+            const username = searchParams.username;
+            quertyParam += `&username=${username}`;
+        }
+
+        if(sortParams) {
+            const sortBy = sortParams.sortBy;
+            quertyParam += `&sortBy=${sortBy}`;
         }
 
         const searchUrl = url + usersPath + quertyParam;
