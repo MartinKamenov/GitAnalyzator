@@ -19,8 +19,15 @@ class GithubOverview extends Component {
     componentDidMount() {
         const queryObject = queryString.parse(this.props.location.search);
         const pageString = queryObject.page;
+        let searchParams = null;
+        if(queryObject.username) {
+            searchParams.username = queryObject.username;
+        }
+
+        const sortBy = queryObject.sortBy ? queryObject.sortBy : this.state.sortBy;
+        const sortParams = { sortBy };
         const page = parseInt(pageString, 10);
-        this.props.actions.getGithubUsers(page);
+        this.props.actions.getGithubUsers(page, searchParams, sortParams);
     }
 
     componentWillReceiveProps(props) {
@@ -49,12 +56,19 @@ class GithubOverview extends Component {
             return;
         }
 
-        this.setState({ pages, page, currentPage: page, isLoading: false });
+        this.setState({ pages, page, currentPage: page });
     }
 
     onPageChangeHandler = (page) => {
         this.setState({page, isLoading: true});
-        this.props.actions.getGithubUsers(page);
+        let searchParams = null;
+        if(this.state.searchUsername) {
+            searchParams.username = this.state.searchUsername;
+        }
+
+        const sortBy = this.state.sortBy;
+        const sortParams = { sortBy };
+        this.props.actions.getGithubUsers(page, searchParams, sortParams);
     }
 
     onSortByChanged = (evt) => {
@@ -68,13 +82,22 @@ class GithubOverview extends Component {
     }
 
     onSearchHandler = () => {
-        debugger;
         let searchParams = null;
         if(this.state.searchUsername) {
             searchParams = { username: this.state.searchUsername };
         }
         const sortParams = { sortBy: this.state.sortBy };
-        this.props.actions.getGithubUsers(1, searchParams, sortParams);
+        const page = 1;
+        this.props.actions.getGithubUsers(page, searchParams, sortParams);
+        //this.setState({isLoading: true});
+        const queryParam = {sortBy: this.state.sortBy};
+        if(this.state.username) {
+            queryParam.username = this.state.searchUsername;
+        }
+        this.props.history.push({
+            pathname: '/overview',
+            search: "?" + new URLSearchParams(queryParam).toString()
+        });
     }
 
 
