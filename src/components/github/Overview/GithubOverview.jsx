@@ -56,7 +56,7 @@ class GithubOverview extends Component {
             return;
         }
 
-        this.setState({ pages, page, currentPage: page });
+        this.setState({ pages, page, currentPage: page, isLoading: false });
     }
 
     onPageChangeHandler = (page) => {
