@@ -32,7 +32,9 @@ class FullProfileComponent extends Component {
                                     <h2>{this.props.fullUser.username}</h2>
                                     <ProfileCard profile={this.props.fullUser}/>
                                     <FullProfileContributions profile={this.props.fullUser}/>
-                                    <RepositoryList repositories={this.props.fullUser.repositories}/>
+                                    <RepositoryList
+                                        username={this.props.fullUser.username}
+                                        repositories={this.props.fullUser.repositories}/>
                                 </div>
                             );
                         } else {
