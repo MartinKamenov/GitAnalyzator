@@ -1,0 +1,29 @@
+.search_container {
+    background-color: #222222;
+    border-radius: 10px;
+    min-height: 70px;
+    padding: 10px;
+}
+
+.label {
+    color: white;
+}
+
+.numberInput {
+    max-width: 100px;
+}
+
+.search-btn {
+    height: 40px;
+}
+
+input {
+    color: #222222;
+    padding: 6px 10px;
+    margin: 5px;
+    height: 40px;
+}
+
+.sorting-container {
+    height: 40px;
+}

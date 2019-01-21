@@ -42,9 +42,9 @@ export function getCompareGithubProfiles(firstUsername, secondUsername, year) {
 export function getGithubUsersSuccess(users) {
     return { type: types.GET_GITHUB_USERS_PAGE_SUCCESS, users };
 }
-export function getGithubUsers(page) {
+export function getGithubUsers(page, searchParams, sortParams) {
     return async function(dispatch) {
-        const res = await githubApi.getGithubUsersByPage(page);
+        const res = await githubApi.getGithubUsersByPage(page, searchParams, sortParams);
         const usersObject = res.data;
         return dispatch(getGithubUsersSuccess(usersObject));
     };
