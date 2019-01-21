@@ -8,9 +8,11 @@ class RepositoryList extends Component {
     };
     render() {
         return (
-            this.props.repositories.map((repo, i) => {
-                return <RepositoryElement key={i} repo={repo}/>;
-            })
+            <div className='row'>
+                {this.props.repositories.map((repo, i) => {
+                    return <RepositoryElement key={i} repo={repo}/>;
+                })}
+            </div>
         );
     }
 }

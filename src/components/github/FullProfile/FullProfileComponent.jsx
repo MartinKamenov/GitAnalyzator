@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import LoaderComponent from '../Common/Loader';
 import ProfileCard from './ProfileCard';
 import FullProfileContributions from './FullProfileContributions';
+import RepositoryList from '../Profile/Repository/RepositoryList';
 
 class FullProfileComponent extends Component {
     state = {
@@ -20,6 +21,7 @@ class FullProfileComponent extends Component {
         this.setState({isLoading: false});
     }
     render() {
+
         return (
             <div className='wrapper container center'>
                 {
@@ -30,6 +32,7 @@ class FullProfileComponent extends Component {
                                     <h2>{this.props.fullUser.username}</h2>
                                     <ProfileCard profile={this.props.fullUser}/>
                                     <FullProfileContributions profile={this.props.fullUser}/>
+                                    <RepositoryList repositories={this.props.fullUser.repositories}/>
                                 </div>
                             );
                         } else {
