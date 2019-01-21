@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ProgrammingLanguageImages from '../../../contracts/ProgrammingLanguageImages';
 
 const RepositoryElement = ({ username, repo }) => {
     return (
@@ -8,7 +9,7 @@ const RepositoryElement = ({ username, repo }) => {
             <div className='repo-wrapper'>
                 <img
                     className='programming-language-img'
-                    src='https://avatars1.githubusercontent.com/u/47313?s=460&v=4'
+                    src={ProgrammingLanguageImages[repo.programmingLanguage]}
                     href={username}>
                 </img>
                 <h3>{repo.name}</h3>
