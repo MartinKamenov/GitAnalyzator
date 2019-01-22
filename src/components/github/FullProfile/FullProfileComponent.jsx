@@ -9,6 +9,8 @@ import FullProfileContributions from './FullProfileContributions';
 import RepositoryList from '../Profile/Repository/RepositoryList';
 import TabsFullUser from '../../contracts/TabsFullUser';
 import FullProfileTabListComponent from './tabs/FullProfileTabListComponent';
+import FullProfileFollowers from './FullProfileFollowers';
+import './css/fullProfile.css';
 
 class FullProfileComponent extends Component {
     state = {
@@ -29,7 +31,7 @@ class FullProfileComponent extends Component {
         this.setState({tab});
     }
     render() {
-
+        const fullUser = this.props.fullUser;
         return (
             <div className='wrapper container center'>
                 <FullProfileTabListComponent
@@ -41,13 +43,14 @@ class FullProfileComponent extends Component {
                         if(!this.state.isLoading) {
                             switch(this.state.tab){
                                 case 'analyze':
-                                    return <ProfileCard profile={this.props.fullUser}/>;
+                                    return <ProfileCard profile={fullUser}/>;
                                 case 'repositories':
                                     return <RepositoryList
-                                        username={this.props.fullUser.username}
-                                        repositories={this.props.fullUser.repositories}/>;
+                                        username={fullUser.username}
+                                        repositories={fullUser.repositories}/>;
                                 case 'followers':
-                                    return <div>Followers</div>;
+                                    return <FullProfileFollowers
+                                        followers={fullUser.followers}/>;
                             }
                         } else {
                             return <LoaderComponent/>;
