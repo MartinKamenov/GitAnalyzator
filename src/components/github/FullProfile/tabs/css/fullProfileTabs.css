@@ -1,13 +1,21 @@
 .tabs-container {
     background-color: #222222;
     width: 100%;
+    border-radius: 10px;
 }
 
 .tab-container {
-    background-color: #FC6868;
     display: inline-block;
     cursor: pointer;
     border: 1px solid black;
+}
+
+.active {
+    background-color: #CA5353;
+}
+
+.inactive {    
+    background-color: #FC6868;
 }
 
 .tab-container:hover {

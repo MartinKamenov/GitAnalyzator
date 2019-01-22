@@ -1,5 +1,5 @@
 const TabsFullUser = [
-    'analyze', 'contributions', 'followers'
+    'analyze', 'repositories', 'followers'
 ];
 
 export default TabsFullUser;

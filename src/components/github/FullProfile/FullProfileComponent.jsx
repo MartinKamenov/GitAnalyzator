@@ -24,13 +24,18 @@ class FullProfileComponent extends Component {
     componentWillReceiveProps(props) {
         this.setState({isLoading: false});
     }
+
+    changeTabHandler = (tab) => {
+        this.setState({tab});
+    }
     render() {
 
         return (
             <div className='wrapper container center'>
                 <FullProfileTabListComponent
                     tabs={this.state.tabs}
-                    currentTab={this.state.tab}/>
+                    currentTab={this.state.tab}
+                    changeTabHandler={this.changeTabHandler}/>
                 {
                     (() => {
                         if(!this.state.isLoading) {
