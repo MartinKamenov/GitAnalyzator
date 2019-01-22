@@ -1,0 +1,15 @@
+.tabs-container {
+    background-color: #222222;
+    width: 100%;
+}
+
+.tab-container {
+    background-color: #FC6868;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.tab-container:hover {
+    background-color: #CA5353;
+}

@@ -7,10 +7,14 @@ import LoaderComponent from '../Common/Loader';
 import ProfileCard from './ProfileCard';
 import FullProfileContributions from './FullProfileContributions';
 import RepositoryList from '../Profile/Repository/RepositoryList';
+import TabsFullUser from '../../contracts/TabsFullUser';
+import FullProfileTabListComponent from './tabs/FullProfileTabListComponent';
 
 class FullProfileComponent extends Component {
     state = {
-        isLoading: true
+        isLoading: true,
+        tabs: TabsFullUser,
+        tab: TabsFullUser[0]
     }
     componentDidMount() {
         const username = this.props.match.params.username;
@@ -24,19 +28,22 @@ class FullProfileComponent extends Component {
 
         return (
             <div className='wrapper container center'>
+                <FullProfileTabListComponent
+                    tabs={this.state.tabs}
+                    currentTab={this.state.tab}/>
                 {
                     (() => {
                         if(!this.state.isLoading) {
-                            return (
-                                <div>
-                                    <h2>{this.props.fullUser.username}</h2>
-                                    <ProfileCard profile={this.props.fullUser}/>
-                                    <FullProfileContributions profile={this.props.fullUser}/>
-                                    <RepositoryList
+                            switch(this.state.tab){
+                                case 'analyze':
+                                    return <ProfileCard profile={this.props.fullUser}/>;
+                                case 'repositories':
+                                    return <RepositoryList
                                         username={this.props.fullUser.username}
-                                        repositories={this.props.fullUser.repositories}/>
-                                </div>
-                            );
+                                        repositories={this.props.fullUser.repositories}/>;
+                                case 'followers':
+                                    return <div>Followers</div>;
+                            }
                         } else {
                             return <LoaderComponent/>;
                         }
