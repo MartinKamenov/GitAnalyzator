@@ -18,7 +18,9 @@ const GithubRepositoriesProfile = ({profile}) => {
                                     username={profile.username}/>
                                 <div>
                                     <h2>Found repositories</h2>
-                                    <RepositoryList repositories={profile.data.repositoriesInfo}/>
+                                    <RepositoryList
+                                        username={profile.username}
+                                        repositories={profile.data.repositoriesInfo}/>
                                 </div>
                             </div>
                         );
