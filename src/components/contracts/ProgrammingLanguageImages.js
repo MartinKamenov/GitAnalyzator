@@ -8,6 +8,10 @@ const ProgrammingLanguageImages = {
     'C': '/languages/c.png',
     'C++': '/languages/cPlusPlus.png',
     'CSS': '/languages/css.png',
+    'JupyterNotebook': '/languages/jupyterNotebook.png',
+    'MATLAB': '/languages/matlab.png',
+    'TypeScript': '/languages/ts.png',
+    'PowerShell': '/languages/powerShell.png',
     'undefined': '/languages/undefined.png'
 };
 
