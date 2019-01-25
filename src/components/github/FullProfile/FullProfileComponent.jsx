@@ -5,12 +5,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import LoaderComponent from '../Common/Loader';
 import ProfileCard from './ProfileCard';
-import FullProfileContributions from './FullProfileContributions';
 import RepositoryList from '../Profile/Repository/RepositoryList';
 import TabsFullUser from '../../contracts/TabsFullUser';
 import FullProfileTabListComponent from './tabs/FullProfileTabListComponent';
 import FullProfileFollowers from './FullProfileFollowers';
 import './css/fullProfile.css';
+import FullProfileAnalyzeComponent from './FullProfileAnalyzeComponent';
 
 class FullProfileComponent extends Component {
     state = {
@@ -43,7 +43,8 @@ class FullProfileComponent extends Component {
                         if(!this.state.isLoading) {
                             switch(this.state.tab){
                                 case 'analyze':
-                                    return <ProfileCard profile={fullUser}/>;
+                                    return <FullProfileAnalyzeComponent
+                                        profileAnalyze profileAnalyze={fullUser.profileAnalyze}/>;
                                 case 'repositories':
                                     return <RepositoryList
                                         username={fullUser.username}
