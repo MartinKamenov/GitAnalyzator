@@ -28,11 +28,23 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
                                         }
                                     })
                                 }
-                                <h3>{mainLanguage} developer</h3>
+                                <h2>{mainLanguage} developer</h2>
                                 <img
                                     className="profile-image"
                                     src={profile.data.pictureUrl}>
                                 </img>
+                                <div>
+                                    <h3>Progress through the year</h3>
+                                    {
+                                        contributionsAnalyze.sectors.map((s, i) => {
+                                            return (
+                                                <img
+                                                    src={'/arrows/' + s + '.png'}
+                                                    key={i}
+                                                    className='sector-img'></img>);
+                                        })
+                                    }
+                                </div>
                             </div>
                             <div className='col-md-4'></div>
                         </div>
