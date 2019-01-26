@@ -10,3 +10,12 @@
 .follower-container:hover {
     background-color: #eeeeee;
 }
+
+.analyze-container {
+    background-color: #eeeeee;
+    width: 100%;
+    min-height: 50px;
+    border: 1px solid #222222;
+    color: #222222;
+    border-radius: 10px;
+}

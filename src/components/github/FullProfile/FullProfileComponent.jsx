@@ -44,7 +44,7 @@ class FullProfileComponent extends Component {
                             switch(this.state.tab){
                                 case 'analyze':
                                     return <FullProfileAnalyzeComponent
-                                        profileAnalyze profileAnalyze={fullUser.profileAnalyze}/>;
+                                        profileAnalyze profile={fullUser}/>;
                                 case 'repositories':
                                     return <RepositoryList
                                         username={fullUser.username}
