@@ -34,7 +34,7 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
                                     src={profile.data.pictureUrl}>
                                 </img>
                                 <div>
-                                    <h3>Progress through the year</h3>
+                                    <div>{contributionsAnalyze.contributorType}</div>
                                     {
                                         contributionsAnalyze.sectors.map((s, i) => {
                                             return (
@@ -42,6 +42,19 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
                                                     src={'/arrows/' + s + '.png'}
                                                     key={i}
                                                     className='sector-img'></img>);
+                                        })
+                                    }
+                                </div>
+                                <div>
+                                    {
+                                        repositoriesAnalyze.map((repo, i) => {
+                                            if(repo.count > 2) {
+                                                return (
+                                                    <span
+                                                        className='repo-label'
+                                                        key={i}>#{repo.repo}</span>
+                                                );
+                                            }
                                         })
                                     }
                                 </div>
