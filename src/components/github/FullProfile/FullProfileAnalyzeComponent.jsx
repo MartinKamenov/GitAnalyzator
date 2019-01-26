@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const FullProfileAnalyzeComponent = ({ profile }) => {
     const profileAnalyze = profile.profileAnalyze;
+    if(!profileAnalyze) {
+        return <div>No data for analyze</div>;
+    }
     const contributionsAnalyze = profileAnalyze.contributionsAnalyze;
     const repositoriesAnalyze = profileAnalyze.repositoriesAnalyze;
     let mainLanguage = null;
@@ -10,60 +13,48 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
         mainLanguage = repositoriesAnalyze[0].repo;
     }
     return (
-        <div>
-            {
-                (() => {
-                    if(!profileAnalyze) {
-                        return <div>No data for analyze</div>;
-                    }
-                    
-                    return (
-                        <div className='row'>
-                            <div className='col-md-4'></div>
-                            <div className='analyze-container col-md-4'>
-                                {
-                                    (() => {
-                                        if(profileAnalyze.followersStar) {
-                                            return <div>Star</div>;
-                                        }
-                                    })
-                                }
-                                <h2>{mainLanguage} developer</h2>
+        <div className='row'>
+            <div className='col-md-4'></div>
+            <div className='analyze-container col-md-4'>
+                {
+                    (() => {
+                        if(profileAnalyze.followersStar) {
+                            return <div>Star</div>;
+                        }
+                    })
+                }
+                <h2>{mainLanguage} developer</h2>
+                <img
+                    className="profile-image"
+                    src={profile.data.pictureUrl}>
+                </img>
+                <div>
+                    <div>{contributionsAnalyze.contributorType}</div>
+                    {
+                        contributionsAnalyze.sectors.map((s, i) => {
+                            return (
                                 <img
-                                    className="profile-image"
-                                    src={profile.data.pictureUrl}>
-                                </img>
-                                <div>
-                                    <div>{contributionsAnalyze.contributorType}</div>
-                                    {
-                                        contributionsAnalyze.sectors.map((s, i) => {
-                                            return (
-                                                <img
-                                                    src={'/arrows/' + s + '.png'}
-                                                    key={i}
-                                                    className='sector-img'></img>);
-                                        })
-                                    }
-                                </div>
-                                <div>
-                                    {
-                                        repositoriesAnalyze.map((repo, i) => {
-                                            if(repo.count > 2) {
-                                                return (
-                                                    <span
-                                                        className='repo-label'
-                                                        key={i}>#{repo.repo}</span>
-                                                );
-                                            }
-                                        })
-                                    }
-                                </div>
-                            </div>
-                            <div className='col-md-4'></div>
-                        </div>
-                    );
-                })()
-            }
+                                    src={'/arrows/' + s + '.png'}
+                                    key={i}
+                                    className='sector-img'></img>);
+                        })
+                    }
+                </div>
+                <div>
+                    {
+                        repositoriesAnalyze.map((repo, i) => {
+                            if(repo.count > 2) {
+                                return (
+                                    <span
+                                        className='repo-label'
+                                        key={i}>#{repo.repo}</span>
+                                );
+                            }
+                        })
+                    }
+                </div>
+            </div>
+            <div className='col-md-4'></div>
         </div>
     );
 };
