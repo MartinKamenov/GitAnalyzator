@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ProgrammingLanguageImages from '../../contracts/ProgrammingLanguageImages';
 
 const FullProfileAnalyzeComponent = ({ profile }) => {
     const profileAnalyze = profile.profileAnalyze;
@@ -15,7 +16,11 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
     return (
         <div className='row'>
             <div className='col-md-4'></div>
-            <div className='analyze-container col-md-4'>
+            <div style={
+                {backgroundImage: 'url("' + ProgrammingLanguageImages[mainLanguage] + '")',
+                    backgroundSize: '100%'}
+            }
+            className='analyze-container col-md-4'>
                 {
                     (() => {
                         if(profileAnalyze.followersStar) {

@@ -13,9 +13,10 @@
 
 .analyze-container {
     padding: 10px;
-    background-color: #eeeeee;
     width: 100%;
-    min-height: 50px;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: center;
     border: 1px solid #222222;
     color: #222222;
     border-radius: 10px;
