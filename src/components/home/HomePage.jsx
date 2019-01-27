@@ -9,14 +9,14 @@ const HomePage = () => {
                 alt="home"
                 src="/laptop-wallpaper.jpg"></img>
             <div className="link-content">
-                <Link to="/analyze">Anlyze profile</Link>
-                <Link to="/compare">Compare profiles</Link>
+                <Link to="/overview">All profiles</Link>
+                <Link to="/analyze">Analyze profile</Link>
             </div>
             <div className="container center">
                 <div className="sidebar hidden-sm hidden-xs">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
-                    alt="Github"
-                    className="github-img"></img>
+                        alt="Github"
+                        className="github-img"></img>
                     <div>
                         <p className="paragraph">
                             Using Github we can analyze contributions for different users
