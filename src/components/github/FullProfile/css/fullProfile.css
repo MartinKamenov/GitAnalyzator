@@ -22,6 +22,12 @@
     border-radius: 10px;
 }
 
+.analyze-container::after {
+    content: "";
+    opacity: 0.1;
+    filter: alpha(opacity=50);
+}
+
 .sector-img {
     width: 35px;
     height: 35px;
