@@ -5,9 +5,9 @@ const FullProfileTabComponent = ({tab, currentTab, changeTabHandler}) => (
     <span
         className={(() => {
             if(tab === currentTab) {
-                return 'tab-container active';
+                return 'full-user-tab-container active';
             } else {
-                return 'tab-container inactive';
+                return 'full-user-tab-container inactive';
             }
         })()}
         onClick={() => changeTabHandler(tab)}>

@@ -10,3 +10,36 @@
 .follower-container:hover {
     background-color: #eeeeee;
 }
+
+.analyze-container {
+    padding: 10px;
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid #222222;
+    color: #222222;
+    border-radius: 10px;
+}
+
+.analyze-container::after {
+    content: "";
+    opacity: 0.1;
+    filter: alpha(opacity=50);
+}
+
+.sector-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.repo-label {
+    background-color: #222222;
+    color: white;
+    display: inline-block;
+    border-radius: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 5px;
+}

@@ -4,7 +4,8 @@
     border-radius: 10px;
 }
 
-.tab-container {
+.full-user-tab-container {
+    padding: 15px;
     display: inline-block;
     cursor: pointer;
     border: 1px solid black;
@@ -18,6 +19,6 @@
     background-color: #FC6868;
 }
 
-.tab-container:hover {
+.full-user-tab-container:hover {
     background-color: #CA5353;
 }
