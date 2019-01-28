@@ -12,6 +12,9 @@ const ProgrammingLanguageImages = {
     'MATLAB': '/languages/matlab.png',
     'TypeScript': '/languages/ts.png',
     'PowerShell': '/languages/powerShell.png',
+    'Shell': '/languages/powerShell.png',
+    'Go': '/languages/go.png',
+    'Objective-C': '/languages/objc.png',
     'undefined': '/languages/undefined.png'
 };
 
