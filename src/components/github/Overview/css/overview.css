@@ -7,10 +7,15 @@
     cursor: pointer;
     display: block;
     background-color: #222222;
+    text-decoration: none !important;
 }
 
 .profile:hover {
     background-color: #282828;
+}
+
+.username {
+    color: white;
 }
 
 .details-container {
