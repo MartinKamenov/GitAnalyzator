@@ -15,6 +15,11 @@ const ProgrammingLanguageImages = {
     'Shell': '/languages/powerShell.png',
     'Go': '/languages/go.png',
     'Objective-C': '/languages/objc.png',
+    'Ruby': '/languages/ruby.png',
+    'TeX': '/languages/tex.png',
+    'Vimscript': '/languages/vim.png',
+    'Dart': '/languages/dart.png',
+    'Kotlin': '/languages/kotlin.png',
     'undefined': '/languages/undefined.png'
 };
 

@@ -12,7 +12,7 @@ const RepositoryElement = ({ username, repo }) => {
                     src={ProgrammingLanguageImages[repo.programmingLanguage]}
                     href={username}>
                 </img>
-                <h3>{repo.name}</h3>
+                <h3>{repo.name.substring(0, 25)}</h3>
                 <div>{repo.programmingLanguage}</div>
             </div>
         </a>
