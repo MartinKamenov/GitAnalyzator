@@ -16,49 +16,53 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
     return (
         <div className='row'>
             <div className='col-md-4'></div>
-            <div style={
-                {backgroundImage: 'url("' + ProgrammingLanguageImages[mainLanguage] + '")',
-                    backgroundSize: '100%'}
-            }
-            className='analyze-container col-md-4'>
-                {
-                    (() => {
-                        if(profileAnalyze.followersStar) {
-                            return <div>Star</div>;
-                        }
-                    })
+            <div className='col-md-4'>
+                <div style={
+                    {backgroundImage: 'url("' + ProgrammingLanguageImages[mainLanguage] + '")'}
                 }
-                <h2>{mainLanguage} developer</h2>
-                <img
-                    className="profile-image"
-                    src={profile.data.pictureUrl}>
-                </img>
-                <div>
-                    <div>{contributionsAnalyze.contributorType}</div>
-                    {
-                        contributionsAnalyze.sectors.map((s, i) => {
-                            return (
-                                <img
-                                    src={'/arrows/' + s + '.png'}
-                                    key={i}
-                                    className='sector-img'></img>);
-                        })
-                    }
+                className='analyze-container'>
                 </div>
-                <div>
+                <div className='analyze-inner-container'>
                     {
-                        repositoriesAnalyze.map((repo, i) => {
-                            if(repo.count > 2) {
-                                return (
-                                    <span
-                                        className='repo-label'
-                                        key={i}>#{repo.repo}</span>
-                                );
+                        (() => {
+                            if(profileAnalyze.followersStar) {
+                                return <div>Star</div>;
                             }
                         })
                     }
+                    <h2>{mainLanguage} developer</h2>
+                    <img
+                        className="profile-image"
+                        src={profile.data.pictureUrl}>
+                    </img>
+                    <div>
+                        <div>{contributionsAnalyze.contributorType}</div>
+                        {
+                            contributionsAnalyze.sectors.map((s, i) => {
+                                return (
+                                    <img
+                                        src={'/arrows/' + s + '.png'}
+                                        key={i}
+                                        className='sector-img'></img>);
+                            })
+                        }
+                    </div>
+                    <div>
+                        {
+                            repositoriesAnalyze.map((repo, i) => {
+                                if(repo.count > 2) {
+                                    return (
+                                        <span
+                                            className='repo-label'
+                                            key={i}>#{repo.repo}</span>
+                                    );
+                                }
+                            })
+                        }
+                    </div>
                 </div>
             </div>
+            
             <div className='col-md-4'></div>
         </div>
     );
