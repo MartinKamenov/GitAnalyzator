@@ -9,7 +9,7 @@ const RepositoryElement = ({ username, repo }) => {
             <div className='repo-wrapper'>
                 <img
                     className='programming-language-img'
-                    src={ProgrammingLanguageImages[repo.programmingLanguage]}
+                    src={ProgrammingLanguageImages.getImageSrc(repo.programmingLanguage)}
                     href={username}>
                 </img>
                 <h3>{repo.name.substring(0, 25)}</h3>

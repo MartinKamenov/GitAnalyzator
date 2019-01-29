@@ -21,7 +21,15 @@ const ProgrammingLanguageImages = {
     'Dart': '/languages/dart.png',
     'Kotlin': '/languages/kotlin.png',
     'Puppet': '/languages/puppet.png',
-    'undefined': '/languages/undefined.png'
+    'Perl': '/languages/perl.png',
+    'undefined': '/languages/undefined.png',
+    getImageSrc: function(language) {
+        if(this[language]) {
+            return this[language];
+        } else {
+            return this['undefined'];
+        }
+    }
 };
 
 export default ProgrammingLanguageImages;

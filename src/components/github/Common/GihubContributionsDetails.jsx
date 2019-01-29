@@ -23,7 +23,7 @@ const GithubContributionsDetails = ({ profile }) => {
             </div>
         </Fragment>
     );
-}
+};
 
 GithubContributionsDetails.propTypes = {
     profile: PropTypes.shape({
