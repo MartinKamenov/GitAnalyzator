@@ -20,6 +20,7 @@ const ProgrammingLanguageImages = {
     'Vimscript': '/languages/vim.png',
     'Dart': '/languages/dart.png',
     'Kotlin': '/languages/kotlin.png',
+    'Puppet': '/languages/puppet.png',
     'undefined': '/languages/undefined.png'
 };
 

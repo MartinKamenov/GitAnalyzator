@@ -6,16 +6,17 @@
     padding: 10px;
     cursor: pointer;
     display: block;
+    background-color: #222222;
 }
 
 .profile:hover {
-    background-color: #eeeeee;
+    background-color: #282828;
 }
 
 .details-container {
     border-radius: 30px;
     color: white;
-    background-color: #222222;
+    background-color: #444444;
     padding-top: 5px;
     padding-bottom: 5px;
 }
