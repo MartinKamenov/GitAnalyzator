@@ -18,7 +18,7 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
             <div className='col-md-4'></div>
             <div className='col-md-4'>
                 <div style={
-                    {backgroundImage: 'url("' + ProgrammingLanguageImages[mainLanguage] + '")'}
+                    {backgroundImage: 'url("' + ProgrammingLanguageImages.getImageSrc(mainLanguage) + '")'}
                 }
                 className='analyze-container'>
                 </div>
