@@ -30,7 +30,7 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
                             }
                         })
                     }
-                    <h2>{mainLanguage} developer</h2>
+                    <h2>{profile.username}<br/>({mainLanguage})</h2>
                     <img
                         className="profile-image"
                         src={profile.data.pictureUrl}>
