@@ -12,7 +12,24 @@ const ProgrammingLanguageImages = {
     'MATLAB': '/languages/matlab.png',
     'TypeScript': '/languages/ts.png',
     'PowerShell': '/languages/powerShell.png',
-    'undefined': '/languages/undefined.png'
+    'Shell': '/languages/powerShell.png',
+    'Go': '/languages/go.png',
+    'Objective-C': '/languages/objc.png',
+    'Ruby': '/languages/ruby.png',
+    'TeX': '/languages/tex.png',
+    'Vimscript': '/languages/vim.png',
+    'Dart': '/languages/dart.png',
+    'Kotlin': '/languages/kotlin.png',
+    'Puppet': '/languages/puppet.png',
+    'Perl': '/languages/perl.png',
+    'undefined': '/languages/undefined.png',
+    getImageSrc: function(language) {
+        if(this[language]) {
+            return this[language];
+        } else {
+            return this['undefined'];
+        }
+    }
 };
 
 export default ProgrammingLanguageImages;

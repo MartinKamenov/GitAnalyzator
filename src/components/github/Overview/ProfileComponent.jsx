@@ -12,7 +12,7 @@ const ProfileComponent = ({ profile }) => {
                         <a
                             href={'/profile/' + profile.username}
                             className="profile">
-                            <h2>{profile.username}</h2>
+                            <h2 className='username'>{profile.username}</h2>
                             <img
                                 className="profile-image"
                                 alt={profile.username}

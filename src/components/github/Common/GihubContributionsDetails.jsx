@@ -5,25 +5,25 @@ const GithubContributionsDetails = ({ profile }) => {
     return ( 
         <Fragment>
             <div><img
-            className="profile-image"
-            alt={profile.username}
-            src={profile.data.pictureUrl}>
+                className="profile-image"
+                alt={profile.username}
+                src={profile.data.pictureUrl}>
             </img></div>
             <div>
-            { profile.data.totalContributionsCount } contributions this year
+                { profile.data.totalContributionsCount } contributions this year
             </div>
             <div>
-            { profile.data.daysWithoutContributions } days without contributions
+                { profile.data.daysWithoutContributions } days without contributions
             </div>
             <div>
-            { profile.data.conclussiveContributions } conclussive days with contributions
+                { profile.data.conclussiveContributions } conclussive days with contributions
             </div>
             <div>
-            { profile.data.maxContributionsForDay } max contributions in one day
+                { profile.data.maxContributionsForDay } max contributions in one day
             </div>
         </Fragment>
     );
-}
+};
 
 GithubContributionsDetails.propTypes = {
     profile: PropTypes.shape({
