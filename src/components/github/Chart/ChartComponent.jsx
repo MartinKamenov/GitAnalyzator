@@ -1,13 +1,14 @@
 import React from 'react';
 import PropType from 'prop-types';
-import { Chart } from "react-charts";
+import { Chart } from 'react-charts';
 import LegendComponent from './LegendComponent';
 
 const ChartComponent = ({dataArray}) => {
+    debugger;
     return (
         <React.Fragment>
             {(() => {
-                if(dataArray.classColor) {
+                if(dataArray.length && dataArray[0].classColor) {
                     return <LegendComponent colorsData={dataArray}/>;
                 }
             })()}
@@ -18,15 +19,15 @@ const ChartComponent = ({dataArray}) => {
                 });
             })}
             axes={[
-                { primary: true, type: "linear", position: "bottom" },
-                { type: "linear", position: "left" }
+                { primary: true, type: 'linear', position: 'bottom' },
+                { type: 'linear', position: 'left' }
             ]}/>
         </React.Fragment>
     );
-}
+};
 
 ChartComponent.propType = {
     dataArray: PropType.array.isRequired
-}
+};
  
 export default ChartComponent;

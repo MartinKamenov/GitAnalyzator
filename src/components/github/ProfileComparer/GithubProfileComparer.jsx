@@ -25,7 +25,7 @@ const GithubProfileComparer = ({ profiles }) => {
                             const dataContributions = profile.data.dateContributionsNumbers;
                             const contributions = [];
                             dataContributions.map((c, i) => contributions.push([i, c]));
-                            const classColor = i === 0 ? 
+                            const classColor = (i === 0) ? 
                                 'first-profile-legend' : 'second-profile-legend';
                             return (
                                 dataArray
