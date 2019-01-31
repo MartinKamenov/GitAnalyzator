@@ -3,7 +3,7 @@ import React from 'react';
 const FullProfileFollowers = ({followers}) => {
     followers = followers.map(f => f.toLowerCase());
     return (
-        <div className='row'>
+        <div className='row followers-container'>
             {
                 followers.map((follower) => 
                     <a

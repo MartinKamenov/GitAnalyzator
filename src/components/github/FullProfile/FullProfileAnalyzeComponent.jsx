@@ -14,9 +14,8 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
         mainLanguage = repositoriesAnalyze[0].repo;
     }
     return (
-        <div className='row'>
-            <div className='col-md-4'></div>
-            <div className='col-md-4'>
+        <div>
+            <div className='analyze-main-container'>
                 <div style={
                     {backgroundImage: 'url("' + ProgrammingLanguageImages.getImageSrc(mainLanguage) + '")'}
                 }
@@ -62,8 +61,6 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
                     </div>
                 </div>
             </div>
-            
-            <div className='col-md-4'></div>
         </div>
     );
 };
