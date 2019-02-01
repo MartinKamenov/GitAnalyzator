@@ -3,7 +3,6 @@
     color:#fff !important;
     border:none;
     position:relative;
-    height:60px;
     font-size:1.6em;
     cursor:pointer;
     transition:800ms ease all;
@@ -59,7 +58,7 @@
 }
 
 .tab.active {
-    background-color: #FC6868;
+    background-color: #CA5353;
 }
 
 .tab {

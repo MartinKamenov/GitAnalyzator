@@ -13,13 +13,13 @@ const GithubAnalyzer = ({username,
         </div>
         <div>
             <input
-            value={username}
-            onChange={(ev) => handleChangeUsername(ev, 'username')}
-            type="text" 
-            placeholder="Github profile"
-            className="form-input" />
+                value={username}
+                onChange={(ev) => handleChangeUsername(ev, 'username')}
+                type="text" 
+                placeholder="Github profile"
+                className="form-input" />
             <button type="submit" onClick={handleGetProfile}
-            className="send-button">Analyze</button>
+                className="send-button">Analyze</button>
         </div>
         <div className="sidebar hidden-sm hidden-xs">
             <GithubYearSelector 

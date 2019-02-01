@@ -5,7 +5,7 @@ import './css/githubProfileLink.css';
 const GithubProfileLink = ({ username }) => (
     <div className="user-link">
         <h3>
-            <a href={"https://github.com/" + username}>
+            <a href={'/profile/' + username}>
                 <span data-hover={username}>{username}</span>
             </a>
         </h3>
