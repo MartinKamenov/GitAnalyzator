@@ -1,0 +1,11 @@
+.not-found-container {
+    background: #222222;
+    color: white;
+    max-width: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    border-radius: 5px;  
+}
