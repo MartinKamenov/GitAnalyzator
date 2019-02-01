@@ -4,7 +4,6 @@ import { Chart } from 'react-charts';
 import LegendComponent from './LegendComponent';
 
 const ChartComponent = ({dataArray}) => {
-    debugger;
     return (
         <React.Fragment>
             {(() => {

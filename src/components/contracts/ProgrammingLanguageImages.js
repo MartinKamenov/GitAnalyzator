@@ -22,6 +22,7 @@ const ProgrammingLanguageImages = {
     'Kotlin': '/languages/kotlin.png',
     'Puppet': '/languages/puppet.png',
     'Perl': '/languages/perl.png',
+    'Swift': '/languages/swift.png',
     'undefined': '/languages/undefined.png',
     getImageSrc: function(language) {
         if(this[language]) {
