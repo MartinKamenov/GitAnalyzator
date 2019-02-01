@@ -29,7 +29,11 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
                             }
                         })
                     }
-                    <h2>{profile.username}<br/>({mainLanguage})</h2>
+                    <h2>{profile.username}<br/>{(() => {
+                        if(mainLanguage) {
+                            return (mainLanguage);
+                        }
+                    })()}</h2>
                     <img
                         className="profile-image"
                         src={profile.data.pictureUrl}>
