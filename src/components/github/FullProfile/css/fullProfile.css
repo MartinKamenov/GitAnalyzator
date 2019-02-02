@@ -2,6 +2,11 @@
     margin-top: 10px;
 }
 
+.programming-language {
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .follower-container {
     display: inline-block;
     text-decoration: none;
