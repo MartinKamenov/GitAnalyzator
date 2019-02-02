@@ -5,6 +5,8 @@
     min-height: 100px;
     color: #222222;
     text-decoration: none;
+    height: 175px;
+    overflow: auto;
 }
 
 .repo-wrapper:hover {
@@ -16,7 +18,7 @@
     border: 1px solid black;
     margin-top: 10px;
     top: 50px;
-    width: 50px;
-    height: 50px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
 }
