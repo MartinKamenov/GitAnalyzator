@@ -7,10 +7,17 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
     if(!profileAnalyze) {
         return <div>No data for analyze</div>;
     }
+    
     const contributionsAnalyze = profileAnalyze.contributionsAnalyze;
-    const repositoriesAnalyze = profileAnalyze.repositoriesAnalyze;
+    let repositoriesAnalyze = profileAnalyze.repositoriesAnalyze;
+
+    repositoriesAnalyze = repositoriesAnalyze.filter((repoInfo) => repoInfo.repo);
+
+    if(!contributionsAnalyze || !repositoriesAnalyze) {
+        return <div>No data for analyze</div>;
+    }
     let mainLanguage = null;
-    if(repositoriesAnalyze.length && repositoriesAnalyze[0].count > 1) {
+    if(repositoriesAnalyze.length && repositoriesAnalyze[0].count > 0) {
         mainLanguage = repositoriesAnalyze[0].repo;
     }
     return (
