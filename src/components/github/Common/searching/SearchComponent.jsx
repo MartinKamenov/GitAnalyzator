@@ -6,12 +6,15 @@ import PropTypes from 'prop-types';
 const SearchComponent = ({onSortByChanged, onSearchUsernameChanged, onSearchHandler}) => {
     return (
         <div className='search_container'>
+            <h2 style={{color: 'white'}}>Search</h2>
             <SortingComponent onSortByChanged={onSortByChanged}/>
             <input
                 placeholder='Username'
                 onChange={onSearchUsernameChanged}>
             </input>
-            <button onClick={onSearchHandler} className='search-btn btn btn-success'>Search</button>
+            <button
+                onClick={onSearchHandler}
+                className='search-btn btn btn-success'>Search</button>
         </div>
     );
 };
