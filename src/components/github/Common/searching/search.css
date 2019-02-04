@@ -9,25 +9,26 @@
     color: white;
 }
 
-.numberInput {
-    max-width: 100px;
-}
-
 .search-btn {
     height: 40px;
+    margin-top: -5px;
+    margin-bottom: 0px;
     width: 33%;
 }
 
 input {
     color: #222222;
     padding: 6px 10px;
-    margin: 5px;
     height: 40px;
     width: 33%;
+    margin-top: 0px;
+    margin-bottom: 5px;
 }
 
 .sorting-container {
     width: 33%;
     height: 40px;
     color: black;
+    margin-top: 0px;
+    margin-bottom: 5px;
 }

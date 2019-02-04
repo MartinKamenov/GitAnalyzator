@@ -28,6 +28,8 @@
 }
 
 .analyze-container {
+    background-color: white;
+    border: 2px solid white;
     padding: 10px;
     width: 250px;
     height: 300px;
