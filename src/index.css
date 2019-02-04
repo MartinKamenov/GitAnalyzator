@@ -110,6 +110,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  color: white;
 }
 
 code {
@@ -156,6 +158,7 @@ img.home-image {
   top: 100px;
   left: 75%;
   background: #eee;
+  color: black;
   overflow-x: hidden;
   padding: 8px 0;
 }

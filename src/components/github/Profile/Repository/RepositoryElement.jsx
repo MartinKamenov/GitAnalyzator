@@ -9,7 +9,7 @@ const RepositoryElement = ({ username, repo }) => {
 
     return (
         <a href={'https://github.com/' + username + '/' + repo.name}
-            className="col-md-6">
+            className="col-md-6 repo-container">
             <div className='repo-wrapper'>
                 <img
                     className='programming-language-img'

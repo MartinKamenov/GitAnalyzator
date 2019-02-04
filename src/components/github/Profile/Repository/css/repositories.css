@@ -1,17 +1,21 @@
 .repo-wrapper {
-    border: 1px solid black;
+    background-color: #222222;
+    border: 1px solid white;
     border-radius: 10px;
     margin: 10px;
     min-height: 100px;
-    color: #222222;
-    text-decoration: none;
+    color: #CA5353;
     height: 175px;
     overflow: auto;
 }
 
+.repo-container {
+    text-decoration: none !important;
+}
+
 .repo-wrapper:hover {
     text-decoration: none;
-    background-color: #eeeeee;
+    background-color: #333333;
 }
 
 .programming-language-img {

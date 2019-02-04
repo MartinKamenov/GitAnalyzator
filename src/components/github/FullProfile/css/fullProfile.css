@@ -12,12 +12,14 @@
     text-decoration: none;
     height: 50px;
     padding: 10px;
-    border: 1px solid #222222;
+    border: 1px solid white;
+    background-color: #222222;
+    text-decoration: none !important;
     border-radius: 5px;
 }
 
 .follower-container:hover {
-    background-color: #eeeeee;
+    background-color: #333333;;
 }
 
 .analyze-main-container {
