@@ -9,6 +9,7 @@ const SearchComponent = ({onSortByChanged, onSearchUsernameChanged, onSearchHand
             <h2 style={{color: 'white'}}>Search</h2>
             <SortingComponent onSortByChanged={onSortByChanged}/>
             <input
+                className='username-input'
                 placeholder='Username'
                 onChange={onSearchUsernameChanged}>
             </input>

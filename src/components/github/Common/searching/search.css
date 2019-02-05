@@ -16,7 +16,7 @@
     width: 33%;
 }
 
-input {
+.username-input {
     color: #222222;
     padding: 6px 10px;
     height: 40px;
