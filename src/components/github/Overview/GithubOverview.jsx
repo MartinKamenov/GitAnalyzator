@@ -36,7 +36,7 @@ class GithubOverview extends Component {
     }
 
     addPagesToState(usersObject) {
-        const pages = [];
+        let pages = [];
         const page = usersObject.page;
         const pagesCount = usersObject.pagesCount;
         let startPage = page > 1 ? page - 1 : 1;
@@ -52,6 +52,16 @@ class GithubOverview extends Component {
         for(let i = startPage; i < endPage + 1; i++) {
             pages.push(i);
         }
+
+        if(!pages.includes(1)) {
+            pages.push(1);
+        }
+
+        if(!pages.includes(pagesCount)) {
+            pages.push(pagesCount);
+        }
+
+        pages = pages.sort();
 
         if(!this.state.isSearched && this.state.currentPage === page) {
             return;
