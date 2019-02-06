@@ -2,6 +2,7 @@ import React from 'react';
 import './search.css';
 import SortingComponent from './SortingComponent';
 import PropTypes from 'prop-types';
+import SearchingLanguageComponent from './SearchingLanguageComponent';
 
 const SearchComponent = ({onSortByChanged, onSearchUsernameChanged, onSearchHandler}) => {
     return (
@@ -16,6 +17,7 @@ const SearchComponent = ({onSortByChanged, onSearchUsernameChanged, onSearchHand
             <button
                 onClick={onSearchHandler}
                 className='search-btn btn btn-success'>Search</button>
+            <SearchingLanguageComponent/>
         </div>
     );
 };
