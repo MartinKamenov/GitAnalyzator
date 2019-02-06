@@ -11,11 +11,12 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
     const contributionsAnalyze = profileAnalyze.contributionsAnalyze;
     let repositoriesAnalyze = profileAnalyze.repositoriesAnalyze;
 
-    repositoriesAnalyze = repositoriesAnalyze.filter((repoInfo) => repoInfo.repo);
-
     if(!contributionsAnalyze || !repositoriesAnalyze) {
         return <div>No data for analyze</div>;
     }
+
+    
+    repositoriesAnalyze = repositoriesAnalyze.filter((repoInfo) => repoInfo.repo);
     let mainLanguage = null;
     if(repositoriesAnalyze.length && repositoriesAnalyze[0].count > 0) {
         mainLanguage = repositoriesAnalyze[0].repo;
