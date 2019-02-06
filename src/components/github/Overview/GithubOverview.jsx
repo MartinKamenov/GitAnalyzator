@@ -61,7 +61,7 @@ class GithubOverview extends Component {
             pages.push(pagesCount);
         }
 
-        pages = pages.sort();
+        pages = pages.sort((a, b) => a - b);
 
         if(!this.state.isSearched && this.state.currentPage === page) {
             return;
