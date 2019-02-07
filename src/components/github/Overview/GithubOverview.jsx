@@ -15,6 +15,7 @@ class GithubOverview extends Component {
         currentPage: 0,
         searchUsername: '',
         sortBy: 'totalContributionsCount',
+        language: '',
         isSearched: false
     }
     componentDidMount() {
@@ -71,9 +72,13 @@ class GithubOverview extends Component {
     }
 
     addQueryParams = () => {
-        const queryParam = {sortBy: this.state.sortBy};
+        const queryParam = { sortBy: this.state.sortBy };
         if(this.state.username) {
             queryParam.username = this.state.searchUsername;
+        }
+
+        if(this.state.language) {
+            queryParam.language = this.state.language;
         }
         this.props.history.push({
             pathname: '/overview',
@@ -104,10 +109,15 @@ class GithubOverview extends Component {
     }
 
     onSearchHandler = () => {
-        let searchParams = null;
+        let searchParams = {};
         if(this.state.searchUsername) {
-            searchParams = { username: this.state.searchUsername };
+            searchParams.username = this.state.searchUsername;
         }
+
+        if(this.state.language) {
+            searchParams.language = this.state.language;
+        }
+
         const sortParams = { sortBy: this.state.sortBy };
         const page = 1;
         this.props.actions.getGithubUsers(page, searchParams, sortParams);
@@ -116,6 +126,10 @@ class GithubOverview extends Component {
         this.addQueryParams();
     }
 
+    onLanguageChanged = (evt) => {
+        const language = evt.target.value;
+        this.setState({ language });
+    }
 
     render() {
         return (
@@ -124,7 +138,8 @@ class GithubOverview extends Component {
                     <SearchComponent
                     onSortByChanged={this.onSortByChanged}
                     onSearchUsernameChanged={this.onSearchUsernameChanged}
-                    onSearchHandler={this.onSearchHandler}/>
+                    onSearchHandler={this.onSearchHandler}
+                    onLanguageChanged={this.onLanguageChanged}/>
                     {(() => {
                         if(this.state.isLoading) {
                             return <LoaderComponent/>;

@@ -23,6 +23,7 @@
     width: 33%;
     margin-top: 0px;
     margin-bottom: 5px;
+    padding: 10px;
 }
 
 .sorting-container {
@@ -31,4 +32,8 @@
     color: black;
     margin-top: 0px;
     margin-bottom: 5px;
+}
+
+.language-option {
+    padding: 10px;
 }
