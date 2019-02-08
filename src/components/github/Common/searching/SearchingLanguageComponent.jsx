@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 const ProgrammingLanguageImages = require('../../../contracts/ProgrammingLanguageImages');
 
-const SearchingLanguageComponent = ({ onLanguageChanged }) => {
+const SearchingLanguageComponent = ({ onLanguageChanged, selectedLanguages }) => {
     let keys = Object.keys(ProgrammingLanguageImages.default);
     const indexUndefined = keys.indexOf('undefined');
     keys = keys.slice(0, indexUndefined);
@@ -17,10 +17,13 @@ const SearchingLanguageComponent = ({ onLanguageChanged }) => {
             {languages.map((lang) => (
                 <span key={lang.name}>
                     <img
+                        onClick={() => onLanguageChanged(lang.name)}
                         alt={lang.name}
                         src={lang.imageSrc}
                         title={lang.name}
-                        className='small-language-img'>
+                        className={selectedLanguages.includes(lang.name) ?
+                            'small-language-img active-img' :
+                            'small-language-img inactive-img'}>
                     </img>
                 </span>
             ))}
@@ -30,7 +33,8 @@ const SearchingLanguageComponent = ({ onLanguageChanged }) => {
 };
 
 SearchingLanguageComponent.propTypes = {
-    onLanguageChanged: PropTypes.func.isRequired
+    onLanguageChanged: PropTypes.func.isRequired,
+    selectedLanguages: PropTypes.array.isRequired
 };
  
 export default SearchingLanguageComponent;

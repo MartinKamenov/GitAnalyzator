@@ -45,9 +45,9 @@ const githubApi = {
                 quertyParam += `&username=${username}`;
             }
 
-            const language = searchParams.language;
-            if(language || language !== 'Programming language') {
-                quertyParam += `&language=${language}`;
+            const languages = searchParams.languages;
+            if(languages && languages.length > 0) {
+                quertyParam += `&language=${languages.join('|')}`;
             }
         }
 

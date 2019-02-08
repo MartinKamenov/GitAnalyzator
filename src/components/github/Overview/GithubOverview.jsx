@@ -15,7 +15,7 @@ class GithubOverview extends Component {
         currentPage: 0,
         searchUsername: '',
         sortBy: 'totalContributionsCount',
-        language: '',
+        languages: [],
         isSearched: false
     }
     componentDidMount() {
@@ -126,9 +126,17 @@ class GithubOverview extends Component {
         this.addQueryParams();
     }
 
-    onLanguageChanged = (evt) => {
-        const language = evt.target.value;
-        this.setState({ language });
+    onLanguageChanged = (language) => {
+        const languages = this.state.languages;
+        if(languages.includes(language)) {
+            var index = languages.indexOf(language);
+            if (index > -1) {
+                languages.splice(index, 1);
+            }
+        } else {
+            languages.push(language);
+        }
+        this.setState({ languages });
     }
 
     render() {
@@ -139,7 +147,8 @@ class GithubOverview extends Component {
                     onSortByChanged={this.onSortByChanged}
                     onSearchUsernameChanged={this.onSearchUsernameChanged}
                     onSearchHandler={this.onSearchHandler}
-                    onLanguageChanged={this.onLanguageChanged}/>
+                    onLanguageChanged={this.onLanguageChanged}
+                    selectedLanguages={this.state.languages}/>
                     {(() => {
                         if(this.state.isLoading) {
                             return <LoaderComponent/>;

@@ -4,7 +4,12 @@ import SortingComponent from './SortingComponent';
 import PropTypes from 'prop-types';
 import SearchingLanguageComponent from './SearchingLanguageComponent';
 
-const SearchComponent = ({onSortByChanged, onSearchUsernameChanged, onSearchHandler, onLanguageChanged}) => {
+const SearchComponent = ({
+    onSortByChanged,
+    onSearchUsernameChanged,
+    onSearchHandler,
+    onLanguageChanged,
+    selectedLanguages}) => {
     return (
         <div className='search_container'>
             <h2 style={{color: 'white'}}>Search</h2>
@@ -17,7 +22,9 @@ const SearchComponent = ({onSortByChanged, onSearchUsernameChanged, onSearchHand
             <button
                 onClick={onSearchHandler}
                 className='search-btn btn btn-success'>Search</button>
-            <SearchingLanguageComponent onLanguageChanged={onLanguageChanged}/>
+            <SearchingLanguageComponent
+                selectedLanguages={selectedLanguages}
+                onLanguageChanged={onLanguageChanged}/>
         </div>
     );
 };
@@ -26,7 +33,8 @@ SearchComponent.propTypes = {
     onSortByChanged: PropTypes.func.isRequired,
     onSearchUsernameChanged: PropTypes.func.isRequired,
     onSearchHandler: PropTypes.func.isRequired,
-    onLanguageChanged: PropTypes.func.isRequired
+    onLanguageChanged: PropTypes.func.isRequired,
+    selectedLanguages: PropTypes.array.isRequired
 };
  
 export default SearchComponent;
