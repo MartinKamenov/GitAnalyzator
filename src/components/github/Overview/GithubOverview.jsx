@@ -21,13 +21,20 @@ class GithubOverview extends Component {
     componentDidMount() {
         const queryObject = queryString.parse(this.props.location.search);
         const pageString = queryObject.page;
-        let searchParams = null;
+        let searchParams = {};
         if(queryObject.username) {
             searchParams.username = queryObject.username;
         }
 
+        if(queryObject.language) {
+            searchParams.languages = queryObject.language.split('|');
+            this.setState({languages: queryObject.language.split('|')});
+        }
+
         const sortBy = queryObject.sortBy ? queryObject.sortBy : this.state.sortBy;
+        this.setState({sortBy});
         const sortParams = { sortBy };
+
         const page = parseInt(pageString, 10);
         this.props.actions.getGithubUsers(page, searchParams, sortParams);
     }
