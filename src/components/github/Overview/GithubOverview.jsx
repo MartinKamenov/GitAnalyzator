@@ -114,8 +114,8 @@ class GithubOverview extends Component {
             searchParams.username = this.state.searchUsername;
         }
 
-        if(this.state.language) {
-            searchParams.language = this.state.language;
+        if(this.state.languages.length > 0) {
+            searchParams.languages = this.state.languages;
         }
 
         const sortParams = { sortBy: this.state.sortBy };
