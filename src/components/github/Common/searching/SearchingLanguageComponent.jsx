@@ -3,21 +3,29 @@ import PropTypes from 'prop-types';
 const ProgrammingLanguageImages = require('../../../contracts/ProgrammingLanguageImages');
 
 const SearchingLanguageComponent = ({ onLanguageChanged }) => {
-    let languages = Object.keys(ProgrammingLanguageImages.default);
-    const indexUndefined = languages.indexOf('undefined');
-    languages = languages.slice(0, indexUndefined);
-    languages.splice(0, 0, 'Programming language');
+    let keys = Object.keys(ProgrammingLanguageImages.default);
+    const indexUndefined = keys.indexOf('undefined');
+    keys = keys.slice(0, indexUndefined);
+    const languages = [];
+    keys.forEach((key) => languages.push({
+        name: key,
+        imageSrc: ProgrammingLanguageImages.default[key]
+    }));
 
     return (
-        <select
-            onChange={onLanguageChanged}
-            className='sorting-container'>
-            {
-                languages.map((lang) => {
-                    return <option className="language-option">{lang}</option>;
-                })
-            }
-        </select>
+        <div className='language-container'>
+            {languages.map((lang) => (
+                <span key={lang.name}>
+                    <img
+                        alt={lang.name}
+                        src={lang.imageSrc}
+                        title={lang.name}
+                        className='small-language-img'>
+                    </img>
+                </span>
+            ))}
+            
+        </div>
     );
 };
 

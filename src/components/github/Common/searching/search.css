@@ -34,6 +34,21 @@
     margin-bottom: 5px;
 }
 
-.language-option {
-    padding: 10px;
+.language-container {
+    width: 100%;
+}
+
+.small-language-img {
+    width: 35px;
+    height: 35px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.inactive-img {
+    opacity: 0.6;
+}
+
+.active-img {
+    opacity: 1;
 }
