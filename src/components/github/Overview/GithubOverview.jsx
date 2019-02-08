@@ -24,6 +24,7 @@ class GithubOverview extends Component {
         let searchParams = {};
         if(queryObject.username) {
             searchParams.username = queryObject.username;
+            this.setState({username: queryObject.username});
         }
 
         if(queryObject.language) {
@@ -80,12 +81,12 @@ class GithubOverview extends Component {
 
     addQueryParams = () => {
         const queryParam = { sortBy: this.state.sortBy };
-        if(this.state.username) {
+        if(this.state.searchUsername) {
             queryParam.username = this.state.searchUsername;
         }
 
-        if(this.state.language) {
-            queryParam.language = this.state.language;
+        if(this.state.languages.length > 0) {
+            queryParam.language = this.state.languages.join('|');
         }
         this.props.history.push({
             pathname: '/overview',
