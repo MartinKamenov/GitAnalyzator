@@ -15,18 +15,27 @@ class GithubOverview extends Component {
         currentPage: 0,
         searchUsername: '',
         sortBy: 'totalContributionsCount',
+        languages: [],
         isSearched: false
     }
     componentDidMount() {
         const queryObject = queryString.parse(this.props.location.search);
         const pageString = queryObject.page;
-        let searchParams = null;
+        let searchParams = {};
         if(queryObject.username) {
             searchParams.username = queryObject.username;
+            this.setState({username: queryObject.username});
+        }
+
+        if(queryObject.language) {
+            searchParams.languages = queryObject.language.split('|');
+            this.setState({languages: queryObject.language.split('|')});
         }
 
         const sortBy = queryObject.sortBy ? queryObject.sortBy : this.state.sortBy;
+        this.setState({sortBy});
         const sortParams = { sortBy };
+
         const page = parseInt(pageString, 10);
         this.props.actions.getGithubUsers(page, searchParams, sortParams);
     }
@@ -71,9 +80,13 @@ class GithubOverview extends Component {
     }
 
     addQueryParams = () => {
-        const queryParam = {sortBy: this.state.sortBy};
-        if(this.state.username) {
+        const queryParam = { sortBy: this.state.sortBy };
+        if(this.state.searchUsername) {
             queryParam.username = this.state.searchUsername;
+        }
+
+        if(this.state.languages.length > 0) {
+            queryParam.language = this.state.languages.join('|');
         }
         this.props.history.push({
             pathname: '/overview',
@@ -104,10 +117,15 @@ class GithubOverview extends Component {
     }
 
     onSearchHandler = () => {
-        let searchParams = null;
+        let searchParams = {};
         if(this.state.searchUsername) {
-            searchParams = { username: this.state.searchUsername };
+            searchParams.username = this.state.searchUsername;
         }
+
+        if(this.state.languages.length > 0) {
+            searchParams.languages = this.state.languages;
+        }
+
         const sortParams = { sortBy: this.state.sortBy };
         const page = 1;
         this.props.actions.getGithubUsers(page, searchParams, sortParams);
@@ -116,6 +134,18 @@ class GithubOverview extends Component {
         this.addQueryParams();
     }
 
+    onLanguageChanged = (language) => {
+        const languages = this.state.languages;
+        if(languages.includes(language)) {
+            var index = languages.indexOf(language);
+            if (index > -1) {
+                languages.splice(index, 1);
+            }
+        } else {
+            languages.push(language);
+        }
+        this.setState({ languages });
+    }
 
     render() {
         return (
@@ -124,7 +154,9 @@ class GithubOverview extends Component {
                     <SearchComponent
                     onSortByChanged={this.onSortByChanged}
                     onSearchUsernameChanged={this.onSearchUsernameChanged}
-                    onSearchHandler={this.onSearchHandler}/>
+                    onSearchHandler={this.onSearchHandler}
+                    onLanguageChanged={this.onLanguageChanged}
+                    selectedLanguages={this.state.languages}/>
                     {(() => {
                         if(this.state.isLoading) {
                             return <LoaderComponent/>;

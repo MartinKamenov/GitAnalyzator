@@ -41,7 +41,14 @@ const githubApi = {
 
         if(searchParams) {
             const username = searchParams.username;
-            quertyParam += `&username=${username}`;
+            if(username) {
+                quertyParam += `&username=${username}`;
+            }
+
+            const languages = searchParams.languages;
+            if(languages && languages.length > 0) {
+                quertyParam += `&language=${languages.join('|')}`;
+            }
         }
 
         if(sortParams) {

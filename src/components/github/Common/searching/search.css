@@ -23,6 +23,7 @@
     width: 33%;
     margin-top: 0px;
     margin-bottom: 5px;
+    padding: 10px;
 }
 
 .sorting-container {
@@ -31,4 +32,24 @@
     color: black;
     margin-top: 0px;
     margin-bottom: 5px;
+}
+
+.language-container {
+    width: 100%;
+}
+
+.small-language-img {
+    width: 35px;
+    height: 35px;
+    border: 1px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.inactive-img {
+    opacity: 0.5;
+}
+
+.active-img {
+    opacity: 1;
 }
