@@ -16,11 +16,10 @@ class PagingDetailsComponent extends PureComponent {
     render() {
         const { page, onPageChangeHandler, currentPage } = this.props;
         return ( 
-            <Link onClick={() => onPageChangeHandler(page)}
-                className={this.getPageClass(page, currentPage)}
-                to={'/overview?page=' + page}>
+            <span onClick={() => onPageChangeHandler(page)}
+                className={this.getPageClass(page, currentPage)}>
                 <span>{ page }</span>
-            </Link>
+            </span>
         );
     }
 }

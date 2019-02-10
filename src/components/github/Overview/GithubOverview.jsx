@@ -12,7 +12,7 @@ import SearchComponent from '../Common/searching/SearchComponent';
 class GithubOverview extends Component {
     state = {
         isLoading: true,
-        currentPage: 1,
+        currentPage: 0,
         searchUsername: '',
         sortBy: 'totalContributionsCount',
         languages: [],
@@ -87,6 +87,7 @@ class GithubOverview extends Component {
     }
 
     addQueryParams = (queryParam) => {
+        queryParam.page = queryParam.page + '';
         this.props.history.push({
             pathname: '/overview',
             search: "?" + new URLSearchParams(queryParam).toString()
@@ -94,20 +95,17 @@ class GithubOverview extends Component {
     }
 
     onPageChangeHandler = (page) => {
-        this.setState({ page, isLoading: true, isSearched: false });
-        let searchParams = null;
-        if(this.state.searchUsername) {
-            searchParams.username = this.state.searchUsername;
-        }
+        let queryParam = this.state.queryParam;
+        queryParam.page = page;
+        this.setState({ page, isLoading: true, isSearched: false, queryParam });
 
-        const sortBy = this.state.sortBy;
-        const sortParams = { sortBy };
-        this.props.actions.getGithubUsers(page, searchParams, sortParams);
+        this.props.actions.getGithubUsers(page, queryParam);
+        this.addQueryParams(queryParam);
     }
 
     onSortByChanged = (evt) => {
         const sortBy = evt.target.value;
-        this.setState({sortBy});
+        this.setState({ sortBy });
     }
 
     onSearchUsernameChanged = (evt) => {
@@ -122,16 +120,24 @@ class GithubOverview extends Component {
         }
 
         if(this.state.languages.length > 0) {
-            queryParam.languages = this.state.languages;
+            queryParam.language = this.state.languages.join('|');
         }
 
         queryParam.sortBy = this.state.sortBy;
 
         const page = 1;
+        debugger;
         this.props.actions.getGithubUsers(page, queryParam);
-        this.setState({ isLoading: true, isSearched: true });
+        this.setState({ isLoading: true, isSearched: true, queryParam });
 
-        //this.addQueryParams();
+        this.addQueryParams(queryParam);
+    }
+
+    addQueryParams = (queryParam) => {
+        this.props.history.push({
+            pathname: '/overview',
+            search: "?" + new URLSearchParams(queryParam).toString()
+        });
     }
 
     onLanguageChanged = (language) => {
