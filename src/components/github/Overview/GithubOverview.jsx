@@ -24,7 +24,7 @@ class GithubOverview extends Component {
         const pageString = queryObject.page;
         const queryParam = {};
         if(queryObject.username) {
-            this.setState({username: queryObject.username});
+            this.setState({searchUsername: queryObject.username});
             queryParam.username = queryObject.username;
         }
 
@@ -126,7 +126,6 @@ class GithubOverview extends Component {
         queryParam.sortBy = this.state.sortBy;
 
         const page = 1;
-        debugger;
         this.props.actions.getGithubUsers(page, queryParam);
         this.setState({ isLoading: true, isSearched: true, queryParam });
 
@@ -162,7 +161,8 @@ class GithubOverview extends Component {
                     onSearchUsernameChanged={this.onSearchUsernameChanged}
                     onSearchHandler={this.onSearchHandler}
                     onLanguageChanged={this.onLanguageChanged}
-                    selectedLanguages={this.state.languages}/>
+                    selectedLanguages={this.state.languages}
+                    searchUsername={this.state.searchUsername}/>
                     {(() => {
                         if(this.state.isLoading) {
                             return <LoaderComponent/>;

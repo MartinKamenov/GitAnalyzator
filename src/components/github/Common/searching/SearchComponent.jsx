@@ -9,12 +9,14 @@ const SearchComponent = ({
     onSearchUsernameChanged,
     onSearchHandler,
     onLanguageChanged,
-    selectedLanguages}) => {
+    selectedLanguages,
+    searchUsername}) => {
     return (
         <div className='search_container'>
             <h2 style={{color: 'white'}}>Search</h2>
             <SortingComponent onSortByChanged={onSortByChanged}/>
             <input
+                value={searchUsername}
                 className='username-input'
                 placeholder='Username'
                 onChange={onSearchUsernameChanged}>
@@ -34,7 +36,8 @@ SearchComponent.propTypes = {
     onSearchUsernameChanged: PropTypes.func.isRequired,
     onSearchHandler: PropTypes.func.isRequired,
     onLanguageChanged: PropTypes.func.isRequired,
-    selectedLanguages: PropTypes.array.isRequired
+    selectedLanguages: PropTypes.array.isRequired,
+    searchUsername: PropTypes.string.isRequired
 };
  
 export default SearchComponent;
