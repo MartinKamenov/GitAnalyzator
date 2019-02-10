@@ -30,7 +30,7 @@ class GithubOverview extends Component {
 
         if(queryObject.language) {
             this.setState({ languages: queryObject.language.split('|') });
-            queryParam.language = queryObject.language.split('|');
+            queryParam.language = queryObject.language;
         }
 
         const sortBy = queryObject.sortBy ? queryObject.sortBy : this.state.sortBy;
