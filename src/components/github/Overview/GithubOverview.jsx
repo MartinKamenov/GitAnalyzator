@@ -162,7 +162,8 @@ class GithubOverview extends Component {
                     onSearchHandler={this.onSearchHandler}
                     onLanguageChanged={this.onLanguageChanged}
                     selectedLanguages={this.state.languages}
-                    searchUsername={this.state.searchUsername}/>
+                    searchUsername={this.state.searchUsername}
+                    currentSortBy={this.state.sortBy}/>
                     {(() => {
                         if(this.state.isLoading) {
                             return <LoaderComponent/>;

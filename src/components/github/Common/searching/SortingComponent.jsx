@@ -2,8 +2,9 @@ import React from 'react';
 import SortingAttributes from '../../../contracts/SortingAttributes';
 import PropTypes from 'prop-types';
 
-const SortingComponent = ({ onSortByChanged }) => (
+const SortingComponent = ({ onSortByChanged, currentSortBy }) => (
     <select
+        value={currentSortBy}
         onChange={onSortByChanged}
         className='sorting-container'>
         {
@@ -19,7 +20,8 @@ const SortingComponent = ({ onSortByChanged }) => (
 );
 
 SortingComponent.propTypes = {
-    onSortByChanged: PropTypes.func.isRequired
+    onSortByChanged: PropTypes.func.isRequired,
+    currentSortBy: PropTypes.string.isRequired
 };
  
 export default SortingComponent;
