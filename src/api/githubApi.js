@@ -31,32 +31,31 @@ const githubApi = {
         return axios.get(searchUrl, sendObject);
     },
 
-    getGithubUsersByPage: (page, searchParams, sortParams) => {
-        let quertyParam = '?pagesize=6';
+    getGithubUsersByPage: (page, quertyParam) => {
+        let sendQuertyParam = '?pagesize=6';
         if(page) {
-            quertyParam += `&page=${page}`;
+            sendQuertyParam += `&page=${page}`;
         } else {
-            quertyParam += '&page=1';
+            sendQuertyParam += '&page=1';
         }
 
-        if(searchParams) {
-            const username = searchParams.username;
+        if(quertyParam.username) {
+            const username = quertyParam.username;
             if(username) {
-                quertyParam += `&username=${username}`;
-            }
-
-            const languages = searchParams.languages;
-            if(languages && languages.length > 0) {
-                quertyParam += `&language=${languages.join('|')}`;
+                sendQuertyParam += `&username=${username}`;
             }
         }
-
-        if(sortParams) {
-            const sortBy = sortParams.sortBy;
-            quertyParam += `&sortBy=${sortBy}`;
+        if(quertyParam.language) {
+            const languages = quertyParam.language;
+            sendQuertyParam += `&language=${languages.join('|')}`;
         }
 
-        const searchUrl = url + usersPath + quertyParam;
+        if(quertyParam.sortBy) {
+            const sortBy = quertyParam.sortBy;
+            sendQuertyParam += `&sortBy=${sortBy}`;
+        }
+
+        const searchUrl = url + usersPath + sendQuertyParam;
         return axios.get(searchUrl, sendObject);
     },
 
