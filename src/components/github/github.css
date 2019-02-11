@@ -113,6 +113,7 @@
     background-color: #eaeaea;
     border-radius: 10px;
     border: 1px solid gray;
+    color: #222222;
 }
 
 .legend-header {
@@ -160,4 +161,8 @@ span.second-profile-legend {
 .year-btn:hover {
     color: white;
     border:0.1em solid white;
+}
+
+.ReactChart {
+    background-color: #eaeaea;
 }
