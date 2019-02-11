@@ -8,6 +8,7 @@ import PagingComponent from '../Common/paging/PagingComponent';
 import queryString from 'query-string'
 import LoaderComponent from '../Common/Loader';
 import SearchComponent from '../Common/searching/SearchComponent';
+import NotFoundComponent from '../Common/NotFoundComponent';
 
 class GithubOverview extends Component {
     state = {
@@ -54,7 +55,7 @@ class GithubOverview extends Component {
     addPagesToState(usersObject) {
         let pages = [];
         const page = usersObject.page;
-        const pagesCount = usersObject.pagesCount;
+        const pagesCount = usersObject.pagesCount ? usersObject.pagesCount : 1;
         let startPage = page > 1 ? page - 1 : 1;
         let endPage = page < pagesCount ? page + 1 : pagesCount;
         if(startPage === 1 && pagesCount > 2) {
@@ -167,6 +168,8 @@ class GithubOverview extends Component {
                     {(() => {
                         if(this.state.isLoading) {
                             return <LoaderComponent/>;
+                        } else if(this.props.users && this.props.users.users.length < 1) {
+                            return <NotFoundComponent field='users'/>
                         } else {
                             return (
                                 <div>
