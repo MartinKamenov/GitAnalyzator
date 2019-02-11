@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ProgrammingLanguageImages from '../../../contracts/ProgrammingLanguageImages';
+import { FaStar } from 'react-icons/fa';
 
 const RepositoryElement = ({ username, repo }) => {
     if(!repo.description) {
@@ -16,7 +17,14 @@ const RepositoryElement = ({ username, repo }) => {
                     src={ProgrammingLanguageImages.getImageSrc(repo.programmingLanguage)}
                     href={username}>
                 </img>
-                <h3>{repo.name.substring(0, 25)}</h3>
+                {
+                    (() => {
+                        if(repo.starsCount) {
+                            return <div className='stars-container'><FaStar/>{repo.starsCount}</div>;
+                        }
+                    })()
+                }
+                <h3 style={{marginTop: '5px'}}>{repo.name.substring(0, 25)}</h3>
                 
                 <div className='programming-language'>{repo.programmingLanguage}</div>
                 <p1>{repo.description}</p1>
