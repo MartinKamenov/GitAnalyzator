@@ -26,3 +26,7 @@
     height: 65px;
     border-radius: 50%;
 }
+
+.stars-container {
+    margin-top: 5px;
+}
