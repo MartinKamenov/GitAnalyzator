@@ -46,7 +46,9 @@ const githubApi = {
             }
         }
         if(quertyParam.language) {
-            sendQuertyParam += `&language=${quertyParam.language}`;
+            sendQuertyParam += `&language=${quertyParam.language
+                .replace('#', '%23')
+                .replace('++', '%2B%2B')}`;
         }
 
         if(quertyParam.sortBy) {
