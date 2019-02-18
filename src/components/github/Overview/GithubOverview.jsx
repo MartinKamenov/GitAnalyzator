@@ -50,15 +50,13 @@ class GithubOverview extends Component {
     }
 
     checkIfUsersAreEqual = (currentUsers, propsUser) => {
-        debugger;
         let currentUsernames = currentUsers.map(u => u.username);
         let propsUsernames = propsUser.map(u => u.username);
         if(currentUsernames.length !== propsUsernames.length) {
             return false;
         }
 
-        const min = Math.min(currentUsernames.length, propsUsernames.length);
-        for(let i = 0; i < min; i++) {
+        for(let i = 0; i < currentUsernames.length; i++) {
             if(currentUsernames[i] !== propsUsernames[i]) {
                 return false;
             }
@@ -68,11 +66,10 @@ class GithubOverview extends Component {
     }
 
     componentWillReceiveProps(props) {
-        debugger;
         if(this.state.currentUsers.length === 0) {
             this.addPagesToState(props.users);
         } else if(props.users && this.state.currentUsers.length > 0) {
-            const usersAreEqual = this.checkIfUsersAreEqual(this.state.currentUsers, props.users);
+            const usersAreEqual = this.checkIfUsersAreEqual(this.state.currentUsers, props.users.users);
             if(!usersAreEqual) {
                 this.addPagesToState(props.users);
             }
