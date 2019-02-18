@@ -13,6 +13,7 @@ import NotFoundComponent from '../Common/NotFoundComponent';
 class GithubOverview extends Component {
     state = {
         isLoading: true,
+        checkHavePassed: false,
         currentPage: 0,
         searchUsername: '',
         sortBy: 'totalContributionsCount',
@@ -70,9 +71,13 @@ class GithubOverview extends Component {
             this.addPagesToState(props.users);
         } else if(props.users && this.state.currentUsers.length > 0) {
             const usersAreEqual = this.checkIfUsersAreEqual(this.state.currentUsers, props.users.users);
-            if(!usersAreEqual) {
+            if(!usersAreEqual || this.state.checkHavePassed) {
                 this.addPagesToState(props.users);
+                this.setState({checkHavePassed: false});
+            } else if(usersAreEqual) {
+                this.setState({checkHavePassed: true});
             }
+            
         }
 
         if(props.users) {
