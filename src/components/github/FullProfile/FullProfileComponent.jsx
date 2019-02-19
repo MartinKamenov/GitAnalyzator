@@ -18,6 +18,10 @@ class FullProfileComponent extends Component {
         tabs: TabsFullUser,
         tab: TabsFullUser[0]
     }
+
+    dismiss() {
+        this.props.unmountMe();
+    }
     componentDidMount() {
         const username = this.props.match.params.username;
         this.props.actions.getFullGithubUser(username);
