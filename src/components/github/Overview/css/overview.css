@@ -32,6 +32,11 @@
     text-align: right;
 }
 
+.analyze-chart-wrapper {
+    width: 200px;
+    height: 200px;
+}
+
 .chart-wrapper {
     display: inline-block;
     width: 50%;

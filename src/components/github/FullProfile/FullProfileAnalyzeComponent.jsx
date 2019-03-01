@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ProgrammingLanguageImages from '../../contracts/ProgrammingLanguageImages';
+import ChartComponent from '../Chart/ChartComponent';
 
 const FullProfileAnalyzeComponent = ({ profile }) => {
     const profileAnalyze = profile.profileAnalyze;
     if(!profileAnalyze) {
         return <div>No data for analyze</div>;
     }
+
+    const dataArray = [{
+        title: profile.username, 
+        contributions: profile.data.dateContributionsNumbers.map((c, i) => { return [i, c]; })
+    }];
     
     const contributionsAnalyze = profileAnalyze.contributionsAnalyze;
     let repositoriesAnalyze = profileAnalyze.repositoriesAnalyze;
@@ -72,6 +78,9 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
                         }
                     </div>
                 </div>
+            </div>
+            <div className="contribution-chart">
+                <ChartComponent dataArray={dataArray}/>
             </div>
         </div>
     );
