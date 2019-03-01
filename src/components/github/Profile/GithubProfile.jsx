@@ -25,7 +25,7 @@ const GithubPage = ({profile}) => {
                                 <GithubProfileLink username={profile.username}/>
                                 <GithubContributionsDetails profile={profile}/>
                                 <div className="contribution-chart" >
-                                    <ChartComponent dataArray={dataArray}/>
+                                    <ChartComponent dataArray={dataArray} shouldColorChart={true}/>
                                 </div>
                             </div>
                         );

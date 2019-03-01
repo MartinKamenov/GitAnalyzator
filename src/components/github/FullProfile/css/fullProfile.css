@@ -50,10 +50,13 @@
 }
 
 .analyze-chart {
+    position: relative;
+    border-radius: 10px;
+    top: -20px;
+    background-color: #EAEAEA;
     display: inline-block;
     width: 250px;
     height: 300px;
-    color: #ffffff;
 }
 
 .analyze-inner-container {
