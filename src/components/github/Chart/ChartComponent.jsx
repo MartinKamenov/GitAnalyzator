@@ -3,7 +3,8 @@ import PropType from 'prop-types';
 import { Chart } from 'react-charts';
 import LegendComponent from './LegendComponent';
 
-const ChartComponent = ({dataArray}) => {
+const ChartComponent = ({dataArray, shouldColorChart}) => {
+    const chartClass = shouldColorChart ? 'colored-react-chart' : 'react-chart';
     return (
         <React.Fragment>
             {(() => {
@@ -11,7 +12,7 @@ const ChartComponent = ({dataArray}) => {
                     return <LegendComponent colorsData={dataArray}/>;
                 }
             })()}
-            <Chart data={dataArray.map((dataDetails, i) => {
+            <Chart className={chartClass} data={dataArray.map((dataDetails, i) => {
                 return ({
                     label: dataDetails.title,
                     data: dataDetails.contributions
@@ -26,7 +27,8 @@ const ChartComponent = ({dataArray}) => {
 };
 
 ChartComponent.propType = {
-    dataArray: PropType.array.isRequired
+    dataArray: PropType.array.isRequired,
+    shouldColorChart: PropType.bool
 };
  
 export default ChartComponent;

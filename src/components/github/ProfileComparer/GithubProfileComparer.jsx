@@ -50,7 +50,9 @@ const GithubProfileComparer = ({ profiles }) => {
                                     {elements.map((profile) => profile)}
                                 </div>
                                 <div className="contribution-chart" >
-                                    <ChartComponent className="contribution-chart" dataArray={dataArray}/>
+                                    <ChartComponent className="contribution-chart"
+                                        dataArray={dataArray}
+                                        shouldColorChart={true}/>
                                 </div>
                             </div>
                         );
