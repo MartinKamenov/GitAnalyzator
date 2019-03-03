@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ProgrammingLanguageImages from '../../contracts/ProgrammingLanguageImages';
+import ChartComponent from '../Chart/ChartComponent';
 
 const FullProfileAnalyzeComponent = ({ profile }) => {
     const profileAnalyze = profile.profileAnalyze;
     if(!profileAnalyze) {
         return <div>No data for analyze</div>;
     }
+
+    const dataArray = [{
+        title: profile.username, 
+        contributions: profile.data.dateContributionsNumbers.map((c, i) => { return [i, c]; })
+    }];
     
     const contributionsAnalyze = profileAnalyze.contributionsAnalyze;
     let repositoriesAnalyze = profileAnalyze.repositoriesAnalyze;
@@ -23,55 +29,61 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
     }
     return (
         <div>
-            <div className='analyze-main-container'>
-                <div style={
-                    {backgroundImage: 'url("' + ProgrammingLanguageImages.getImageSrc(mainLanguage) + '")'}
-                }
-                className='analyze-container'>
-                </div>
-                <div className='analyze-inner-container'>
-                    {
-                        (() => {
-                            if(profileAnalyze.followersStar) {
-                                return <div>Star</div>;
-                            }
-                        })
+            <div className='analyze-main-container-outer'>
+                <div className='analyze-main-container'>
+                    <div style={
+                        {backgroundImage: 'url("' + ProgrammingLanguageImages.getImageSrc(mainLanguage) + '")'}
                     }
-                    <h2>{profile.username}<br/>{(() => {
-                        if(mainLanguage) {
-                            return (mainLanguage);
-                        }
-                    })()}</h2>
-                    <img
-                        className="profile-image"
-                        src={profile.data.pictureUrl}>
-                    </img>
-                    <div>
-                        <div>{contributionsAnalyze.contributorType}</div>
-                        {
-                            contributionsAnalyze.sectors.map((s, i) => {
-                                return (
-                                    <img
-                                        src={'/arrows/' + s + '.png'}
-                                        key={i}
-                                        className='sector-img'></img>);
-                            })
-                        }
+                    className='analyze-container'>
                     </div>
-                    <div>
+                    <div className='analyze-inner-container'>
                         {
-                            repositoriesAnalyze.map((repo, i) => {
-                                if(repo.count > 2) {
-                                    return (
-                                        <span
-                                            className='repo-label'
-                                            key={i}>#{repo.repo}</span>
-                                    );
+                            (() => {
+                                if(profileAnalyze.followersStar) {
+                                    return <div>Star</div>;
                                 }
                             })
                         }
+                        <h2>{profile.username}<br/>{(() => {
+                            if(mainLanguage) {
+                                return (mainLanguage);
+                            }
+                        })()}</h2>
+                        <img
+                            className="profile-image"
+                            src={profile.data.pictureUrl}>
+                        </img>
+                        <div>
+                            <div>{contributionsAnalyze.contributorType}</div>
+                            {
+                                contributionsAnalyze.sectors.map((s, i) => {
+                                    return (
+                                        <img
+                                            src={'/arrows/' + s + '.png'}
+                                            key={i}
+                                            className='sector-img'></img>);
+                                })
+                            }
+                        </div>
+                        <div>
+                            {
+                                repositoriesAnalyze.map((repo, i) => {
+                                    if(repo.count > 2) {
+                                        return (
+                                            <span
+                                                className='repo-label'
+                                                key={i}>#{repo.repo}</span>
+                                        );
+                                    }
+                                })
+                            }
+                        </div>
                     </div>
                 </div>
+            </div>
+            
+            <div className="analyze-chart">
+                <ChartComponent dataArray={dataArray}/>
             </div>
         </div>
     );

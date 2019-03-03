@@ -13,12 +13,14 @@ import NotFoundComponent from '../Common/NotFoundComponent';
 class GithubOverview extends Component {
     state = {
         isLoading: true,
+        checkHavePassed: false,
         currentPage: 0,
         searchUsername: '',
         sortBy: 'totalContributionsCount',
         languages: [],
         queryParam: {},
-        isSearched: false
+        isSearched: false,
+        currentUsers: []
     }
     componentDidMount() {
         const queryObject = queryString.parse(this.props.location.search);
@@ -48,8 +50,39 @@ class GithubOverview extends Component {
         this.props.actions.getGithubUsers(page, queryParam);
     }
 
+    checkIfUsersAreEqual = (currentUsers, propsUser) => {
+        let currentUsernames = currentUsers.map(u => u.username);
+        let propsUsernames = propsUser.map(u => u.username);
+        if(currentUsernames.length !== propsUsernames.length) {
+            return false;
+        }
+
+        for(let i = 0; i < currentUsernames.length; i++) {
+            if(currentUsernames[i] !== propsUsernames[i]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     componentWillReceiveProps(props) {
-        this.addPagesToState(props.users);
+        if(this.state.currentUsers.length === 0) {
+            this.addPagesToState(props.users);
+        } else if(props.users && this.state.currentUsers.length > 0) {
+            const usersAreEqual = this.checkIfUsersAreEqual(this.state.currentUsers, props.users.users);
+            if(!usersAreEqual || this.state.checkHavePassed) {
+                this.addPagesToState(props.users);
+                this.setState({checkHavePassed: false});
+            } else if(usersAreEqual) {
+                this.setState({checkHavePassed: true});
+            }
+            
+        }
+
+        if(props.users) {
+            this.setState({currentUsers: props.users.users});
+        }
     }
 
     addPagesToState(usersObject) {
