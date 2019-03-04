@@ -2,7 +2,6 @@ import React from 'react';
 import NotFoundComponent from '../Common/NotFoundComponent';
 
 const FullProfileFollowers = ({followers}) => {
-    debugger;
     const allFollowers = followers.map(f => f.toLowerCase());
     if(allFollowers.length === 0) {
         return <NotFoundComponent field='followers'/>;

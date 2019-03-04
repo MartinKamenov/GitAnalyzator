@@ -56,6 +56,7 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
                         </img>
                         <div>
                             <div>{contributionsAnalyze.contributorType}</div>
+                            <div className="progress-label">Contribution progress</div>
                             {
                                 contributionsAnalyze.sectors.map((s, i) => {
                                     return (

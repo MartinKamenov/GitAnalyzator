@@ -38,7 +38,7 @@
     border: 2px solid white;
     padding: 10px;
     width: 250px;
-    height: 300px;
+    height: 320px;
     background-repeat: no-repeat;
     background-position: center;
     border: 1px solid #222222;
@@ -56,14 +56,14 @@
     background-color: #EAEAEA;
     display: inline-block;
     width: 250px;
-    height: 300px;
+    height: 320px;
 }
 
 .analyze-inner-container {
     z-index: 1;
     width: 100%;
     position: relative;
-    height: 300px;
+    height: 320px;
     margin-top: 10px;
     margin-bottom: 20px;
     padding-top: 5px;
@@ -84,4 +84,8 @@
     margin-left: 2px;
     margin-right: 2px;
     padding: 5px;
+}
+
+.progress-label {
+    font-weight: bold;
 }
