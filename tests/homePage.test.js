@@ -1,10 +1,10 @@
 import React from 'react';
-import Footer from '../src/components/navbar/Footer';
+import HomePage from '../src/components/navbar/Footer';
 import renderer from 'react-test-renderer';
 
-test('Footer component tree to match snapshot', () => {
+test('HomePage component tree to match snapshot', () => {
     const component = renderer.create(
-        <Footer/>
+        <HomePage/>
     );
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
