@@ -50,6 +50,7 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
                             }
                         })()}</h2>
                         <img
+                            alt={profile.username}
                             className="profile-image"
                             src={profile.data.pictureUrl}>
                         </img>
@@ -59,6 +60,7 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
                                 contributionsAnalyze.sectors.map((s, i) => {
                                     return (
                                         <img
+                                            alt='progress-selector'
                                             src={'/arrows/' + s + '.png'}
                                             key={i}
                                             className='sector-img'></img>);
@@ -67,15 +69,14 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
                         </div>
                         <div>
                             {
-                                repositoriesAnalyze.map((repo, i) => {
-                                    if(repo.count > 2) {
+                                repositoriesAnalyze.filter(repo => repo && repo.count > 2)
+                                    .map((repo, i) => {
                                         return (
                                             <span
                                                 className='repo-label'
                                                 key={i}>#{repo.repo}</span>
                                         );
-                                    }
-                                })
+                                    })
                             }
                         </div>
                     </div>

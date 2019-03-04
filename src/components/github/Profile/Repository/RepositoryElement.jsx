@@ -4,15 +4,14 @@ import ProgrammingLanguageImages from '../../../contracts/ProgrammingLanguageIma
 import { FaStar } from 'react-icons/fa';
 
 const RepositoryElement = ({ username, repo }) => {
-    if(!repo.description) {
-        repo.description = '';
-    }
+    const description = repo.description ? repo.description : '';
 
     return (
         <a href={'https://github.com/' + username + '/' + repo.name}
             className="col-md-6 repo-container">
             <div className='repo-wrapper'>
                 <img
+                    alt="username"
                     className='programming-language-img'
                     src={ProgrammingLanguageImages.getImageSrc(repo.programmingLanguage)}
                     href={username}>
@@ -27,7 +26,7 @@ const RepositoryElement = ({ username, repo }) => {
                 <h3 style={{marginTop: '5px'}}>{repo.name.substring(0, 25)}</h3>
                 
                 <div className='programming-language'>{repo.programmingLanguage}</div>
-                <p1>{repo.description}</p1>
+                <p1>{description}</p1>
             </div>
         </a>
     );
