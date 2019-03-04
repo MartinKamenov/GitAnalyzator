@@ -51,6 +51,8 @@ class ProfileDetailsComponent extends PureComponent {
                 className += NumberDetailTypes.default;
             }
             break;
+        default:
+            break;
         }
         return className;
     }

@@ -13,6 +13,7 @@ const RepositoryElement = ({ username, repo }) => {
             className="col-md-6 repo-container">
             <div className='repo-wrapper'>
                 <img
+                    alt="username"
                     className='programming-language-img'
                     src={ProgrammingLanguageImages.getImageSrc(repo.programmingLanguage)}
                     href={username}>

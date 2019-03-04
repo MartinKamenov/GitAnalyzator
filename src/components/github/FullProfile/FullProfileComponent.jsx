@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import LoaderComponent from '../Common/Loader';
-import ProfileCard from './ProfileCard';
 import RepositoryList from '../Profile/Repository/RepositoryList';
 import TabsFullUser from '../../contracts/TabsFullUser';
 import FullProfileTabListComponent from './tabs/FullProfileTabListComponent';
@@ -35,7 +34,8 @@ class FullProfileComponent extends Component {
         this.setState({tab});
     }
     render() {
-        const fullUser = this.props.fullUser;
+        let fullUser = this.props.fullUser;
+        let repositories = fullUser.repositories;
         return (
             <div className='wrapper container center'>
                 <FullProfileTabListComponent
@@ -52,10 +52,13 @@ class FullProfileComponent extends Component {
                                 case 'repositories':
                                     return <RepositoryList
                                         username={fullUser.username}
-                                        repositories={fullUser.repositories}/>;
+                                        repositories={repositories}/>;
                                 case 'followers':
                                     return <FullProfileFollowers
-                                        followers={fullUser.followers}/>;
+                                        followers={repositories}/>;
+                                default:
+                                    return <FullProfileAnalyzeComponent
+                                        profileAnalyze profile={fullUser}/>;
                             }
                         } else {
                             return <LoaderComponent/>;
