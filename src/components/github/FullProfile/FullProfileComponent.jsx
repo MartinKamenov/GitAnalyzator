@@ -55,7 +55,7 @@ class FullProfileComponent extends Component {
                                         repositories={repositories}/>;
                                 case 'followers':
                                     return <FullProfileFollowers
-                                        followers={repositories}/>;
+                                        followers={fullUser.followers}/>;
                                 default:
                                     return <FullProfileAnalyzeComponent
                                         profileAnalyze profile={fullUser}/>;
