@@ -12,15 +12,15 @@
 }
 
 .page-container:hover, .page-container:active {
-    background-color: #CA5353;
+    background-color: #61DAFB;
     text-decoration: none;
     color: white;
 }
 
 .active {
-    background-color: #CA5353;
+    background-color: #61DAFB;
 }
 
 .inactive {
-    background-color: #FC6868;
+    background-color: #0291DB;
 }

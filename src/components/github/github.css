@@ -1,5 +1,5 @@
 .main-header {
-    background:#FC6868;
+    background:#0291DB;
     color:#fff !important;
     border:none;
     position:relative;
@@ -17,7 +17,7 @@
     right:0;
     height:2px;
     width:0;
-    background: #FC6868;
+    background: #0291DB;
     transition:400ms ease all;
 }
 
@@ -35,22 +35,22 @@
 
 .main-header:hover {
     background:#fff;
-    color:#FC6868;
+    color:#0291DB;
 }
 
 .send-button {
     padding: 7px;
     color: white;
-    background-color: #FC6868;
+    background-color: #0291DB;
     border-radius: 5px;
-    border: 2px solid #CA5353;
+    border: 2px solid #61DAFB;
 }
 
 
 .send-button:hover {
-    background-color: #CA5353;
+    background-color: #61DAFB;
     border-radius: 5px;
-    border: 2px solid #CA5353;
+    border: 2px solid #61DAFB;
 }
 
 .tab-container {
@@ -58,7 +58,7 @@
 }
 
 .tab.active {
-    background-color: #CA5353;
+    background-color: #61DAFB;
 }
 
 .tab {
@@ -76,7 +76,7 @@
 }
 
 .tab:hover {
-    background-color: #CA5353;
+    background-color: #61DAFB;
 }
 
 .form-input {
@@ -137,7 +137,7 @@ span.second-profile-legend {
     display: inline-block;
     width: 30px;
     height: 5px;
-    background-color: #FC6868;
+    background-color: #0291DB;
     margin: auto;
 }
 
@@ -152,14 +152,14 @@ span.second-profile-legend {
 .year-btn {
     color: black;
     border:0.1em solid black;
-    background-color: #FC6868;
+    background-color: #0291DB;
     border-radius: 5px;
     cursor:pointer;
     padding: 10px;
 }
 
 .year-btn.active {
-    background-color: #CA5353;
+    background-color: #61DAFB;
 }
 
 .year-btn:hover {

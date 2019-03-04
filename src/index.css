@@ -124,6 +124,7 @@ code {
 }
 
 .main-navbar {
+  background-color: #222222;
   border-radius: 0px !important; 
   min-height: 52px;
 }
@@ -169,23 +170,23 @@ img.home-image {
 }
 
 .main-content a {
-  color: #FC6868 !important;
+  color: #0291DB !important;
   font-weight: bold;
 }
 
 .main-content a:hover {
   text-decoration: none !important;
-  color: #CA5353 !important;
+  color: #61DAFB !important;
 }
 
 .sidebar a {
-  color: #FC6868 !important;
+  color: #0291DB !important;
   font-weight: bold;
 }
 
 .sidebar a:hover {
   text-decoration: none !important;
-  color: #CA5353 !important;
+  color: #61DAFB !important;
 }
 
 p.paragraph {
@@ -206,19 +207,20 @@ p.paragraph {
 
 .nav-link {
   padding: 10px;
-  color: #FC6868;
+  color: #0291DB;
   border: 1px solid transparent;
   border-radius: 5px;
 }
 
 .nav-link:hover {
-  color: #CA5353;
+  color: #222222 !important;
+  background-color: #61DAFB;
   text-decoration: none !important;
-  border: 1px solid #CA5353;
+  border: 1px solid #61DAFB;
 }
 
 .nav-link:visited {
-  color: #CA5353;
+  color: #61DAFB;
   text-decoration: none !important;
 }
 
@@ -240,18 +242,18 @@ p.paragraph {
 }
 
 .link-content a {
-  color: #FC6868 !important;
+  color: #0291DB !important;
   font-weight: bold;
   margin-left: 10px;
   margin-right: 10px;
   padding: 20px;
   background: #00000066;
   border-radius: 5px;
-  border: #FC6868;
+  border: #0291DB;
 }
 
 .link-content a:hover {
-  color: #FC6868 !important;
+  color: #0291DB !important;
   background: white;
   font-weight: bold;
   text-decoration: none;

@@ -42,7 +42,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: #FC6868;
+    background: #0291DB;
     color: white;
     content: attr(data-hover);
     -webkit-transform: rotateX(270deg);
@@ -58,7 +58,7 @@
 }
 
 .user-link a .blue::before {
-    background: #FC6868;
+    background: #0291DB;
 }
 
 .user-link a:hover span,
