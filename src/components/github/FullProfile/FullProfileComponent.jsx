@@ -35,7 +35,6 @@ class FullProfileComponent extends Component {
     }
     render() {
         let fullUser = this.props.fullUser;
-        let repositories = fullUser.repositories;
         return (
             <div className='wrapper container center'>
                 <FullProfileTabListComponent
@@ -52,7 +51,7 @@ class FullProfileComponent extends Component {
                                 case 'repositories':
                                     return <RepositoryList
                                         username={fullUser.username}
-                                        repositories={repositories}/>;
+                                        repositories={fullUser.repositories}/>;
                                 case 'followers':
                                     return <FullProfileFollowers
                                         followers={fullUser.followers}/>;
