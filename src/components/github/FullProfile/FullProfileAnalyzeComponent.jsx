@@ -44,7 +44,7 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
                                 }
                             })
                         }
-                        <h2>{profile.username}<br/>{(() => {
+                        <h2>{profile.username.substring(0, 15)}<br/>{(() => {
                             if(mainLanguage) {
                                 return (mainLanguage);
                             }
