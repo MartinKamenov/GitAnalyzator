@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ProgrammingLanguageImages from '../../contracts/ProgrammingLanguageImages';
 import ChartComponent from '../Chart/ChartComponent';
+import PieChart from 'react-minimal-pie-chart';
 
 const FullProfileAnalyzeComponent = ({ profile }) => {
     const profileAnalyze = profile.profileAnalyze;
@@ -21,12 +22,20 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
         return <div>No data for analyze</div>;
     }
 
-    
+    const pieChartData = repositoriesAnalyze.map((repoInfo) => {
+        return {
+            title: repoInfo.repo,
+            value: repoInfo.count,
+            color: '#E38627'
+        };
+    });
+
     repositoriesAnalyze = repositoriesAnalyze.filter((repoInfo) => repoInfo.repo);
     let mainLanguage = null;
     if(repositoriesAnalyze.length && repositoriesAnalyze[0].count > 0) {
         mainLanguage = repositoriesAnalyze[0].repo;
     }
+
     return (
         <div>
             <div className='analyze-main-container-outer'>
@@ -86,6 +95,9 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
             
             <div className="analyze-chart">
                 <ChartComponent dataArray={dataArray}/>
+            </div>
+            <div className='pie-container'>
+                <PieChart data={pieChartData}/>
             </div>
         </div>
     );

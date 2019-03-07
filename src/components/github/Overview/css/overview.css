@@ -37,6 +37,12 @@
     height: 200px;
 }
 
+.pie-container {
+    max-width: 200px;
+    max-height: 200px;
+    margin: auto;
+}
+
 .chart-wrapper {
     display: inline-block;
     width: 50%;
