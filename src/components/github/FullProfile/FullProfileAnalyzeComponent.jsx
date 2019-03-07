@@ -4,7 +4,7 @@ import ProgrammingLanguageImages from '../../contracts/ProgrammingLanguageImages
 import ChartComponent from '../Chart/ChartComponent';
 import PieChart from 'react-minimal-pie-chart';
 
-const FullProfileAnalyzeComponent = ({ profile }) => {
+const FullProfileAnalyzeComponent = ({ profile, hoveredSector, onSectorChanged }) => {
     const profileAnalyze = profile.profileAnalyze;
     if(!profileAnalyze) {
         return <div>No data for analyze</div>;
@@ -104,10 +104,20 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
                     animationDuration={2000}
                     animationEasing="ease"
                     label={function(record) {
-                        return record.data[record.dataIndex].title;
+                        const recordData = record.data[record.dataIndex];
+                        return recordData.percentage >= 20 ? recordData.title : '';
                     }}
-                    labelStyle={{fill: '#ffffff', left: '10px'}}/>
+                    labelStyle={{fill: 'white',
+                        left: '10px',
+                        fontSize: '10px'}}
+                    onMouseOver={function(event, data, dataIndex) {
+                        const record = data[dataIndex];
+                        let percentage = record.value / data.map(d => d.value).reduce((acc, a) => acc + a) * 100;
+                        percentage = parseInt(Math.round(percentage), 10);
+                        onSectorChanged(record.title + ' ' + percentage + '%');
+                    }}/>
             </div>
+            <div>{hoveredSector}</div>
         </div>
     );
 };
@@ -115,7 +125,9 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
 FullProfileAnalyzeComponent.propTypes = {
     profile: PropTypes.shape({
         profileAnalyze: PropTypes.object.isRequired
-    }).isRequired
+    }).isRequired,
+    hoveredSector: PropTypes.string.isRequired,
+    onSectorChanged: PropTypes.func.isRequired
 };
  
 export default FullProfileAnalyzeComponent;

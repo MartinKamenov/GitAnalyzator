@@ -15,7 +15,8 @@ class FullProfileComponent extends Component {
     state = {
         isLoading: true,
         tabs: TabsFullUser,
-        tab: TabsFullUser[0]
+        tab: TabsFullUser[0],
+        hoveredSector: ''
     }
 
     dismiss() {
@@ -33,6 +34,10 @@ class FullProfileComponent extends Component {
     changeTabHandler = (tab) => {
         this.setState({tab});
     }
+
+    onSectorChanged = (sector) => {
+        this.setState({hoveredSector: sector});
+    }
     render() {
         let fullUser = this.props.fullUser;
         return (
@@ -47,7 +52,9 @@ class FullProfileComponent extends Component {
                             switch(this.state.tab){
                                 case 'analyze':
                                     return <FullProfileAnalyzeComponent
-                                        profileAnalyze profile={fullUser}/>;
+                                        profile={fullUser}
+                                        hoveredSector={this.state.hoveredSector}
+                                        onSectorChanged={this.onSectorChanged}/>;
                                 case 'repositories':
                                     return <RepositoryList
                                         username={fullUser.username}
