@@ -38,9 +38,17 @@
 }
 
 .pie-container {
+    display: inline-block;
     max-width: 200px;
-    max-height: 200px;
+    height: 200px;
     margin: auto;
+}
+
+.selector-info {
+    border: 1px solid white;
+    width: 200px;
+    display: inline-block;
+    top: 50%;
 }
 
 .chart-wrapper {

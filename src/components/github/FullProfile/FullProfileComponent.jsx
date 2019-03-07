@@ -16,7 +16,8 @@ class FullProfileComponent extends Component {
         isLoading: true,
         tabs: TabsFullUser,
         tab: TabsFullUser[0],
-        hoveredSector: ''
+        hoveredSector: '',
+        selectorColor: '#000000'
     }
 
     dismiss() {
@@ -35,8 +36,8 @@ class FullProfileComponent extends Component {
         this.setState({tab});
     }
 
-    onSectorChanged = (sector) => {
-        this.setState({hoveredSector: sector});
+    onSectorChanged = (sector, color) => {
+        this.setState({hoveredSector: sector, selectorColor: color});
     }
     render() {
         let fullUser = this.props.fullUser;
@@ -54,6 +55,7 @@ class FullProfileComponent extends Component {
                                     return <FullProfileAnalyzeComponent
                                         profile={fullUser}
                                         hoveredSector={this.state.hoveredSector}
+                                        selectorColor={this.state.selectorColor}
                                         onSectorChanged={this.onSectorChanged}/>;
                                 case 'repositories':
                                     return <RepositoryList

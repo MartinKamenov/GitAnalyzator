@@ -4,7 +4,7 @@ import ProgrammingLanguageImages from '../../contracts/ProgrammingLanguageImages
 import ChartComponent from '../Chart/ChartComponent';
 import PieChart from 'react-minimal-pie-chart';
 
-const FullProfileAnalyzeComponent = ({ profile, hoveredSector, onSectorChanged }) => {
+const FullProfileAnalyzeComponent = ({ profile, hoveredSector, selectorColor, onSectorChanged }) => {
     const profileAnalyze = profile.profileAnalyze;
     if(!profileAnalyze) {
         return <div>No data for analyze</div>;
@@ -98,26 +98,29 @@ const FullProfileAnalyzeComponent = ({ profile, hoveredSector, onSectorChanged }
             <div className="analyze-chart">
                 <ChartComponent dataArray={dataArray}/>
             </div>
-            <div className='pie-container'>
-                <PieChart data={pieChartData}
-                    animate={true}
-                    animationDuration={2000}
-                    animationEasing="ease"
-                    label={function(record) {
-                        const recordData = record.data[record.dataIndex];
-                        return recordData.percentage >= 20 ? recordData.title : '';
-                    }}
-                    labelStyle={{fill: 'white',
-                        left: '10px',
-                        fontSize: '10px'}}
-                    onMouseOver={function(event, data, dataIndex) {
-                        const record = data[dataIndex];
-                        let percentage = record.value / data.map(d => d.value).reduce((acc, a) => acc + a) * 100;
-                        percentage = parseInt(Math.round(percentage), 10);
-                        onSectorChanged(record.title + ' ' + percentage + '%');
-                    }}/>
+            <div>
+                <div className='pie-container'>
+                    <PieChart data={pieChartData}
+                        animate={true}
+                        animationDuration={2000}
+                        animationEasing="ease"
+                        label={function(record) {
+                            const recordData = record.data[record.dataIndex];
+                            return recordData.percentage >= 20 ? recordData.title : '';
+                        }}
+                        labelStyle={{fill: 'white',
+                            left: '10px',
+                            fontSize: '10px'}}
+                        onMouseOver={function(event, data, dataIndex) {
+                            const record = data[dataIndex];
+                            let percentage = record.value / data.map(d => d.value).reduce((acc, a) => acc + a) * 100;
+                            percentage = parseInt(Math.round(percentage), 10);
+                            onSectorChanged(record.title + ' ' + percentage + '%', record.color);
+                        }}/>
+                </div>
+                <div className='selector-info'
+                    style={{backgroundColor: selectorColor}}>{hoveredSector}</div>
             </div>
-            <div>{hoveredSector}</div>
         </div>
     );
 };
@@ -127,6 +130,7 @@ FullProfileAnalyzeComponent.propTypes = {
         profileAnalyze: PropTypes.object.isRequired
     }).isRequired,
     hoveredSector: PropTypes.string.isRequired,
+    selectorColor: PropTypes.string.isRequired,
     onSectorChanged: PropTypes.func.isRequired
 };
  
