@@ -23,10 +23,12 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
     }
 
     const pieChartData = repositoriesAnalyze.map((repoInfo) => {
+        const language = ProgrammingLanguageImages[repoInfo.repo] ?
+            repoInfo.repo : 'undefined';
         return {
             title: repoInfo.repo,
             value: repoInfo.count,
-            color: '#E38627'
+            color: ProgrammingLanguageImages.getLanguageColor(language)
         };
     });
 
@@ -97,7 +99,7 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
                 <ChartComponent dataArray={dataArray}/>
             </div>
             <div className='pie-container'>
-                <PieChart data={pieChartData}/>
+                <PieChart data={pieChartData} animate={true}/>
             </div>
         </div>
     );
