@@ -22,7 +22,7 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
         return <div>No data for analyze</div>;
     }
 
-    const pieChartData = repositoriesAnalyze.map((repoInfo) => {
+    const pieChartData = repositoriesAnalyze.map((repoInfo, i) => {
         const language = ProgrammingLanguageImages[repoInfo.repo] ?
             repoInfo.repo : 'undefined';
         return {
@@ -99,7 +99,14 @@ const FullProfileAnalyzeComponent = ({ profile }) => {
                 <ChartComponent dataArray={dataArray}/>
             </div>
             <div className='pie-container'>
-                <PieChart data={pieChartData} animate={true}/>
+                <PieChart data={pieChartData}
+                    animate={true}
+                    animationDuration={2000}
+                    animationEasing="ease"
+                    label={function(record) {
+                        return record.data[record.dataIndex].title;
+                    }}
+                    labelStyle={{fill: '#ffffff', left: '10px'}}/>
             </div>
         </div>
     );
