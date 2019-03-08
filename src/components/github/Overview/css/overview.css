@@ -39,16 +39,29 @@
 
 .pie-container {
     display: inline-block;
-    max-width: 200px;
+    width: 50%;
     height: 200px;
-    margin: auto;
+    margin-right:10px;
 }
 
 .selector-info {
-    border: 1px solid white;
-    width: 200px;
     display: inline-block;
-    top: 50%;
+    width: 50%;
+    height: 200px;
+}
+
+.pie-image {
+    width: 200px;
+    height: 200px;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin-left:10px;
+}
+
+.pie-wrapper {
+    white-space: nowrap;
+    max-width: 500px;
+    margin: auto;
 }
 
 .chart-wrapper {

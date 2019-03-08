@@ -98,7 +98,7 @@ const FullProfileAnalyzeComponent = ({ profile, hoveredSector, selectorColor, on
             <div className="analyze-chart">
                 <ChartComponent dataArray={dataArray}/>
             </div>
-            <div>
+            <div className='pie-wrapper'>
                 <div className='pie-container'>
                     <PieChart data={pieChartData}
                         animate={true}
@@ -115,11 +115,16 @@ const FullProfileAnalyzeComponent = ({ profile, hoveredSector, selectorColor, on
                             const record = data[dataIndex];
                             let percentage = record.value / data.map(d => d.value).reduce((acc, a) => acc + a) * 100;
                             percentage = parseInt(Math.round(percentage), 10);
-                            onSectorChanged(record.title + ' ' + percentage + '%', record.color);
+                            onSectorChanged(record.title);
                         }}/>
                 </div>
                 <div className='selector-info'
-                    style={{backgroundColor: selectorColor}}>{hoveredSector}</div>
+                    style={{backgroundColor: selectorColor}}>
+                    <img
+                        className='pie-image'
+                        src={ProgrammingLanguageImages.getImageSrc(hoveredSector)}
+                        alt={hoveredSector}/>
+                </div>
             </div>
         </div>
     );
