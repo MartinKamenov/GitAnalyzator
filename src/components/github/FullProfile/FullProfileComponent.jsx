@@ -16,8 +16,10 @@ class FullProfileComponent extends Component {
         isLoading: true,
         tabs: TabsFullUser,
         tab: TabsFullUser[0],
-        hoveredSector: '',
-        selectorColor: '#000000'
+        selectorInformation: {
+            sectorTitle: '',
+            sectorPercentage: 0,
+        }
     }
 
     dismiss() {
@@ -29,15 +31,52 @@ class FullProfileComponent extends Component {
     }
 
     componentWillReceiveProps(props) {
-        this.setState({isLoading: false});
+        const fullUser = props.fullUser;
+        let selectorInformation = {
+            sectorTitle: 'No languages',
+            sectorPercentage: 0,
+        };
+
+        if(props.fullUser) {
+            if(!fullUser.profileAnalyze) {
+                this.setState({isLoading: false, selectorInformation});
+                return;
+            }
+
+            const repositoriesAnalyze = fullUser.profileAnalyze.repositoriesAnalyze;
+
+            if(!repositoriesAnalyze) {
+                this.setState({isLoading: false, selectorInformation});
+                return;
+            }
+
+            const record = repositoriesAnalyze[0];
+            if(!record) {
+                this.setState({isLoading: false, selectorInformation});
+                return;
+            }
+
+            let percentage = record.count / (repositoriesAnalyze.map(d => d.count)
+                .reduce((acc, a) => acc + a)) * 100;
+            percentage = Math.round(percentage);
+
+            selectorInformation = {
+                sectorTitle: record.repo,
+                sectorPercentage: percentage,
+            };
+        }
+        this.setState({isLoading: false, selectorInformation});
     }
 
     changeTabHandler = (tab) => {
         this.setState({tab});
     }
 
-    onSectorChanged = (sector, color) => {
-        this.setState({hoveredSector: sector, selectorColor: color});
+    onSectorChanged = (sector, percentage) => {
+        this.setState({ selectorInformation: { 
+            sectorTitle: sector,
+            sectorPercentage: percentage
+        }});
     }
     render() {
         let fullUser = this.props.fullUser;
@@ -54,8 +93,7 @@ class FullProfileComponent extends Component {
                                 case 'analyze':
                                     return <FullProfileAnalyzeComponent
                                         profile={fullUser}
-                                        hoveredSector={this.state.hoveredSector}
-                                        selectorColor={this.state.selectorColor}
+                                        selectorInformation={this.state.selectorInformation}
                                         onSectorChanged={this.onSectorChanged}/>;
                                 case 'repositories':
                                     return <RepositoryList

@@ -50,14 +50,6 @@
     height: 200px;
 }
 
-.pie-image {
-    width: 200px;
-    height: 200px;
-    border: 1px solid white;
-    border-radius: 50%;
-    margin-left:10px;
-}
-
 .pie-wrapper {
     white-space: nowrap;
     max-width: 500px;
