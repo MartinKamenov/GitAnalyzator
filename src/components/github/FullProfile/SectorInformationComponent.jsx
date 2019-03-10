@@ -5,14 +5,20 @@ import './css/selectorInformation.css';
 
 const SelectorInformationComponent = ({ selectorInformation }) => {
     const title = selectorInformation.sectorTitle;
-    const color = ProgrammingLanguageImages
+    const percentage = selectorInformation.sectorPercentage;
+    let color = ProgrammingLanguageImages
         .getLanguageColor(title);
+    if(!color) {
+        color = '#222222';
+    }
     const imageUrl = ProgrammingLanguageImages
         .getImageSrc(title);
     
     return (
-        <div className='selector-information-container'
-            style={{backgroundColor: color}}>
+        <div
+            style={{backgroundColor: color}}
+            className='selector-information-container'>
+            <h3>{title + ' (' + percentage + '%)'}</h3>
             <img
                 className='pie-image'
                 src={imageUrl}

@@ -31,7 +31,41 @@ class FullProfileComponent extends Component {
     }
 
     componentWillReceiveProps(props) {
-        this.setState({isLoading: false});
+        const fullUser = props.fullUser;
+        let selectorInformation = {
+            sectorTitle: 'No languages',
+            sectorPercentage: 0,
+        };
+
+        if(props.fullUser) {
+            if(!fullUser.profileAnalyze) {
+                this.setState({isLoading: false, selectorInformation});
+                return;
+            }
+
+            const repositoriesAnalyze = fullUser.profileAnalyze.repositoriesAnalyze;
+
+            if(!repositoriesAnalyze) {
+                this.setState({isLoading: false, selectorInformation});
+                return;
+            }
+
+            const record = repositoriesAnalyze[0];
+            if(!record) {
+                this.setState({isLoading: false, selectorInformation});
+                return;
+            }
+
+            let percentage = record.count / (repositoriesAnalyze.map(d => d.count)
+                .reduce((acc, a) => acc + a)) * 100;
+            percentage = Math.round(percentage);
+
+            selectorInformation = {
+                sectorTitle: record.repo,
+                sectorPercentage: percentage,
+            };
+        }
+        this.setState({isLoading: false, selectorInformation});
     }
 
     changeTabHandler = (tab) => {

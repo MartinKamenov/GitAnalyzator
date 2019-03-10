@@ -116,7 +116,7 @@ const FullProfileAnalyzeComponent = ({ profile, selectorInformation, onSectorCha
                             const record = data[dataIndex];
                             let percentage = record.value / (data.map(d => d.value)
                                 .reduce((acc, a) => acc + a)) * 100;
-                            percentage = parseInt(Math.round(percentage), 10);
+                            percentage = Math.round(percentage);
                             onSectorChanged(record.title, percentage);
                         }}/>
                 </div>
