@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import ProgrammingLanguageImages from '../../contracts/ProgrammingLanguageImages';
 import ChartComponent from '../Chart/ChartComponent';
 import PieChart from 'react-minimal-pie-chart';
+import SectorInformationComponent from './SectorInformationComponent';
 
-const FullProfileAnalyzeComponent = ({ profile, hoveredSector, selectorColor, onSectorChanged }) => {
+const FullProfileAnalyzeComponent = ({ profile, selectorInformation, onSectorChanged }) => {
     const profileAnalyze = profile.profileAnalyze;
     if(!profileAnalyze) {
         return <div>No data for analyze</div>;
@@ -113,17 +114,15 @@ const FullProfileAnalyzeComponent = ({ profile, hoveredSector, selectorColor, on
                             fontSize: '10px'}}
                         onMouseOver={function(event, data, dataIndex) {
                             const record = data[dataIndex];
-                            let percentage = record.value / data.map(d => d.value).reduce((acc, a) => acc + a) * 100;
+                            let percentage = record.value / (data.map(d => d.value)
+                                .reduce((acc, a) => acc + a)) * 100;
                             percentage = parseInt(Math.round(percentage), 10);
-                            onSectorChanged(record.title);
+                            onSectorChanged(record.title, percentage);
                         }}/>
                 </div>
-                <div className='selector-info'
-                    style={{backgroundColor: selectorColor}}>
-                    <img
-                        className='pie-image'
-                        src={ProgrammingLanguageImages.getImageSrc(hoveredSector)}
-                        alt={hoveredSector}/>
+                <div className='selector-info'>
+                    <SectorInformationComponent
+                        selectorInformation={selectorInformation} />
                 </div>
             </div>
         </div>
@@ -134,8 +133,10 @@ FullProfileAnalyzeComponent.propTypes = {
     profile: PropTypes.shape({
         profileAnalyze: PropTypes.object.isRequired
     }).isRequired,
-    hoveredSector: PropTypes.string.isRequired,
-    selectorColor: PropTypes.string.isRequired,
+    selectorInformation: PropTypes.shape({  
+        sectorTitle: PropTypes.string.isRequired,
+        sectorPercentage: PropTypes.number.isRequired
+    }).isRequired,
     onSectorChanged: PropTypes.func.isRequired
 };
  
