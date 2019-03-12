@@ -139,6 +139,11 @@ code {
   border-block-end: 1px solid black !important;
 }
 
+.navbar-div {
+  background-color: #222222 !important;
+  height: 52px !important;
+}
+
 .footer-container {
   background-color: #222222;
   padding: 10px;
@@ -154,7 +159,6 @@ code {
 }
 
 img.home-image {
-  margin-top: -20px;
   height: 92vh;
   width: 100%;
   overflow: hidden;

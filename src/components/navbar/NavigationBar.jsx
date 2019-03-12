@@ -4,6 +4,7 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 const NavigationBar = () => (
     <React.Fragment>
+        <div className='navbar-div'></div>
         <Navbar inverse collapseOnSelect className="main-navbar sticky">
             <Navbar.Header>
                 <Navbar.Brand className="main-header-container">
