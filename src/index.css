@@ -127,6 +127,16 @@ code {
   background-color: #222222;
   border-radius: 0px !important; 
   min-height: 52px;
+  width: 50%;
+  left: 25%;
+  margin: auto;
+}
+
+.sticky {
+  z-index: 2;
+  position: fixed !important;
+  top: 0;
+  border-block-end: 1px solid black !important;
 }
 
 .footer-container {
