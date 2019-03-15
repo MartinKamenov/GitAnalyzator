@@ -7,6 +7,7 @@ import HomePage from './components/home/HomePage';
 import FooterComponent from './components/navbar/Footer';
 import GithubOverview from './components/github/Overview/GithubOverview';
 import FullProfileComponent from './components/github/FullProfile/FullProfileComponent';
+import RepositoryComponent from './components/github/Repository/RepositoryComponent';
 
 const AppRouter = () => {
     return (
@@ -19,6 +20,8 @@ const AppRouter = () => {
                     <Route path="/compare" component={GithubComparePage} />
                     <Route path="/overview" component={GithubOverview} />
                     <Route path="/profile/:username" component={FullProfileComponent} />
+                    <Route path="/repository/:username/:repositoryname"
+                        component={RepositoryComponent} />
                 </div>
                 <FooterComponent/>
             </div>

@@ -63,13 +63,12 @@ export function getFullGithubUser(username) {
 }
 
 export function getGithubRepositorySuccess(repository) {
-    return { type: types.GET_FULL_GITHUB_USER_SUCCESS, repository };
+    return { type: types.GET_GITHUB_REPOSITORY_SUCCESS, repository };
 }
 
 export function getGithubRepository(username, repositoryName) {
     return async function(dispatch) {
-        const res = await getGithubRepository(username, repositoryName);
-        debugger;
+        const res = await githubApi.getGithubRepository(username, repositoryName);
         const repository = res.data;
         return dispatch(getGithubRepositorySuccess(repository));
     };
