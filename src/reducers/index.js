@@ -4,12 +4,14 @@ import profile from './githubReducer';
 import profiles from './githubCompareReducer';
 import users from './githubUsersReducer';
 import fullUser from './githubFullUserReducer';
+import repository from './githubRepositoryReducer';
 
 const rootReducer = combineReducers({
     profile,
     profiles,
     users,
-    fullUser
+    fullUser,
+    repository
 });
 
 export default rootReducer;

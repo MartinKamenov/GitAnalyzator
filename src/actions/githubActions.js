@@ -61,3 +61,16 @@ export function getFullGithubUser(username) {
         return dispatch(getFullGithubUserSuccess(fullUser));
     };
 }
+
+export function getGithubRepositorySuccess(repository) {
+    return { type: types.GET_FULL_GITHUB_USER_SUCCESS, repository };
+}
+
+export function getGithubRepository(username, repositoryName) {
+    return async function(dispatch) {
+        const res = await getGithubRepository(username, repositoryName);
+        debugger;
+        const repository = res.data;
+        return dispatch(getGithubRepositorySuccess(repository));
+    };
+}

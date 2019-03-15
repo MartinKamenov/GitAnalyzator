@@ -63,6 +63,11 @@ const githubApi = {
     getFullGithubUser: (username) => {
         const searchUrl = url + userPath + username;
         return axios.get(searchUrl, sendObject);
+    },
+
+    getGithubRepository: (username, repositoryName) => {
+        const searchUrl = url + profileRepoPath + username + '/' + repositoryName;
+        return axios.get(searchUrl, sendObject);
     }
 };
 
