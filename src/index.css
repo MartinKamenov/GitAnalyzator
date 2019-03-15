@@ -125,10 +125,9 @@ code {
 
 .main-navbar {
   background-color: #222222;
-  border-radius: 0px !important; 
+  border-radius: 10px !important; 
   min-height: 52px;
-  width: 50%;
-  left: 25%;
+  width: 100%;
   margin: auto;
 }
 
