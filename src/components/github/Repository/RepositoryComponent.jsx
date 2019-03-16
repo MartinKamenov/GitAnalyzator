@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import Loader from '../Common/Loader';
 import ProgrammingLanguageImages from '../../contracts/ProgrammingLanguageImages';
 import PieComponent from '../Common/PieComponent';
+import RepositoryContributorsListComponent from './RepositoryContributorsListComponent';
+import './repository.css';
 
 class RepositoryComponent extends Component {
     state = {
@@ -39,9 +41,14 @@ class RepositoryComponent extends Component {
             <div className='wrapper container center'>
                 {(() => {
                     if(!this.state.isLoading && this.props.repository) {
-                        return (<div>
-                            {this.props.repository.username}
-                            <PieComponent pieChartData={pieChartData}/>
+                        return (
+                        <div className='repository-wrapper'>
+                            <h3>{this.props.repository.repositoryName}</h3>
+                            <div className='repository-pie-container'>
+                                <PieComponent pieChartData={pieChartData}/>
+                            </div>
+                            <RepositoryContributorsListComponent
+                                contributors={this.props.repository.contributors}/>
                         </div>);
                     }
                     return (

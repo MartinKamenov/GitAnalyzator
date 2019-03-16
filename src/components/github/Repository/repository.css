@@ -1,0 +1,13 @@
+.repository-wrapper {
+    max-width: 300px;
+    background-color: #222222;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    margin: auto;
+}
+
+.repository-pie-container {
+    width: 50%;
+    margin: auto;
+}
