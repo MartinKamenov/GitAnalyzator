@@ -14,7 +14,6 @@
 }
 
 .repository-contributor-wrapper {
-    margin-top: 10px;
     background-color: #222222;
     height: 200px;
     border: 1px solid white;
@@ -26,6 +25,7 @@
     height: 200px;
     color: white !important;
     text-decoration: none !important;
+    margin-top: 10px;
 }
 
 .repository-contributor-wrapper:hover {
