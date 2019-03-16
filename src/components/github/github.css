@@ -106,6 +106,13 @@
     border: 2px solid black;
 }
 
+.profile-image-small {
+    max-width: 64px;
+    max-height: 64px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
 .username-header {
     display: inline-block;
 }

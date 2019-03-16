@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ProgrammingLanguageImages from '../../contracts/ProgrammingLanguageImages';
 import ChartComponent from '../Chart/ChartComponent';
-import PieChart from 'react-minimal-pie-chart';
 import SectorInformationComponent from './SectorInformationComponent';
+import PieComponent from '../Common/PieComponent';
 
 const FullProfileAnalyzeComponent = ({ profile, selectorInformation, onSectorChanged }) => {
     const profileAnalyze = profile.profileAnalyze;
@@ -101,17 +101,7 @@ const FullProfileAnalyzeComponent = ({ profile, selectorInformation, onSectorCha
             </div>
             <div className='pie-wrapper'>
                 <div className='pie-container'>
-                    <PieChart data={pieChartData}
-                        animate={true}
-                        animationDuration={2000}
-                        animationEasing="ease"
-                        label={function(record) {
-                            const recordData = record.data[record.dataIndex];
-                            return recordData.percentage >= 20 ? recordData.title : '';
-                        }}
-                        labelStyle={{fill: 'white',
-                            left: '10px',
-                            fontSize: '10px'}}
+                    <PieComponent pieChartData={pieChartData}
                         onMouseOver={function(event, data, dataIndex) {
                             const record = data[dataIndex];
                             let percentage = record.value / (data.map(d => d.value)
