@@ -5,6 +5,7 @@
     border-radius: 10px;
     color: white !important;
     margin: auto;
+    padding-bottom: 10px;
 }
 
 .repository-pie-container {
@@ -13,16 +14,32 @@
 }
 
 .repository-contributor-wrapper {
-    border: 1px solid black;
     margin-top: 10px;
-    border-radius: 5px;
+    background-color: #222222;
+    height: 200px;
+    border: 1px solid white;
+    border-radius: 10px;
 }
 
 .repository-contributor-link {
+    margin-top: 10px;
+    height: 200px;
     color: white !important;
     text-decoration: none !important;
 }
 
 .repository-contributor-wrapper:hover {
     background-color: #444444;
+}
+
+.commits-counter {
+    color: gold;
+}
+
+.additions-counter {
+    color: green;
+}
+
+.deletions-counter {
+    color: red;
 }

@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const RepositoryContributorsListComponent = ({contributors}) => (
-    <div>{contributors.map((contributor, i) => {
+    <div className='row'>{contributors.map((contributor, i) => {
         return <Link to={'/profile/' + contributor.name}
-            key={i} className='repository-contributor-link'>
+            key={i} className='repository-contributor-link col-md-4'>
             <div className='repository-contributor-wrapper'>
-                <h4>{contributor.name}</h4>
+                <h3 style={{fontWeight: 'bold'}}>{contributor.name}</h3>
                 <img className="profile-image-small"
-                    alt={contributor.name}
+                    alt={contributor.name.substring(0, 25)}
                     src={contributor.imageSrc}/>
                 <div>
-                    <div>Commits: {contributor.contributions}</div>
-                    <div>Additions: {contributor.additions}</div>
-                    <div>Deletions: {contributor.deletions}</div>
+                    <div className='commits-counter'>Commits: {contributor.contributions}</div>
+                    <div className='additions-counter'>Additions: {contributor.additions}</div>
+                    <div className='deletions-counter'>Deletions: {contributor.deletions}</div>
                 </div>
             </div>
         </Link>

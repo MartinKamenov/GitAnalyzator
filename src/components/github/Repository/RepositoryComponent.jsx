@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import * as githubActions from '../../../actions/githubActions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -42,14 +42,19 @@ class RepositoryComponent extends Component {
                 {(() => {
                     if(!this.state.isLoading && this.props.repository) {
                         return (
-                        <div className='repository-wrapper'>
-                            <h3>{this.props.repository.repositoryName}</h3>
-                            <div className='repository-pie-container'>
-                                <PieComponent pieChartData={pieChartData}/>
-                            </div>
-                            <RepositoryContributorsListComponent
-                                contributors={this.props.repository.contributors}/>
-                        </div>);
+                            <Fragment>
+                                <div className='repository-wrapper'>
+                                    <h3>{this.props.repository.repositoryName}</h3>
+                                    <div className='repository-pie-container'>
+                                        <PieComponent pieChartData={pieChartData}/>
+                                    </div>
+                                </div>
+                                <h2 style={{color: 'white'}}
+                                >Contributors to {this.props.repository.repositoryName}</h2>
+                                <RepositoryContributorsListComponent
+                                        contributors={this.props.repository.contributors}/>
+                            </Fragment>
+                        );
                     }
                     return (
                         <Loader/>
