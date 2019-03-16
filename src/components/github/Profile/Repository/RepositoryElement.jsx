@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ProgrammingLanguageImages from '../../../contracts/ProgrammingLanguageImages';
 import { FaStar } from 'react-icons/fa';
+const repositoryUrl = '/repository/';
 
 const RepositoryElement = ({ username, repo }) => {
     const description = repo.description ? repo.description : '';
 
     return (
-        <a href={'https://github.com/' + username + '/' + repo.name}
+        <a href={repositoryUrl + username + '/' + repo.name}
             className="col-md-6 repo-container">
             <div className='repo-wrapper'>
                 <img
