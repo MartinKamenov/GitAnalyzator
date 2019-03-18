@@ -35,16 +35,6 @@ class NavigationBar extends Component {
                             </NavItem>
                         </Nav>
                         <Nav>
-                            <NavItem componentClass='span' className="nav-link-container">
-                                <Link className="nav-link navbar_element" to="/analyze">Analyze</Link>
-                            </NavItem>
-                        </Nav>
-                        <Nav>
-                            <NavItem componentClass='span' className="nav-link-container">
-                                <Link className="nav-link navbar_element" to="/compare">Compare</Link>
-                            </NavItem>
-                        </Nav>
-                        <Nav>
                             <NavItem
                                 componentClass='span'
                                 className="nav-link-container"
@@ -65,9 +55,14 @@ class NavigationBar extends Component {
                                     <NavItem componentClass='span'
                                         className="nav-link-container">
                                         <Link className="nav-link navbar_element"
-                                            to="/compare">Repository</Link>
+                                            to="/repository">Repository</Link>
                                     </NavItem>
                                 </div>
+                            </NavItem>
+                        </Nav>
+                        <Nav>
+                            <NavItem componentClass='span' className="nav-link-container">
+                                <Link className="nav-link navbar_element" to="/compare">Compare</Link>
                             </NavItem>
                         </Nav>
                     </Navbar.Collapse>
