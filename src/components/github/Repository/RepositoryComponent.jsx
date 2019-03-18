@@ -35,9 +35,23 @@ class RepositoryComponent extends Component {
                         value: lang.percent,
                         color: ProgrammingLanguageImages.getLanguageColor(lang.language)
                     };
-                })
+                });
         }
-        return(
+        
+        let totalCommits = 0;
+        let totalAdditions = 0;
+        let totalDeletions = 0;
+
+        if(this.props.repository.contributors) {
+            const contributors = this.props.repository.contributors;
+            contributors.forEach((c) => {
+                totalCommits += c.contributions;
+                totalAdditions += c.additions;
+                totalDeletions += c.deletions;
+            });
+        }
+
+        return (
             <div className='wrapper container center'>
                 {(() => {
                     if(!this.state.isLoading && this.props.repository) {
@@ -47,6 +61,18 @@ class RepositoryComponent extends Component {
                                     <h3>{this.props.repository.repositoryName}</h3>
                                     <div className='repository-pie-container'>
                                         <PieComponent pieChartData={pieChartData}/>
+                                        {(() => {
+                                            if(this.props.repository.contributors) {
+                                                return <div className='contributions-wrapper'>
+                                                    <div>
+                                                        Commits: {totalCommits}</div>
+                                                    <div>
+                                                        Additions: {totalAdditions}</div>
+                                                    <div>
+                                                        Deletions: {totalDeletions}</div>
+                                                </div>
+                                            }
+                                        })()}
                                     </div>
                                 </div>
                                 <h2 style={{color: 'white'}}>

@@ -32,6 +32,11 @@
     background-color: #444444;
 }
 
+.contributions-wrapper {
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
 .commits-counter {
     background-color: white;
     color: #222222;
