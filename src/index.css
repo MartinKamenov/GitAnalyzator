@@ -218,6 +218,18 @@ p.paragraph {
   line-height: 20px;
 }
 
+#analyze-dropdown {
+  color: #61DAFB;;
+}
+
+.dropdown-content {
+  display: none;
+}
+
+.dropdown-content-opened {
+  display: block;
+}
+
 .nav-link {
   padding: 10px;
   color: #0291DB;
