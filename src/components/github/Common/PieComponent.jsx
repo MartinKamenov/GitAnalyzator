@@ -11,6 +11,7 @@ const PieComponent = ({pieChartData, onMouseOver}) => (
             const recordData = record.data[record.dataIndex];
             return recordData.percentage >= 20 ? recordData.title : '';
         }}
+        lineWidth={70}
         labelStyle={{fill: 'white',
             left: '10px',
             fontSize: '10px'}}
