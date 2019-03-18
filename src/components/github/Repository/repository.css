@@ -33,13 +33,22 @@
 }
 
 .commits-counter {
-    color: gold;
+    background-color: white;
+    color: #222222;
+    padding: 2px;
+    border-radius: 2px;
 }
 
 .additions-counter {
-    color: green;
+    background-color: green;
+    color: #222222;
+    padding: 2px;
+    border-radius: 2px;
 }
 
 .deletions-counter {
-    color: red;
+    background-color: red;
+    color: #222222;
+    padding: 2px;
+    border-radius: 2px;
 }

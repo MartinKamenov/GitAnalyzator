@@ -49,8 +49,9 @@ class RepositoryComponent extends Component {
                                         <PieComponent pieChartData={pieChartData}/>
                                     </div>
                                 </div>
-                                <h2 style={{color: 'white'}}
-                                >Contributors to {this.props.repository.repositoryName}</h2>
+                                <h2 style={{color: 'white'}}>
+                                    Contributors to {this.props.repository.repositoryName}
+                                </h2>
                                 <RepositoryContributorsListComponent
                                         contributors={this.props.repository.contributors}/>
                             </Fragment>
