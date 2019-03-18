@@ -60,12 +60,12 @@ class NavigationBar extends Component {
                                     <NavItem componentClass='span'
                                         className="nav-link-container">
                                         <Link className="nav-link navbar_element"
-                                            to="/analyze">Analyze</Link>
+                                            to="/analyze">User</Link>
                                     </NavItem>
                                     <NavItem componentClass='span'
                                         className="nav-link-container">
                                         <Link className="nav-link navbar_element"
-                                            to="/compare">Compare</Link>
+                                            to="/compare">Repository</Link>
                                     </NavItem>
                                 </div>
                             </NavItem>
