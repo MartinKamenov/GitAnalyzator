@@ -18,7 +18,7 @@ class GithubRepositorySearch extends Component {
             <div className='wrapper container center'>
                 <div>
                     <div>
-                        <h2>Analyze github profile</h2>
+                        <h2>Analyze github repository</h2>
                     </div>
                     <div>
                         <input
