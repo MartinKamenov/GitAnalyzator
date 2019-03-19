@@ -14,8 +14,7 @@ class GithubStartPage extends Component {
         username: '',
         tab: AnalyzeTabType.Analyzer,
         tabs: [
-            { type: AnalyzeTabType.Analyzer },
-            { type: AnalyzeTabType.AnalyzeRepositories }
+            { type: AnalyzeTabType.Analyzer }
         ],
         year: 2018,
         yearHasChanged: false
