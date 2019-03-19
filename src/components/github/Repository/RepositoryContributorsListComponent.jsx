@@ -11,13 +11,10 @@ const RepositoryContributorsListComponent = ({contributors}) => (
                 <img className="profile-image-small"
                     alt={contributor.name.substring(0, 25)}
                     src={contributor.imageSrc}/>
-                <div>
-                    <div>{'Commits: '} 
-                        <span className='commits-counter'>{contributor.contributions}</span></div>
-                    <div>{'Additions: '} 
-                        <span className='additions-counter'>{contributor.additions}</span></div>
-                    <div>{'Deletions: '}
-                        <span className='deletions-counter'>{contributor.deletions}</span></div>
+                <div className='contributions-wrapper' style={{width: '50%', margin: 'auto'}}>
+                    <div>Commits: {contributor.contributions}</div>
+                    <div>Additions: {contributor.additions}</div>
+                    <div>Deletions: {contributor.deletions}</div>
                 </div>
             </div>
         </Link>

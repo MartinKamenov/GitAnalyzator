@@ -8,6 +8,7 @@ import FooterComponent from './components/navbar/Footer';
 import GithubOverview from './components/github/Overview/GithubOverview';
 import FullProfileComponent from './components/github/FullProfile/FullProfileComponent';
 import RepositoryComponent from './components/github/Repository/RepositoryComponent';
+import GithubRepositorySearch from './components/github/Analyzer/GithubRepositorySearch';
 
 const AppRouter = () => {
     return (
@@ -22,6 +23,7 @@ const AppRouter = () => {
                     <Route path="/profile/:username" component={FullProfileComponent} />
                     <Route path="/repository/:username/:repositoryname"
                         component={RepositoryComponent} />
+                    <Route exact path="/repository" component={GithubRepositorySearch} />
                 </div>
                 <FooterComponent/>
             </div>

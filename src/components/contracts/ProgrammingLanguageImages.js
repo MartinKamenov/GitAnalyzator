@@ -34,7 +34,7 @@ const ProgrammingLanguageImages = {
 
     getLanguageColor: function(language) {
         const index = Object.keys(this).indexOf(language);
-        return colors[index];
+        return colors[index] ? colors[index] : '#EDEDED';
     }
 };
 

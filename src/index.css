@@ -218,6 +218,24 @@ p.paragraph {
   line-height: 20px;
 }
 
+#analyze-dropdown {
+  color: #61DAFB;;
+}
+
+.dropdown-content {
+  display: none;
+}
+
+.dropdown-content-opened {
+  display: block;
+  position: absolute;
+  background-color: #222222;
+  margin-top: 5px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
 .nav-link {
   padding: 10px;
   color: #0291DB;
