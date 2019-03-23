@@ -13,6 +13,13 @@ class GithubRepositorySearch extends Component {
         state[fieldName] = value;
         this.setState(state);
     }
+
+    getClassLink() {
+        const className = 'send-button';
+        return this.state.username && this.state.repositoryName ?
+            className + ' active' : className + ' inactive';
+    }
+
     render() {
         return (
             <div className='wrapper container center'>
@@ -34,7 +41,7 @@ class GithubRepositorySearch extends Component {
                             className="form-input" />
                         <Link
                             to={'/repository/' + this.state.username + '/' + this.state.repositoryName}
-                            className="send-button">Analyze</Link>
+                            className={this.getClassLink()}>Analyze</Link>
                     </div>
                 </div>
             </div>

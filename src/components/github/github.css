@@ -41,16 +41,31 @@
 .send-button {
     padding: 7px;
     color: white;
-    background-color: #0291DB;
+    border-radius: 5px;
+}
+
+.send-button:hover {
+    text-decoration: none;
+    color:white;
+}
+
+.send-button.inactive {
+    background-color: gray;
+    border: 2px solid gray;
+}
+
+.send-button.inactive:hover {
+    cursor: not-allowed;
+}
+
+.send-button.active {
+    background-color: #61DAFB;
     border-radius: 5px;
     border: 2px solid #61DAFB;
 }
 
-
-.send-button:hover {
-    background-color: #61DAFB;
-    border-radius: 5px;
-    border: 2px solid #61DAFB;
+.send-button.active:hover {
+    border: 2px solid #0291DB;
 }
 
 .tab-container {
