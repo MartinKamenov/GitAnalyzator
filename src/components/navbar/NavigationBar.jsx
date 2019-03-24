@@ -42,9 +42,10 @@ class NavigationBar extends Component {
                                 onMouseEnter={() => this.changeDropdownState(true)}
                                 onMouseLeave={() => this.changeDropdownState(false)}>
                                 <span 
-                                    className="nav-link navbar_element"
+                                    className='nav-link navbar_element'
                                     id='analyze-dropdown'>Analyze</span>
-                                <div className='dropdown-content'
+                                <div
+                                    className='dropdown-content'
                                     id='dropdown'
                                     ref="dropdown">
                                     <NavItem componentClass='span'

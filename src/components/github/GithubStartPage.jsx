@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GithubAnalyzer from './Analyzer/GithubAnalyzer';
+import GithubUserSearch from './Analyzer/GithubUserSearch';
 import GithubProfile from './Profile/GithubProfile';
 import GithubRepositoriesProfile from './Profile/GithubRepositoriesProfile';
 import { AnalyzeTabType } from '../contracts/TabType';
@@ -131,7 +131,7 @@ class GithubStartPage extends Component {
                         {(() => {
                             switch(tab.type) {
                             case AnalyzeTabType.Analyzer:
-                                return <GithubAnalyzer
+                                return <GithubUserSearch
                                 handleClassYear={this.handleClassYear}
                                 handleSelectedYear={this.handleSelectedYear}
                                 username={this.state.username}

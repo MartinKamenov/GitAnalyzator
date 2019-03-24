@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import GithubYearSelector from '../Common/GithubYearSelector';
 
-const GithubAnalyzer = ({username,
+const GithubUserSearch = ({username,
     handleChangeUsername,
     handleGetProfile,
     handleSelectedYear,
@@ -22,14 +22,14 @@ const GithubAnalyzer = ({username,
                 className="send-button">Analyze</button>
         </div>
         <div className="sidebar hidden-sm hidden-xs">
-            <GithubYearSelector 
-                handleClassYear = {handleClassYear}
+            <GithubYearSelector
+                handleClassYear={handleClassYear}
                 handleSelectedYear={handleSelectedYear}/>
         </div>
     </div>
 );
 
-GithubAnalyzer.propTypes = {
+GithubUserSearch.propTypes = {
     username: PropTypes.string.isRequired,
     handleChangeUsername: PropTypes.func.isRequired,
     handleGetProfile: PropTypes.func.isRequired,
@@ -37,4 +37,4 @@ GithubAnalyzer.propTypes = {
     handleClassYear: PropTypes.func.isRequired
 };
  
-export default GithubAnalyzer;
+export default GithubUserSearch;
