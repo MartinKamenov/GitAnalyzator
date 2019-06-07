@@ -1,13 +1,20 @@
+.pages-container {
+    margin-bottom: 10px;
+}
+
 .page-container, .page-container:visited  {
     display: inline-block;
     padding: 10px;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
+    line-height: 30px;
+    text-align: center;
     border-radius: 50%;
     cursor: pointer;
     color: white;
     border: 1px solid black;
     font-weight: bold;
+    font-size: 15px;
     text-decoration: none;
 }
 

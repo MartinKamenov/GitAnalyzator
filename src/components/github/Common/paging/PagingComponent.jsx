@@ -4,7 +4,7 @@ import './paging.css';
 import PagingDetailsComponent from './PagingDetailsComponent';
 
 const PagingComponent = ({ pages, onPageChangeHandler, currentPage }) => (
-    <div>
+    <div className='pages-container'>
         {
             pages.map((page, i) => {
                 return <PagingDetailsComponent currentPage={currentPage}
